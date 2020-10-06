@@ -41,6 +41,9 @@ public class MoveProc : ProcessingBase, ICustomUpdate
             EntityBase.GetEntity(entity).GetComponent<Rigidbody2D>().velocity = velocity;
             EntityBase.GetEntity(entity).GetComponent<Rigidbody2D>().angularVelocity = 4;
 
+            //EntityBase.GetEntity(entity).GetComponent<Rigidbody2D>().
+            Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         }
     }
 }

@@ -8,5 +8,6 @@ public class TestGround1Starter : Starter
     public override void StarterSetup()
     {
         GlobalSystemStorage.Add<MoveProc>();
+        GlobalSystemStorage.Add<CameraFollowProc>();
     }
 }

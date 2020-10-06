@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SamplesSceneStarter : Starter
+public class TestGround1Starter : Starter
 {
     public override void StarterSetup()
     {

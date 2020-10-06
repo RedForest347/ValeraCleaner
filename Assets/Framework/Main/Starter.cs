@@ -17,7 +17,7 @@ namespace RangerV
     //
     //
 
-    public class Starter : MonoBehaviour        
+    public abstract class Starter : MonoBehaviour        
     {
         public static bool initialized { get; private set; }
 

@@ -70,7 +70,7 @@ namespace RangerV
             {
                 OutObject = Instantiate(prefab, position, rotation);
                 EntityBase entityBase = OutObject.GetComponent<EntityBase>();
-                PoolComponent poolComponent = entityBase?.GetCmp<PoolComponent>();
+                PoolCmp poolComponent = entityBase?.GetCmp<PoolCmp>();
 
                 if (poolComponent != null)
                 {
@@ -104,9 +104,9 @@ namespace RangerV
 
         public static void DestroyS(EntityBase entityBase)
         {
-            if (entityBase?.GetCmp<PoolComponent>() != null)
+            if (entityBase?.GetCmp<PoolCmp>() != null)
             {
-                int pool_id = entityBase.GetCmp<PoolComponent>().id;
+                int pool_id = entityBase.GetCmp<PoolCmp>().id;
 
                 if (poolDictionary.ContainsKey(pool_id))
                 {
@@ -155,7 +155,7 @@ namespace RangerV
             {
                 GameObject newObject = Object.Instantiate(Prefab);
                 EntityBase entityBase = newObject.GetComponent<EntityBase>();
-                entityBase.GetCmp<PoolComponent>().id = Prefab.GetInstanceID();
+                entityBase.GetCmp<PoolCmp>().id = Prefab.GetInstanceID();
                 PoolObjectData poolObject = new PoolObjectData(CellParent.transform, entityBase);
                 poolObject.SetNullParam();
                 PoolObjectStack.Push(poolObject);
@@ -174,7 +174,7 @@ namespace RangerV
             else
             {
                 GameObject obj = Object.Instantiate(Prefab, position, rotation, Parent);
-                obj.GetComponent<EntityBase>().GetCmp<PoolComponent>().id = Prefab.GetInstanceID();
+                obj.GetComponent<EntityBase>().GetCmp<PoolCmp>().id = Prefab.GetInstanceID();
                 optimal_pool_count++;
                 return obj;
             }

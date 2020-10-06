@@ -351,8 +351,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 4, z: 1}
+  m_Center: {x: 1, y: 1, z: 1}
 --- !u!114 &2097941976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,10 +366,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   methodHolder:
-    type_name: 
-    method_name: 
-    assembly_name: 
-    component: {fileID: 0}
+    type_name: UnityEngine.BoxCollider
+    method_name: get_size
+    assembly_name: UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    component: {fileID: 2097941975}
 --- !u!114 &2097941977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,8 +382,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d40179e3e1c0b4c99629d3c888a4c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start_pool_size: 0
-  id: 0
+  start_pool_size: 1
+  id: 1
 --- !u!4 &2097941978
 Transform:
   m_ObjectHideFlags: 0

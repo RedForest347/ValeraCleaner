@@ -156,9 +156,17 @@ public class ProcMesHelper
 
             while (temp_index < end_cmp_index)
             {
-                string cmp = textFromFile.Substring(temp_index, Math.Min(textFromFile.IndexOf(",", temp_index), end_cmp_index) - temp_index);
+                /*if (textFromFile.IndexOf(",", temp_index) == -1) // костыль
+                {
+                    return new GroupTypeName(new List<string>(), new List<string>(), type_name + " --ERROR--");
+                }*/
+
+                int index_of = textFromFile.IndexOf(",", temp_index) == -1 ? end_cmp_index : textFromFile.IndexOf(",", temp_index);
+
+
+                string cmp = textFromFile.Substring(temp_index, Math.Min(index_of, end_cmp_index) - temp_index);
                 CmpList.Add(cmp);
-                temp_index = textFromFile.IndexOf(",", temp_index) + ", ".Length;
+                temp_index = index_of + ", ".Length;
             }
 
             #endregion Find Copmponents Names

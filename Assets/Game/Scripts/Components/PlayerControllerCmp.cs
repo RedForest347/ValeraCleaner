@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveCmp : ComponentBase
+public class PlayerControllerCmp : ComponentBase
 {
     public float speed;
+
+    public Rigidbody2D rigidbody2D;
 
 }

@@ -345,7 +345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944e02c46d7be3f47bcc9cf3262ed077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
+  rigidbody2D: {fileID: 1210908658}
 --- !u!114 &1210908656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,7 +368,7 @@ MonoBehaviour:
     requireStarter: 0
     initialized: 0
     runtime: 0
-  show_comp: 0001
+  show_comp: 0100
 --- !u!58 &1210908657
 CircleCollider2D:
   m_ObjectHideFlags: 0

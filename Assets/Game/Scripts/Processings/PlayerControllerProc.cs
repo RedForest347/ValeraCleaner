@@ -10,9 +10,7 @@ public class PlayerControllerProc : ProcessingBase, ICustomUpdate, ICustomFixedU
 
     public void CustomUpdate()
     {
-
-
-
+        //ddd
     }
 
     public void CustomFixedUpdate()

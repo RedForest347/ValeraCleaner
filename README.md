@@ -1,2 +1,2 @@
 # ValeraCleaner
-Game
+Game about man VAlera who is killng bugs.

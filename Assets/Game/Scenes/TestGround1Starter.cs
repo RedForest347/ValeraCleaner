@@ -9,6 +9,7 @@ public class TestGround1Starter : Starter
     {
         //GlobalSystemStorage.Add<PlayerControllerProc>();DelayDestroyProc
         GlobalSystemStorage.Add<DelayDestroyProc>();
+        GlobalSystemStorage.Add<ColisionDamageProc>();
 
         GlobalSystemStorage.Add<PlayerControllerProc2>();
         GlobalSystemStorage.Add<GunProc>();

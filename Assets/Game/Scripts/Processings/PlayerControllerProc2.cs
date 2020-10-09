@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerControllerProc2 : ProcessingBase, ICustomUpdate, ICustomFixedUpdate
 {
-    Group MoveGroup = Group.Create(new ComponentsList<PlayerControllerCmp>());
+    Group MoveGroup = Group.Create(new ComponentsList<PlayerControllerCmp, Physics2DCmp>());
     //Group ShootGroup = Group.Create(new ComponentsList<GunControllerCmp>());
 
     public void CustomUpdate()
@@ -53,7 +53,8 @@ public class PlayerControllerProc2 : ProcessingBase, ICustomUpdate, ICustomFixed
         }
 
 
-        EntityBase.GetEntity(entity).GetComponent<Rigidbody2D>().velocity = velocity;
+        //EntityBase.GetEntity(entity).GetComponent<Rigidbody2D>().velocity = velocity;
+        Storage.GetComponent<Physics2DCmp>(entity).Rigidbody.velocity = velocity;
 
         float angle = FindRotateAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition), Hand.transform.position);
         //EntityBase.GetEntity(entity).GetComponent<Rigidbody2D>().SetRotation(angle);

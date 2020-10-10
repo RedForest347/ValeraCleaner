@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Pathfinding;
 #if UNITY_5_5_OR_NEWER
 using UnityEngine.Profiling;
+using System.Threading.Tasks;
 #endif
 
 #if NETFX_CORE
@@ -1651,7 +1652,8 @@ public class AstarPath : VersionedMonoBehaviour {
 	/// See: Scan
 	/// </summary>
 	/// <param name="graphsToScan">The graphs to scan. If this parameter is null then all graphs will be scanned</param>
-	public IEnumerable<Progress> ScanAsync (NavGraph[] graphsToScan = null) {
+	public IEnumerable<Progress> ScanAsync (NavGraph[] graphsToScan = null) 
+	{
 		if (graphsToScan == null) graphsToScan = graphs;
 
 		if (graphsToScan == null) {
@@ -1664,7 +1666,7 @@ public class AstarPath : VersionedMonoBehaviour {
 
 		VerifyIntegrity();
 
-		var graphUpdateLock = PausePathfinding();
+		PathProcessor.GraphUpdateLock graphUpdateLock = PausePathfinding();
 
 		// Make sure all paths that are in the queue to be returned
 		// are returned immediately
@@ -1778,6 +1780,148 @@ public class AstarPath : VersionedMonoBehaviour {
 		if (logPathResults != PathLog.None && logPathResults != PathLog.OnlyErrors) {
 			Debug.Log("Scanning - Process took "+(lastScanTime*1000).ToString("0")+" ms to complete");
 		}
+	}
+
+
+	// создано редфорестом
+	public IEnumerable<Progress> ScanAsyncCustom(NavGraph[] graphsToScan = null)
+	{
+		if (graphsToScan == null) graphsToScan = graphs;
+
+		if (graphsToScan == null)
+		{
+			yield break;
+		}
+
+		if (isScanning) throw new System.InvalidOperationException("Another async scan is already running");
+
+		isScanning = true;
+
+		VerifyIntegrity();
+
+		PathProcessor.GraphUpdateLock graphUpdateLock = PausePathfinding();
+		Debug.Log("DDD");
+		// Make sure all paths that are in the queue to be returned
+		// are returned immediately
+		// Some modifiers (e.g the funnel modifier) rely on
+		// the nodes being valid when the path is returned
+		pathReturnQueue.ReturnPaths(false);
+
+		if (!Application.isPlaying)
+		{
+			data.FindGraphTypes();
+			GraphModifier.FindAllModifiers();
+		}
+
+		int startFrame = Time.frameCount;
+		Debug.Log("DDD");
+		//yield return new Progress(0.05F, "Pre processing graphs");
+
+		// Yes, this constraint is trivial to circumvent
+		// the code is the same because it is annoying
+		// to have to have separate code for the free
+		// and the pro version that does essentially the same thing.
+		// I would appreciate if you purchased the pro version of the A* Pathfinding Project
+		// if you need async scanning.
+		if (Time.frameCount != startFrame)
+		{
+			throw new System.Exception("Async scanning can only be done in the pro version of the A* Pathfinding Project");
+		}
+		Debug.Log("DDD");
+		OnPreScan?.Invoke(this);
+
+		GraphModifier.TriggerEvent(GraphModifier.EventType.PreScan);
+
+		data.LockGraphStructure();
+
+		System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
+		Debug.Log("DDD");
+		// Destroy previous nodes
+		for (int i = 0; i < graphsToScan.Length; i++)
+		{
+			if (graphsToScan[i] != null)
+			{
+				((IGraphInternals)graphsToScan[i]).DestroyAllNodes();
+			}
+		}
+		Debug.Log("DDD");
+		// Loop through all graphs and scan them one by one
+		//for (int i = 0; i < graphsToScan.Length; i++)
+		System.Threading.Tasks.Parallel.For(0, graphsToScan.Length, DDD);
+
+
+		void DDD(int i)
+		{
+			// Skip null graphs
+			if (graphsToScan[i] == null) return;
+
+			// Just used for progress information
+			// This graph will advance the progress bar from minp to maxp
+			float minp = Mathf.Lerp(0.1F, 0.8F, (float)(i) / (graphsToScan.Length));
+			float maxp = Mathf.Lerp(0.1F, 0.8F, (float)(i + 0.95F) / (graphsToScan.Length));
+
+			//string progressDescriptionPrefix = "Scanning graph " + (i + 1) + " of " + graphsToScan.Length + " - ";
+			Debug.Log("DDD");
+			// Like a foreach loop but it gets a little complicated because of the exception
+			// handling (it is not possible to yield inside try-except clause).
+			var coroutine = ScanGraph(graphsToScan[i]).GetEnumerator();
+			while (true)
+			{
+				//try
+				//{
+				Debug.Log("DDD");
+				if (!coroutine.MoveNext()) break;
+				//}
+				//catch
+				//{
+				//	isScanning = false;
+				//	data.UnlockGraphStructure();
+				//	graphUpdateLock.Release();
+				//	throw;
+				//}
+				//yield return coroutine.Current.MapTo(minp, maxp, progressDescriptionPrefix);
+			}
+		}
+		Debug.Log("DDD");
+		data.UnlockGraphStructure();
+		//yield return new Progress(0.8F, "Post processing graphs");
+
+		OnPostScan?.Invoke(this);
+		GraphModifier.TriggerEvent(GraphModifier.EventType.PostScan);
+
+		FlushWorkItems();
+
+		//yield return new Progress(0.9F, "Computing areas");
+		Debug.Log("DDD");
+		hierarchicalGraph.RecalculateIfNecessary();
+
+		//yield return new Progress(0.95F, "Late post processing");
+
+		// Signal that we have stopped scanning here
+		// Note that no yields can happen after this point
+		// since then other parts of the system can start to interfere
+		isScanning = false;
+		Debug.Log("DDD");
+		OnLatePostScan?.Invoke(this);
+		GraphModifier.TriggerEvent(GraphModifier.EventType.LatePostScan);
+
+		euclideanEmbedding.dirty = true;
+		euclideanEmbedding.RecalculatePivots();
+		Debug.Log("DDD");
+		// Perform any blocking actions
+		FlushWorkItems();
+		// Resume pathfinding threads
+		graphUpdateLock.Release();
+		Debug.Log("DDD");
+		watch.Stop();
+		lastScanTime = (float)watch.Elapsed.TotalSeconds;
+
+		//System.GC.Collect();
+
+		/*if (logPathResults != PathLog.None && logPathResults != PathLog.OnlyErrors)
+		{
+			Debug.Log("Scanning - Process took " + (lastScanTime * 1000).ToString("0") + " ms to complete");
+		}*/
 	}
 
 	IEnumerable<Progress> ScanGraph (NavGraph graph) {

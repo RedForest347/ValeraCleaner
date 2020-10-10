@@ -263,6 +263,11 @@ namespace Pathfinding {
 		/// <summary>Current path which is followed</summary>
 		protected ABPath path;
 
+		public ABPath GetPath()
+		{
+			return path;
+		}
+
 		/// <summary>Only when the previous path has been returned should a search for a new path be done</summary>
 		protected bool canSearchAgain = true;
 

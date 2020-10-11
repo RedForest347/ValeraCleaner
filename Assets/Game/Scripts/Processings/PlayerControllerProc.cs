@@ -25,6 +25,7 @@ public class PlayerControllerProc : ProcessingBase, ICustomUpdate, ICustomFixedU
             Vector2 velocity = new Vector2();
 
             float speed = Storage.GetComponent<PlayerControllerCmp>(entity).speed;
+            Debug.Log("Update");
 
             if (Input.GetKey(KeyCode.W))
             {

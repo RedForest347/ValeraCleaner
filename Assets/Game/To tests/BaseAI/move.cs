@@ -30,6 +30,10 @@ public class move : MonoBehaviour
     void Update()
     {
         //aiPath.;
+        Vector3 newPosition = target.transform.position;
+        aILerp.destination = newPosition;
+
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             Debug.Log("путь начат");
@@ -56,7 +60,7 @@ public class move : MonoBehaviour
             //task.Start();
 
 
-            Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //AIBase.destination
             aILerp.destination = newPosition;
             /*for (int i = 0; i < path.path.Count; i++)

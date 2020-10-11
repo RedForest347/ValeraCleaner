@@ -15,14 +15,14 @@ public class GunProc : ProcessingBase, ICustomFixedUpdate
         }
     }
 
-
     void Shooting(int entity)
     {
         GunCmp gunCmp = Storage.GetComponent<GunCmp>(entity);
 
         if (gunCmp.shooting && gunCmp.timer >= gunCmp.rateOfFire)
         {
-            GameObject.Instantiate(gunCmp.Bullet, gunCmp.transform.position, gunCmp.transform.rotation);
+            int entity_bullet = GameObject.Instantiate(gunCmp.Bullet, gunCmp.transform.position, gunCmp.transform.rotation).GetComponent<Entity>().entity;
+            Storage.GetComponent<Collision2DCmp>(entity_bullet).IgnoreColliders.AddRange(Storage.GetComponent<GunCmp>(entity).IgnoreColliders);
             gunCmp.timer = 0;
         }
 

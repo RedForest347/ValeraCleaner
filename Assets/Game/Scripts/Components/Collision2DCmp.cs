@@ -18,6 +18,9 @@ public class Collision2DCmp : ComponentBase, ICustomAwake
     [HideInInspector, SerializeField]
     private int entity;
 
+    public bool DestroyOnCollision;
+    public List<Collider2D> IgnoreColliders;
+
     public Collision2DCmp()
     {
         /*Debug.Log("CollisionComponent " + entity + "\n" +
@@ -100,22 +103,23 @@ public class Collision2DCmp : ComponentBase, ICustomAwake
     private Dictionary<collision2DAction, Collider2D[]> onCollisionExitActionDictionary = new Dictionary<collision2DAction, Collider2D[]>();
     [SerializeField, HideInInspector]
     private Dictionary<collision2DAction, Collider2D[]> onCollisionStayActionDictionary = new Dictionary<collision2DAction, Collider2D[]>();
-    private void Oncollision2DAction(Collision2D other, Dictionary<collision2DAction, Collider2D[]> triggerDictionary)
+    private void OnCollision2DAction(Collision2D other, Dictionary<collision2DAction, Collider2D[]> triggerDictionary)
     {
-        //Debug.Log("Oncollision2DAction");
         foreach (var action in triggerDictionary)
         {
             for (int Collider2D = 0; Collider2D < action.Value.Length; Collider2D++)
                 if (other.collider == action.Value[Collider2D])
                     return;
+            for (int Collider2D = 0; Collider2D < IgnoreColliders.Count; Collider2D++)
+                if (other.collider == IgnoreColliders[Collider2D])
+                    return;
             action.Key(other, entity);
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision) { Oncollision2DAction(collision, onCollisionEnterActionDictionary); }
-    private void OnCollisionExit2D(Collision2D collision) { Oncollision2DAction(collision, onCollisionExitActionDictionary);   }
-    private void OnCollisionStay2D(Collision2D collision) { Oncollision2DAction(collision, onCollisionStayActionDictionary);   }
-
-    public bool AddOncollision2DAction(collision2DAction action, Collision2DActionType collisionType, Collider2D[] ignorCollider2Ds)
+    private void OnCollisionEnter2D(Collision2D collision) { OnCollision2DAction(collision, onCollisionEnterActionDictionary); }
+    private void OnCollisionExit2D(Collision2D collision) { OnCollision2DAction(collision, onCollisionExitActionDictionary);   }
+    private void OnCollisionStay2D(Collision2D collision) { OnCollision2DAction(collision, onCollisionStayActionDictionary);   }
+    public bool AddOnCollision2DAction(collision2DAction action, Collision2DActionType collisionType, Collider2D[] ignorCollider2Ds)
     {
         switch (collisionType)
         {
@@ -138,15 +142,15 @@ public class Collision2DCmp : ComponentBase, ICustomAwake
                 return false;
         }
     }
-    public bool AddOncollision2DAction(collision2DAction action, Collision2DActionType collisionType, Collider2D ignorCollider2D)
+    public bool AddOnCollision2DAction(collision2DAction action, Collision2DActionType collisionType, Collider2D ignorCollider2D)
     {
-        return AddOncollision2DAction(action, collisionType, new Collider2D[] { ignorCollider2D });
+        return AddOnCollision2DAction(action, collisionType, new Collider2D[] { ignorCollider2D });
     }
-    public bool AddOncollision2DAction(collision2DAction action, Collision2DActionType collisionType)
+    public bool AddOnCollision2DAction(collision2DAction action, Collision2DActionType collisionType)
     {
-        return AddOncollision2DAction(action, collisionType, new Collider2D[0]);
+        return AddOnCollision2DAction(action, collisionType, new Collider2D[0]);
     }
-    public void RemoveOncollision2DAction(collision2DAction action, Collision2DActionType collisionType)
+    public void RemoveOnCollision2DAction(collision2DAction action, Collision2DActionType collisionType)
     {
         switch (collisionType)
         {
@@ -161,12 +165,15 @@ public class Collision2DCmp : ComponentBase, ICustomAwake
                 break;
         }
     }
-    public void RemoveAllOncollision2DActions(collision2DAction action)
+    public void RemoveAllOnCollision2DActions(collision2DAction action)
     {
         if (onCollisionEnterActionDictionary.ContainsKey(action)) onCollisionEnterActionDictionary.Remove(action);
         if (onCollisionExitActionDictionary.ContainsKey(action)) onCollisionExitActionDictionary.Remove(action);
         if (onCollisionStayActionDictionary.ContainsKey(action)) onCollisionStayActionDictionary.Remove(action);
     }
+
+
+
 
 
     public delegate void triggerAction(Collider2D Collider2D, int entity);
@@ -178,14 +185,14 @@ public class Collision2DCmp : ComponentBase, ICustomAwake
     private Dictionary<triggerAction, Collider2D[]> onTriggerStayActionDictionary = new Dictionary<triggerAction, Collider2D[]>();
     private void OnTriggerAction(Collider2D other, Dictionary<triggerAction, Collider2D[]> triggerDictionary)
     {
-        
         foreach (var action in triggerDictionary)
         {
             for (int Collider2D = 0; Collider2D < action.Value.Length; Collider2D++)
                 if (other == action.Value[Collider2D])
                     return;
-
-            //Debug.Log("OnTriggerAction");
+            for (int Collider2D = 0; Collider2D < IgnoreColliders.Count; Collider2D++)
+                if (other == IgnoreColliders[Collider2D])
+                    return;
             action.Key(other, entity);
         }
     }
@@ -215,17 +222,14 @@ public class Collision2DCmp : ComponentBase, ICustomAwake
                 return false;
         }
     }
-
     public bool AddOnTriggerAction(triggerAction action, Collision2DActionType collisionType, Collider2D ignorCollider2D)
     {
         return AddOnTriggerAction(action, collisionType, new Collider2D[] { ignorCollider2D });
     }
-
     public bool AddOnTriggerAction(triggerAction action, Collision2DActionType collisionType)
     {
         return AddOnTriggerAction(action, collisionType, new Collider2D[0]);
     }
-
     public void RemoveOnTriggerAction(triggerAction action, Collision2DActionType collisionType)
     {
         switch (collisionType)

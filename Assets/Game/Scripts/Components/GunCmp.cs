@@ -10,6 +10,7 @@ public class GunCmp : ComponentBase
 
     public GameObject Bullet;
     public float rateOfFire;
+    public List<Collider2D> IgnoreColliders;
 
     [HideInInspector]
     public float timer = 0;

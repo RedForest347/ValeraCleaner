@@ -12,12 +12,13 @@ public class CameraFollowProc : ProcessingBase, ICustomFixedUpdate
         foreach (int entity in CamTargetGroup)
         {
             Transform target = Storage.GetComponent<CameraFollowCmp>(entity).transform;
-            Camera.main.transform.position = 
-                Vector3.Lerp(Camera.main.transform.position, 
+            Camera.main.transform.position =
+                Vector3.Lerp(Camera.main.transform.position,
                 new Vector3(target.position.x, target.position.y, -10), Storage.GetComponent<CameraFollowCmp>(entity).learp);
-            
+            Storage.GetComponent<CameraFollowCmp>(entity).AlphaMask.SetVector("_FadeOrigin", new Vector4(target.position.x, target.position.y + 0.5f, 0, 1));
+            break;
         }
     }
 
-    
+
 }

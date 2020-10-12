@@ -12,6 +12,7 @@ public class move : MonoBehaviour
     public Transform target;
     public GameObject Cube;
     public AstarPath astarPath;
+    Rigidbody2D rb;
     AIPath aiPath;
     Seeker seeker;
     AILerp aILerp;
@@ -24,55 +25,82 @@ public class move : MonoBehaviour
         aiPath = GetComponent<AIPath>();
         seeker = GetComponent<Seeker>();
         aILerp = GetComponent<AILerp>();
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
         //aiPath.;
-        Vector3 newPosition = target.transform.position;
-        aILerp.destination = newPosition;
+        //Vector3 newPosition = target.transform.position;
+        //aILerp.destination = newPosition;
+
+        DDD();
 
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log("путь начат");
-            ABPath path = aILerp.GetPath();
-
-
-            int pass_num = 1;
-            Stopwatch time = Stopwatch.StartNew();
-
-            time = Stopwatch.StartNew();
-            Debug.Log("Start");
-            for (int i = 0; i < pass_num; i++)
-            {
-                foreach (var item in astarPath.ScanAsyncCustom())
-                {
-                    Debug.Log(item);
-                }
-            }
-            time.Stop();
-            Debug.Log("ScanAsyncCustom custom on " + time.ElapsedMilliseconds + " ms " + pass_num + " pass");
-
-
-            //Task task = new Task(ReScan);
-            //task.Start();
-
-
-            newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //AIBase.destination
-            aILerp.destination = newPosition;
-            /*for (int i = 0; i < path.path.Count; i++)
-            {
-                Int3 pos = path.path[i].position / 1000;
-                Debug.Log(i + ") " + pos);
-                //Instantiate(Cube, new Vector3(pos.x, pos.y, pos.z), Quaternion.identity);
-            }*/
-            
-
-            //seeker.StartPath(transform.position, target.position);
+            Test();
         }
+    }
+
+    void Test()
+    {
+        Vector3 newPosition = target.transform.position;
+        Debug.Log("путь начат");
+        //ABPath path = aILerp.GetPath();
+
+
+        int pass_num = 1;
+        Stopwatch time = Stopwatch.StartNew();
+
+        time = Stopwatch.StartNew();
+        Debug.Log("Start");
+        for (int i = 0; i < pass_num; i++)
+        {
+            foreach (var item in astarPath.ScanAsyncCustom())
+            {
+                Debug.Log(item);
+            }
+        }
+        time.Stop();
+        Debug.Log("ScanAsyncCustom custom on " + time.ElapsedMilliseconds + " ms " + pass_num + " pass");
+
+
+        //Task task = new Task(ReScan);
+        //task.Start();
+
+
+        newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //AIBase.destination
+        aILerp.destination = newPosition;
+
+        List<GraphNode> path = aILerp.GetPath().path;
+
+        for (int i = 0; i < path.Count; i++)
+        {
+            Int3 pos = path[i].position / 1000;
+            Debug.Log(i + ") " + pos);
+            Instantiate(Cube, new Vector3(pos.x, pos.y, pos.z), Quaternion.identity);
+        }
+
+
+        /*for (int i = 0; i < path.path.Count; i++)
+        {
+            Int3 pos = path.path[i].position / 1000;
+            Debug.Log(i + ") " + pos);
+            //Instantiate(Cube, new Vector3(pos.x, pos.y, pos.z), Quaternion.identity);
+        }*/
+
+
+        //seeker.StartPath(transform.position, target.position);
+
+    }
+
+    void DDD()
+    {
+        rb.AddForce(Vector2.up);
+
+
     }
 
     void ReScan()

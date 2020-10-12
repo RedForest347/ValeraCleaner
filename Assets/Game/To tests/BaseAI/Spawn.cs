@@ -5,23 +5,33 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-    public GameObject DDD;
+    public GameObject SpawnObj;
     public Transform SpawnPos;
+    public bool should_spawn;
+    public int num_f_spawn;
 
     private void Start()
     {
-        //CorutineManager.StartCorutine(enumerator());
 
-        for (int i = 0; i < 50; i++)
+        if (should_spawn)
         {
-            Instantiate(DDD, SpawnPos.position, SpawnPos.rotation, transform);
+            //CorutineManager.StartCorutine(enumerator());
+
+            for (int i = 0; i < num_f_spawn; i++)
+            {
+
+                Vector3 random = new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), Random.Range(-100, 100));
+
+                Instantiate(SpawnObj, SpawnPos.position + random, SpawnPos.rotation, transform);
+            }
+
         }
     }
 
 
     void Update()
     {
-        
+
     }
 
     IEnumerator enumerator()
@@ -33,7 +43,7 @@ public class Spawn : MonoBehaviour
             {
                 yield return null;
             }
-            Instantiate(DDD, SpawnPos.position, SpawnPos.rotation, transform);
+            Instantiate(SpawnObj, SpawnPos.position, SpawnPos.rotation, transform);
         }
     }
 }

@@ -1800,7 +1800,7 @@ public class AstarPath : VersionedMonoBehaviour {
 		VerifyIntegrity();
 
 		PathProcessor.GraphUpdateLock graphUpdateLock = PausePathfinding();
-		Debug.Log("DDD");
+		
 		// Make sure all paths that are in the queue to be returned
 		// are returned immediately
 		// Some modifiers (e.g the funnel modifier) rely on
@@ -1814,7 +1814,7 @@ public class AstarPath : VersionedMonoBehaviour {
 		}
 
 		int startFrame = Time.frameCount;
-		Debug.Log("DDD");
+		
 		//yield return new Progress(0.05F, "Pre processing graphs");
 
 		// Yes, this constraint is trivial to circumvent
@@ -1827,7 +1827,7 @@ public class AstarPath : VersionedMonoBehaviour {
 		{
 			throw new System.Exception("Async scanning can only be done in the pro version of the A* Pathfinding Project");
 		}
-		Debug.Log("DDD");
+		
 		OnPreScan?.Invoke(this);
 
 		GraphModifier.TriggerEvent(GraphModifier.EventType.PreScan);
@@ -1835,7 +1835,7 @@ public class AstarPath : VersionedMonoBehaviour {
 		data.LockGraphStructure();
 
 		System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
-		Debug.Log("DDD");
+		
 		// Destroy previous nodes
 		for (int i = 0; i < graphsToScan.Length; i++)
 		{
@@ -1844,16 +1844,12 @@ public class AstarPath : VersionedMonoBehaviour {
 				((IGraphInternals)graphsToScan[i]).DestroyAllNodes();
 			}
 		}
-		Debug.Log("DDD");
+		
 		// Loop through all graphs and scan them one by one
-		//for (int i = 0; i < graphsToScan.Length; i++)
-		System.Threading.Tasks.Parallel.For(0, graphsToScan.Length, DDD);
-
-
-		void DDD(int i)
+		for (int i = 0; i < graphsToScan.Length; i++)
 		{
 			// Skip null graphs
-			if (graphsToScan[i] == null) return;
+			if (graphsToScan[i] == null) continue;
 
 			// Just used for progress information
 			// This graph will advance the progress bar from minp to maxp
@@ -1861,7 +1857,7 @@ public class AstarPath : VersionedMonoBehaviour {
 			float maxp = Mathf.Lerp(0.1F, 0.8F, (float)(i + 0.95F) / (graphsToScan.Length));
 
 			//string progressDescriptionPrefix = "Scanning graph " + (i + 1) + " of " + graphsToScan.Length + " - ";
-			Debug.Log("DDD");
+			
 			// Like a foreach loop but it gets a little complicated because of the exception
 			// handling (it is not possible to yield inside try-except clause).
 			var coroutine = ScanGraph(graphsToScan[i]).GetEnumerator();
@@ -1869,7 +1865,7 @@ public class AstarPath : VersionedMonoBehaviour {
 			{
 				//try
 				//{
-				Debug.Log("DDD");
+				
 				if (!coroutine.MoveNext()) break;
 				//}
 				//catch
@@ -1882,7 +1878,7 @@ public class AstarPath : VersionedMonoBehaviour {
 				//yield return coroutine.Current.MapTo(minp, maxp, progressDescriptionPrefix);
 			}
 		}
-		Debug.Log("DDD");
+		
 		data.UnlockGraphStructure();
 		//yield return new Progress(0.8F, "Post processing graphs");
 
@@ -1892,7 +1888,7 @@ public class AstarPath : VersionedMonoBehaviour {
 		FlushWorkItems();
 
 		//yield return new Progress(0.9F, "Computing areas");
-		Debug.Log("DDD");
+		
 		hierarchicalGraph.RecalculateIfNecessary();
 
 		//yield return new Progress(0.95F, "Late post processing");
@@ -1901,18 +1897,18 @@ public class AstarPath : VersionedMonoBehaviour {
 		// Note that no yields can happen after this point
 		// since then other parts of the system can start to interfere
 		isScanning = false;
-		Debug.Log("DDD");
+		
 		OnLatePostScan?.Invoke(this);
 		GraphModifier.TriggerEvent(GraphModifier.EventType.LatePostScan);
 
 		euclideanEmbedding.dirty = true;
 		euclideanEmbedding.RecalculatePivots();
-		Debug.Log("DDD");
+		
 		// Perform any blocking actions
 		FlushWorkItems();
 		// Resume pathfinding threads
 		graphUpdateLock.Release();
-		Debug.Log("DDD");
+		
 		watch.Stop();
 		lastScanTime = (float)watch.Elapsed.TotalSeconds;
 

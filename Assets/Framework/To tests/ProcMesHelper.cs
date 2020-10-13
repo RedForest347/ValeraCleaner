@@ -17,9 +17,7 @@ public class ProcMesHelper
         if (entityBase.GetComponents<ComponentBase>().Where((ComponentBase cmp) => cmp == null).ToArray().Length != 0)
             Debug.LogError("cmp == null");
 
-        List<GroupTypeName> groupTypeNames = GetAllProcData();
-        groupTypeNames = groupTypeNames.Distinct().ToList();
-
+        List<GroupTypeName> groupTypeNames = ShowAllProc();
         List<string> EntityCmps = entityBase.GetComponents<ComponentBase>().Select((ComponentBase cmp) => cmp.GetType().Name).ToList();
 
         string mes = "сущность управляется процессингами:\n";
@@ -59,11 +57,9 @@ public class ProcMesHelper
 
     }
 
-    static List<GroupTypeName> GetAllProcData()
+    static List<GroupTypeName> ShowAllProc()
     {
-        Type[] types = AppDomain.CurrentDomain.GetAssemblies()
-            .SelectMany(x => x.GetExportedTypes().Where((type) => type?.BaseType == typeof(ProcessingBase) && type != typeof(ProcMesHelper)).ToArray())
-            .ToArray();
+        Type[] types = Assembly.GetCallingAssembly().GetExportedTypes().Where((type) => type?.BaseType == typeof(ProcessingBase) && type != typeof(ProcMesHelper)).ToArray();
 
         List<GroupTypeName> groupTypeNames = new List<GroupTypeName>();
 
@@ -101,6 +97,7 @@ public class ProcMesHelper
         List<int> groupStartPosIndexes = new List<int>();
 
 
+
         int start_index = textFromFile.IndexOf("Group.Create", 0);
 
         while (start_index != -1)
@@ -135,7 +132,6 @@ public class ProcMesHelper
 
         #endregion Debug
 
-
         return groupTypeNames;
 
     }
@@ -160,7 +156,13 @@ public class ProcMesHelper
 
             while (temp_index < end_cmp_index)
             {
+                /*if (textFromFile.IndexOf(",", temp_index) == -1) // костыль
+                {
+                    return new GroupTypeName(new List<string>(), new List<string>(), type_name + " --ERROR--");
+                }*/
+
                 int index_of = textFromFile.IndexOf(",", temp_index) == -1 ? end_cmp_index : textFromFile.IndexOf(",", temp_index);
+
 
                 string cmp = textFromFile.Substring(temp_index, Math.Min(index_of, end_cmp_index) - temp_index);
                 CmpList.Add(cmp);
@@ -207,17 +209,6 @@ public class ProcMesHelper
             CmpList = cmpList;
             ExcList = excList;
             this.type_name = type_name;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is GroupTypeName name &&
-                   type_name == name.type_name;
-        }
-
-        public override int GetHashCode()
-        {
-            return 269881853 + EqualityComparer<string>.Default.GetHashCode(type_name);
         }
     }
 }

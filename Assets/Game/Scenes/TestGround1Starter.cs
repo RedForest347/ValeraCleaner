@@ -7,13 +7,7 @@ public class TestGround1Starter : Starter
 {
     public override void StarterSetup()
     {
-        //GlobalSystemStorage.Add<PlayerControllerProc>();DelayDestroyProc
-        GlobalSystemStorage.Add<DelayDestroyProc>();
-        GlobalSystemStorage.Add<ColisionDamageProc>(); 
-        GlobalSystemStorage.Add<ColisionProc>();
-
-        GlobalSystemStorage.Add<PlayerControllerProc2>();
-        GlobalSystemStorage.Add<GunProc>();
+        GlobalSystemStorage.Add<PlayerControllerProc>();
         GlobalSystemStorage.Add<CameraFollowProc>();
         GlobalSystemStorage.Add<CorutineManager>();
     }

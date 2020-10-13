@@ -1,13 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: b875dc31c5482884ab98c5f23e3c9f52
-=======
-<<<<<<< HEAD:Assets/ExternalAssets/SAP2D/Resources/Demos/Demo_Dynamic_Obstacles/Prefabs.meta
-guid: 0f3e1bca7e3535946b7606c6bdc9ee7e
-=======
-guid: b875dc31c5482884ab98c5f23e3c9f52
->>>>>>> main:Assets/Framework/MainComponents.meta
->>>>>>> main
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -15,13 +15,12 @@ public class move : MonoBehaviour
     Rigidbody2D rb;
     AIPath aiPath;
     Seeker seeker;
-    AILerp aILerp;
+    public AILerp aILerp;
     //NavMeshAgent agent;
 
 
     void Start()
     {
-        NavMeshVisualizationSettings.showNavigation = 2;
         aiPath = GetComponent<AIPath>();
         seeker = GetComponent<Seeker>();
         aILerp = GetComponent<AILerp>();
@@ -34,13 +33,76 @@ public class move : MonoBehaviour
         //Vector3 newPosition = target.transform.position;
         //aILerp.destination = newPosition;
 
-        DDD();
-
+        //AddForceUp();
+        //StandartMoveToTarget();
+        //AddForce();
+        CustomMoveToTarget();
 
         if (Input.GetKeyDown(KeyCode.P))
         {
             Test();
         }
+    }
+
+    void StandartMoveToTarget()
+    {
+        Vector3 newPosition = target.transform.position;
+        aILerp.destination = newPosition;
+    }
+
+
+    void AddForce()
+    {
+        rb.AddForce(new Vector2(0, 1));
+    }
+
+
+
+    int current_index = 0;
+    int path_length;
+    [SerializeField]
+    float speed = 1;
+    [SerializeField]
+    float max_speed = 0.5f;
+    float nearby_distance = 0.2f;
+
+    void CustomMoveToTarget()
+    {
+        Vector3 newPosition = target.transform.position;
+        aILerp.SearchNewPathCustom(newPosition);
+        current_index = 0;
+
+
+        if (aILerp.GetPathCustom() == null)
+            return;
+
+        List<GraphNode> path = aILerp.GetPathCustom().path;
+        path_length = path.Count;
+
+
+        if (path_length == 0 || (path_length == 1 && Nearby(transform.position, (Vector3)path[current_index].position, nearby_distance)))
+        {
+            Debug.Log("дошел");
+            return;
+        }
+
+        if (path_length > 1)    current_index = 1;
+        else                    current_index = 0;
+
+        Vector3 target_pos = (Vector3)path[current_index].position;
+
+        rb.AddForce((target_pos - transform.position).normalized * speed);
+
+        if (rb.velocity.magnitude > max_speed) 
+            rb.velocity = rb.velocity.normalized * max_speed;
+
+        Debug.DrawLine(transform.position, target_pos, Color.red);
+
+    }
+
+    bool Nearby(Vector2 vector1, Vector2 vector2, float distance)
+    {
+        return (vector1 - vector2).magnitude < distance;
     }
 
     void Test()
@@ -74,7 +136,7 @@ public class move : MonoBehaviour
         //AIBase.destination
         aILerp.destination = newPosition;
 
-        List<GraphNode> path = aILerp.GetPath().path;
+        List<GraphNode> path = aILerp.GetPathCustom().path;
 
         for (int i = 0; i < path.Count; i++)
         {
@@ -96,11 +158,9 @@ public class move : MonoBehaviour
 
     }
 
-    void DDD()
+    void AddForceUp()
     {
         rb.AddForce(Vector2.up);
-
-
     }
 
     void ReScan()

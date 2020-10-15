@@ -20,7 +20,7 @@ public class Spawn : MonoBehaviour
             for (int i = 0; i < num_f_spawn; i++)
             {
 
-                Vector3 random = new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), Random.Range(-100, 100));
+                Vector3 random = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0);
 
                 Instantiate(SpawnObj, SpawnPos.position + random, SpawnPos.rotation, transform);
             }

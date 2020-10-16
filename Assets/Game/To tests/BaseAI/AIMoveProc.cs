@@ -30,7 +30,7 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
 
     public void CustomUpdate()
     {
-        Debug.Log("AIMoveGroup.entities_count = " + AIMoveGroup.entities_count);
+        //Debug.Log("AIMoveGroup.entities_count = " + AIMoveGroup.entities_count);
         foreach (int AI in AIMoveGroup)
         {
             CustomMoveToTarget(AI);

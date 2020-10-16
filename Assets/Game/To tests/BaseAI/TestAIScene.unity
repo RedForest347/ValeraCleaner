@@ -8471,8 +8471,8 @@ MonoBehaviour:
   aILerp: {fileID: 0}
   rb: {fileID: 0}
   path_length: 0
-  speed: 1
-  max_speed: 2
+  speed: 30
+  max_speed: 10
   nearby_distance: 1
   current_move_point: {x: 0, y: 0}
   finished: 0
@@ -8489,8 +8489,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0.5
+  m_Mass: 3
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

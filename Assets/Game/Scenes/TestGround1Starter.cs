@@ -10,6 +10,6 @@ public class TestGround1Starter : Starter
         GlobalSystemStorage.Add<PlayerControllerProc>();
         GlobalSystemStorage.Add<CameraFollowProc>();
         GlobalSystemStorage.Add<CorutineManager>();
-        GlobalSystemStorage.Add<AIMoveProc>();
+        //GlobalSystemStorage.Add<AIMoveProc>();
     }
 }

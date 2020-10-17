@@ -61,6 +61,20 @@ namespace RangerV
 
                 EditorGUILayout.EndHorizontal();
 
+                /*EditorGUILayout.BeginHorizontal();
+                {
+                    should_show = EditorGUILayout.Foldout(should_show, "should show proc helper", true);
+                    if (should_show)
+                    {
+                        //EditorGUILayout.TextField("\n" + proc_mes);
+                        GUILayout.Space(20);
+                        EditorGUILayout.BeginVertical();
+                        GUILayout.Box("\n" + proc_mes);
+                        EditorGUILayout.EndVertical();
+                    }
+                }
+                EditorGUILayout.EndHorizontal();*/
+
                 if (selected_object.Components.Count > 0)
                 {
                     int compBases_count = selected_object.Components.Count;
@@ -147,7 +161,12 @@ namespace RangerV
                             should_show = EditorGUILayout.Foldout(should_show, "should show proc helper", true);
                             if (should_show)
                             {
+                                //EditorGUILayout.TextField("\n" + proc_mes);
+                                //GUILayout.Space(20);
+                                //EditorGUILayout.BeginVertical();
                                 GUILayout.Box("\n" + proc_mes);
+                                //EditorGUILayout.TextArea(proc_mes);
+                                //EditorGUILayout.EndVertical();
                             }
                         }
                         EditorGUILayout.EndHorizontal();

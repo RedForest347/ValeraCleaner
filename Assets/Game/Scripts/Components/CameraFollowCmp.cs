@@ -6,4 +6,5 @@ using RangerV;
 public class CameraFollowCmp : ComponentBase
 {
     public float learp;
+    public Material AlphaMask;
 }

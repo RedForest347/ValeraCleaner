@@ -1,8 +1,11 @@
 fileFormatVersion: 2
 guid: 6942e1e80e8b54fde9147e843f1bec4f
+<<<<<<< HEAD
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+>>>>>>> parent of 3e91a4e... Revert "Merge pull request #5 from RedForest347/AIBase"

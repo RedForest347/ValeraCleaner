@@ -75,4 +75,4 @@ crashlytics-build.properties
 !*.obj
 
 #Other
-/[Aa]ssets/To tests/*
+/[Aa]ssets/Game/To tests/*

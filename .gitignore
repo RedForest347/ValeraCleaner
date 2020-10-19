@@ -72,3 +72,11 @@ crashlytics-build.properties
 # Exceptions
 !*.dll
 !*.obj
+
+#Custom
+Assets/Game/To tests
+
+
+#Auto Generated
+
+Assets/Game/To tests.meta

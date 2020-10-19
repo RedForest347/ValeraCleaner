@@ -38,6 +38,7 @@ namespace RangerV
 
         public void Awake()
         {
+            state.SetAllFalse();
             state.runtime = true;
             CreateEntityID();
 

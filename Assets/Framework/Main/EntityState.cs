@@ -9,7 +9,7 @@ namespace RangerV
         public bool initialized;
         public bool runtime;
 
-        public void AllFalse()
+        public void SetAllFalse()
         {
             enabled = false;
             requireStarter = false;

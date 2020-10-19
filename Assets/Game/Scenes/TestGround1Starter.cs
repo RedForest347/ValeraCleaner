@@ -16,5 +16,9 @@ public class TestGround1Starter : Starter
         GlobalSystemStorage.Add<PlayerControllerProc>();
         GlobalSystemStorage.Add<GunProc>();
         GlobalSystemStorage.Add<CameraFollowProc>();
+
+        GlobalSystemStorage.Add<AIMoveProc>();
+
+
     }
 }

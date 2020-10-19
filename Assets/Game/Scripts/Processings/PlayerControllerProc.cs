@@ -1,4 +1,4 @@
-﻿using RangerV;
+using RangerV;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,50 +6,71 @@ using UnityEngine;
 
 public class PlayerControllerProc : ProcessingBase, ICustomUpdate, ICustomFixedUpdate
 {
-    Group MoveGroup = Group.Create(new ComponentsList<PlayerControllerCmp>());
+    Group MoveGroup = Group.Create(new ComponentsList<PlayerControllerCmp, MoverCmp, Physics2DCmp>());
+    //Group ShootGroup = Group.Create(new ComponentsList<GunControllerCmp>());
 
     public void CustomUpdate()
     {
-        //ddd
+        foreach (int entity in MoveGroup)
+        {
+            Shooting(entity);
+            HandRotation(entity);
+        }
     }
 
     public void CustomFixedUpdate()
     {
-        Move();
-    }
-
-    void Move()
-    {
         foreach (int entity in MoveGroup)
         {
-            Vector2 velocity = new Vector2();
+            Move(entity);
+        }
+    }
 
-            float speed = Storage.GetComponent<PlayerControllerCmp>(entity).speed;
+    void Move(int entity)
+    {
+        Vector2 direction = new Vector2();
 
-            if (Input.GetKey(KeyCode.W))
-            {
-                velocity.y = speed;
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                velocity.y = -speed;
-            }
+        if (Input.GetKey(KeyCode.W))
+        {
+            direction.y = 1;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            direction.y = -1;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            direction.x = -1;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            direction.x = 1;
+        }
 
-            if (Input.GetKey(KeyCode.A))
-            {
-                velocity.x = -speed;
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                velocity.x = speed;
-            }
+        Storage.GetComponent<MoverCmp>(entity).AddDirection(direction);
+    }
 
+    void HandRotation(int entity)
+    {
+        GameObject Hand = Storage.GetComponent<PlayerControllerCmp>(entity).Hand;
+        float angle = FindRotateAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition), Hand.transform.position);
+        //EntityBase.GetEntity(entity).GetComponent<Rigidbody2D>().SetRotation(angle);
+        Hand.transform.eulerAngles = new Vector3(0, 0, angle + 90);
+    }
 
-            EntityBase.GetEntity(entity).GetComponent<Rigidbody2D>().velocity = velocity;
-
-            float angle = FindRotateAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition), EntityBase.GetEntity(entity).transform.position);
-            EntityBase.GetEntity(entity).GetComponent<Rigidbody2D>().SetRotation(angle);
-
+    void Shooting(int entity)
+    {
+        if (Input.GetMouseButton(0))
+        {
+            Storage.GetComponent<PlayerControllerCmp>(entity).Gun.shooting = true;
+        }
+        else
+        {
+            Storage.GetComponent<PlayerControllerCmp>(entity).Gun.shooting = false;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            Storage.GetComponent<PlayerControllerCmp>(entity).Gun.shooting = false;
         }
     }
 

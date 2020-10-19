@@ -11,8 +11,9 @@ public class TestGround1Starter : Starter
         GlobalSystemStorage.Add<DelayDestroyProc>();
         GlobalSystemStorage.Add<ColisionDamageProc>(); 
         GlobalSystemStorage.Add<ColisionProc>();
+        GlobalSystemStorage.Add<MoverProc>();
 
-        GlobalSystemStorage.Add<PlayerControllerProc2>();
+        GlobalSystemStorage.Add<PlayerControllerProc>();
         GlobalSystemStorage.Add<GunProc>();
         GlobalSystemStorage.Add<CameraFollowProc>();
 

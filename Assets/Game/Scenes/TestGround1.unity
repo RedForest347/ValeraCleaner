@@ -1486,6 +1486,7 @@ GameObject:
   - component: {fileID: 1210908661}
   - component: {fileID: 1210908664}
   - component: {fileID: 1210908657}
+  - component: {fileID: 1210908665}
   m_Layer: 8
   m_Name: Valera1
   m_TagString: Untagged
@@ -1571,7 +1572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944e02c46d7be3f47bcc9cf3262ed077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 0
   Hand: {fileID: 1394605397}
   Gun: {fileID: 1394605400}
 --- !u!114 &1210908656
@@ -1591,6 +1592,7 @@ MonoBehaviour:
   - {fileID: 1210908662}
   - {fileID: 1210908661}
   - {fileID: 1210908655}
+  - {fileID: 1210908665}
   - {fileID: 1210908659}
   - {fileID: 1210908664}
   state:
@@ -1598,7 +1600,7 @@ MonoBehaviour:
     requireStarter: 0
     initialized: 0
     runtime: 0
-  show_comp: 000000000100
+  show_comp: 00000101000000
 --- !u!114 &1210908657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1625,7 +1627,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -1729,6 +1731,20 @@ MonoBehaviour:
   health: 100
   health_add:
     health_regen: 0
+--- !u!114 &1210908665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210908652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1742228fb875848b6fe5d90d94d32a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Acceleration: 110
+  MaxSpeed: 1000
 --- !u!1 &1321480680
 GameObject:
   m_ObjectHideFlags: 0

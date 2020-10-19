@@ -117,7 +117,7 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
     {
         Vector3 target_pos = aiMove.current_move_point;
 
-        aiMove.rb.AddForce((target_pos - aiMove.transform.position).normalized * aiMove.speed);
+        aiMove.rb.AddForce((target_pos - aiMove.transform.position).normalized * aiMove.acceleration);
 
         if (aiMove.rb.velocity.magnitude > aiMove.max_speed)
             aiMove.rb.velocity = aiMove.rb.velocity.normalized * aiMove.max_speed;

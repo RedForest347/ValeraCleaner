@@ -8,18 +8,20 @@ namespace RangerV
     [System.Serializable]
     public class MethodHolder
     {
+
         public string type_name;
         public string method_name;
         public string assembly_name;
         public Component component;
-
-
-        //MethodInfo cashedMethodInfo;
+        public bool init;
 
         public void StartMethod()
         {
-            BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.NonPublic;
-            Assembly.Load(assembly_name).GetType(type_name).GetMethod(method_name, bindingFlags).Invoke(component, null);
+            if (init)
+            {
+                BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.NonPublic;
+                Assembly.Load(assembly_name).GetType(type_name).GetMethod(method_name, bindingFlags).Invoke(component, null);
+            }
         }
 
         /// <summary>
@@ -27,8 +29,10 @@ namespace RangerV
         /// </summary>
         public void DataCheckOnCorrect()
         {
+
             BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.NonPublic;
             Assembly.Load(assembly_name).GetType(type_name).GetMethod(method_name, bindingFlags);
+
         }
     }
 

@@ -275,7 +275,7 @@ namespace RangerV
             List<ComponentBase> componentBases = selected_object.GetAllComponents();
 
             List<Component> NeedAdd = components.Where((cmp) => cmp is ComponentBase && !componentBases.Contains(cmp as ComponentBase)).ToList();
-            List<Type> Dublicates = components.GroupBy(x => x.GetType()).Where(g => g.Count() > 1).Select(y => y.Key).ToList();
+            List<Type> Dublicates = components.GroupBy(x => x?.GetType()).Where(g => g.Count() > 1).Select(y => y.Key).ToList();
 
 
             bool some_components_is_null = false;

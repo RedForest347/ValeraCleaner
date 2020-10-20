@@ -17,6 +17,8 @@ namespace RangerV
     /// но пока смысла не вижу. по необходимости есть возможность реализовать данный вариант
     /// 
     /// следует именовать [имя_компонента]Cmp
+    /// 
+    /// Задать кастомное имя: [Component("Some/Some")]
     /// </summary>
     [System.Serializable]
     public class ComponentBase: MonoBehaviour, IComponent

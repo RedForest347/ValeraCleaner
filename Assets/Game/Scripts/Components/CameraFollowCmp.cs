@@ -7,4 +7,6 @@ public class CameraFollowCmp : ComponentBase
 {
     public float learp;
     public Material AlphaMask;
+    public Vector2 Offset;
+    public Vector2 CursorOffset;
 }

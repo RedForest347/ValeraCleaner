@@ -11,11 +11,27 @@ public class CameraFollowProc : ProcessingBase, ICustomFixedUpdate
     {
         foreach (int entity in CamTargetGroup)
         {
-            Transform target = Storage.GetComponent<CameraFollowCmp>(entity).transform;
-            Camera.main.transform.position =
-                Vector3.Lerp(Camera.main.transform.position,
-                new Vector3(target.position.x, target.position.y, -10), Storage.GetComponent<CameraFollowCmp>(entity).learp);
-            Storage.GetComponent<CameraFollowCmp>(entity).AlphaMask.SetVector("_FadeOrigin", new Vector4(target.position.x, target.position.y + 0.5f, 0, 1));
+            CameraFollowCmp cameraFollowCmp = Storage.GetComponent<CameraFollowCmp>(entity);
+            Transform target = cameraFollowCmp.transform;
+
+            Vector3 CamPos = new Vector3();
+
+            CamPos = Vector3.Lerp(Camera.main.transform.position, 
+                new Vector3(target.position.x + cameraFollowCmp.Offset.x, target.position.y + cameraFollowCmp.Offset.y, Camera.main.transform.position.z), 
+                cameraFollowCmp.learp);
+
+            //Input.mousePosition.y
+            //Camera.main.pixelWidth;
+
+            CamPos += new Vector3(
+                ((Input.mousePosition.x - (Camera.main.pixelWidth  / 2)) / Camera.main.pixelWidth ) * cameraFollowCmp.CursorOffset.x, 
+                ((Input.mousePosition.y - (Camera.main.pixelHeight / 2)) / Camera.main.pixelHeight) * cameraFollowCmp.CursorOffset.y,
+                0);
+
+
+            Camera.main.transform.position = CamPos;
+
+            cameraFollowCmp.AlphaMask.SetVector("_FadeOrigin", new Vector4(target.position.x + cameraFollowCmp.Offset.x, target.position.y + cameraFollowCmp.Offset.y, 0, 1));
             break;
         }
     }

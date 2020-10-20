@@ -260,7 +260,7 @@ public class TestAllSystem : MonoBehaviour
         {
             Stopwatch time = Stopwatch.StartNew();
 
-            for (int i = 0; i < difficult; i++)
+            for (int i = 0; i < difficult * 10; i++)
             {
                 foreach (Group group in groups)
                 {
@@ -282,7 +282,7 @@ public class TestAllSystem : MonoBehaviour
         {
             Stopwatch time = Stopwatch.StartNew();
 
-            for (int i = 0; i < difficult; i++)
+            for (int i = 0; i < difficult * 10; i++)
             {
                 foreach (Group group in groups)
                 {

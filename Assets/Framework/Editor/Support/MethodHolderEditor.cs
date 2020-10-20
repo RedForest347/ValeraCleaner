@@ -10,7 +10,9 @@ using System;
 
 namespace RangerV
 {
-
+    /// <summary>
+    /// не работает если создать массив (лист или что то иное) с данным типом (MethodHolder)
+    /// </summary>
     [CustomPropertyDrawer(typeof(MethodHolder))]
     public class MethodHolderEditor : PropertyDrawer
     {
@@ -33,7 +35,7 @@ namespace RangerV
 
 
             GUIStyle style = skin.GetStyle("Button");
-            GUIContent content = new GUIContent(dropdown_button_name == "" ? "no function selected" : dropdown_button_name);
+            GUIContent content = new GUIContent((dropdown_button_name == "" || dropdown_button_name == null) ? "no function selected" : dropdown_button_name);
 
             style.fixedWidth = Math.Max(new GUIStyle().CalcSize(content).x + 20, 100);
             style.fixedHeight = Math.Max(new GUIStyle().CalcSize(content).y + 5, 20);
@@ -80,6 +82,8 @@ namespace RangerV
                     dropdownMenu.AddItem(new GUIContent(path), on, SetMethodData, methodInfos[i]);
                 }
 
+                dropdownMenu.AddItem(new GUIContent("No func selected"), someT.method_name == "", SetDefaultMethodData);
+
                 dropdownMenu.ShowAsContext();
             }
         }
@@ -92,13 +96,24 @@ namespace RangerV
             methodHolder.type_name = methodInfo.DeclaringType.FullName;
             methodHolder.assembly_name = methodInfo.DeclaringType.Assembly.FullName;
             methodHolder.component = componentBase.GetComponent(methodInfo.DeclaringType);
-
-            Type[] types = methodInfo.DeclaringType.Assembly.GetTypes();
+            methodHolder.init = true;
 
             EditorUtility.SetDirty(property.serializedObject.targetObject);
             Undo.RecordObject(property.serializedObject.targetObject, "Changed Sequence");
 
             methodHolder.DataCheckOnCorrect();
+        }
+
+        void SetDefaultMethodData()
+        {
+            methodHolder.method_name = "";
+            methodHolder.type_name = "";
+            methodHolder.assembly_name = "";
+            methodHolder.component = null;
+            methodHolder.init = false;
+
+            EditorUtility.SetDirty(property.serializedObject.targetObject);
+            Undo.RecordObject(property.serializedObject.targetObject, "Changed Sequence");
         }
     }
 }

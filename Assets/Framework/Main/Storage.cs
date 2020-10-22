@@ -13,8 +13,10 @@ namespace RangerV
         /// </summary>
         protected EntityData entityData = new EntityData();
 
+#pragma warning disable
         public virtual event Action<int> OnAdd;
         public virtual event Action<int> OnBeforeRemove;
+#pragma warning enable
 
         protected static Dictionary<Type, Storage> StorageDictionary = new Dictionary<Type, Storage>();
 

@@ -41,3 +41,26 @@ namespace RangerV
 
     }
 }
+
+
+#region ComponentBlank
+
+/*
+using UnityEngine;
+using RangerV;
+
+[RequireComponent()]
+[Component("DDD/DDD")]
+public class Cmp : ComponentBase, ICustomAwake
+{
+
+    public void OnAwake()
+    {
+
+    }
+
+}
+     
+*/
+
+#endregion ComponentBlank  

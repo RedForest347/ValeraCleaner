@@ -867,16 +867,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c0b50e8f53935846b3f754d7a794087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active_distance: 10.94
-  active_angle: 105
-  angle_offset: -240
+  active_distance: 25.5
+  active_angle: 118.8
+  angle_offset: -114.2
   select_key: 102
-  methodHolder:
-    type_name: 
-    method_name: 
-    assembly_name: 
-    component: {fileID: 0}
-    init: 0
+  was_select_in_previous_frame: 0
+  select_in_current_frame: 0
+  SelectMH:
+    m_PersistentCalls:
+      m_Calls: []
+  EnterMH:
+    m_PersistentCalls:
+      m_Calls: []
+  StayMH:
+    m_PersistentCalls:
+      m_Calls: []
+  ExitMH:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2106072078
 MonoBehaviour:
   m_ObjectHideFlags: 0

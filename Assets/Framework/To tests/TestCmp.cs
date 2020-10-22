@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using RangerV;
 
+[HideComponent]
 public class TestCmp : ComponentBase
 {
-    public MethodHolder methodHolder;
+
 }

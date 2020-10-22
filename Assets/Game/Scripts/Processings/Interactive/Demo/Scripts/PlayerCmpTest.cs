@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using RangerV;
 
-public class PlayerCmp : ComponentBase, ICustomAwake
+[Component("Demo/Interactive/PlayerCmp")]
+public class PlayerCmpTest : ComponentBase, ICustomAwake
 {
     public bool should_show;
 

@@ -16,12 +16,12 @@ public class OpenCloseChestProc : ProcessingBase, ICustomStart, ICustomDisable
 
     void OnAdd(int chest)
     {
-        Storage.GetComponent<InteractiveCmp>(chest).OnSelected += OnSelectChest;
+        Storage.GetComponent<InteractiveCmp>(chest).OnSelect += OnSelectChest;
     }
 
     void OnRemove(int chest)
     {
-        Storage.GetComponent<InteractiveCmp>(chest).OnSelected -= OnSelectChest;
+        Storage.GetComponent<InteractiveCmp>(chest).OnSelect -= OnSelectChest;
     }
 
     void OnSelectChest(int chest)

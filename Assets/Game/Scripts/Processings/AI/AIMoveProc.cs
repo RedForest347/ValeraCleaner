@@ -84,7 +84,7 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
 
         if (aiMove.target == null)
         {
-            Debug.LogWarning("target not assign");
+            //Debug.LogWarning("target not assign");
             return false;
         }
 

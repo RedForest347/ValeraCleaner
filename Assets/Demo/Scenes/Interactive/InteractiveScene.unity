@@ -867,22 +867,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c0b50e8f53935846b3f754d7a794087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active_distance: 25.5
-  active_angle: 118.8
-  angle_offset: -114.2
+  active_distance: 2.7
+  active_angle: 27
+  angle_offset: 63
   select_key: 102
   was_select_in_previous_frame: 0
   select_in_current_frame: 0
-  SelectMH:
+  SelectUE:
     m_PersistentCalls:
       m_Calls: []
-  EnterMH:
+  EnterUE:
     m_PersistentCalls:
       m_Calls: []
-  StayMH:
+  StayUE:
     m_PersistentCalls:
       m_Calls: []
-  ExitMH:
+  ExitUE:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &2106072078

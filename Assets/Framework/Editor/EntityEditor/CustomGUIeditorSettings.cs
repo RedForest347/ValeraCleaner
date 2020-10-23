@@ -30,11 +30,11 @@ namespace RangerV
         //-------------------------------------------------------//
         [Space]
         [SerializeField] private GUIStyle HeaderLabel;
-
+#pragma warning disable
         [SerializeField] private GUIStyle Box1;
 
         [SerializeField] private GUIStyle Button1;
-
+#pragma warning enable
 
 
 

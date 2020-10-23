@@ -1,4 +1,6 @@
 ﻿
+
+
 namespace RangerV
 {
     /// <summary>
@@ -38,3 +40,85 @@ namespace RangerV
         
     }
 }
+
+
+
+#region ProcBlank
+
+#region Proc Simple
+/*
+using UnityEngine;
+using RangerV;
+
+public class DDD : ProcessingBase, ICustomStart, ICustomUpdate
+{
+    Group group = Group.Create(new ComponentsList<DDD>());
+
+    public void OnStart()
+    {
+        group.InitEvents(OnAdd, OnRemove);
+    }
+
+    public void CustomUpdate()
+    {
+
+    }
+}
+*/
+#endregion Proc Simple
+
+
+
+
+#region Proc Hard
+/*
+
+using UnityEngine;
+using RangerV;
+
+public class DDD : ProcessingBase, ICustomAwake, ICustomStart, ICustomUpdate, ICustomDisable
+{
+    Group group = Group.Create(new ComponentsList<DDD>());
+
+    public void OnAwake()
+    {
+
+    }
+
+    public void OnStart()
+    {
+        group.InitEvents(OnAdd, OnRemove);
+    }
+
+    void OnAdd(int ent)
+    {
+        Storage.GetComponent<DDD>(ent).OnSelect += OnSelect;
+    }
+
+    void OnRemove(int ent)
+    {
+        Storage.GetComponent<DDD>(ent).OnSelect -= OnSelect;
+    }
+
+    void OnSelect(int ent)
+    {
+
+    }
+
+    public void CustomUpdate()
+    {
+
+    }
+
+
+    public void OnCustomDisable()
+    {
+        group.DeinitEvents(OnAdd, OnRemove);
+    }
+}
+
+
+*/
+#endregion Proc Hard
+
+#endregion ProcBlank

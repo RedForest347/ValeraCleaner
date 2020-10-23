@@ -107,9 +107,18 @@ namespace RangerV
 
 
 
-        
+        int _entities_count;
+        bool num_of_ents_was_chenged;
 
-        public int entities_count { get; private set; }
+        public int entities_count
+        {
+            get => _entities_count;
+            private set
+            {
+                num_of_ents_was_chenged = true;
+                _entities_count = value;
+            }
+        }
 
         Dictionary<int, EntContainer> EntitiesDictionary;
 
@@ -375,13 +384,35 @@ namespace RangerV
             return base.GetHashCode();
         }
 
+
+        int[] ent_array;
+
         public IEnumerator<int> GetEnumerator()
+        {
+            if (num_of_ents_was_chenged)
+            {
+                FillEntArray();
+            }
+
+
+            for (int i = 0; i < ent_array.Length; i++)
+            {
+                yield return ent_array[i];
+            }
+        }
+
+        void FillEntArray()
         {
             EntContainer[] array = EntitiesDictionary.Values.ToArray();
 
+            ent_array = new int[entities_count];
+            int cur = 0;
+
             for (int i = 0; i < array.Length; i++)
                 if (array[i].was_added)
-                    yield return array[i].entity;
+                    ent_array[cur++] = array[i].entity;
+
+            num_of_ents_was_chenged = false;
         }
 
         #endregion Equals/HashCode/Enumerator

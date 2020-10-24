@@ -8,7 +8,7 @@ public class Zchager : MonoBehaviour
     public float height;
     public bool OnlyEditMode;
 
-    void Update()
+    private void Update()
     {
         bool Zexecute = true;
 
@@ -23,8 +23,8 @@ public class Zchager : MonoBehaviour
     {
         //gameObject.transform.position.Set(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.y - height);
         gameObject.transform.SetPositionAndRotation(
-        new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.y - height),
-        gameObject.transform.rotation);
+            new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.y - height),
+            gameObject.transform.rotation);
     }
     
 }

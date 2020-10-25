@@ -41,52 +41,62 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
 
 
 
-    void CustomMoveToTarget(int AI)
+    void CustomMoveToTarget(int ai)
     {
-        AIMoveCmp aiMove = Storage.GetComponent<AIMoveCmp>(AI);
+        AIMoveCmp aiMove = Storage.GetComponent<AIMoveCmp>(ai);
 
-        SearchNewPath(aiMove);
+        if (aiMove.moveMode == AIMoveMode.GoToTarget)
+        {
+            SearchNewPath(aiMove);
 
-        if (!ShouldContinue(aiMove))
-            return;
+            if (!EverythingIsFine(aiMove))
+                return;
 
-        if (CheckNearby(aiMove))
+            if (CheckNearby(aiMove))
+            {
+                //Debug.Log("Nearby");
+                aiMove.finished = true;
+                //StopAtTheTarget(aiMove);
+
+                return;
+            }
+
+
+
+            FindCurrentMovePoint(aiMove);
+            AddForce(aiMove);
+            DebugPath(aiMove);
+        }
+        else if (aiMove.moveMode == AIMoveMode.Stopping)
         {
             StopAtTheTarget(aiMove);
-
-            return;
         }
-
-        
-
-        FindCurrentMovePoint(aiMove);
-        AddForce(aiMove);
-        DebugPath(aiMove);
     }
 
     void SearchNewPath(AIMoveCmp aiMove)
     {
-        if (aiMove.target == null)
-            return;
+        /*if (aiMove.target == null)
+            return;*/
 
-        aiMove.aILerp.SearchNewPathCustom(aiMove.target.transform.position);
+        aiMove.aILerp.SearchNewPathCustom(aiMove.target);
     }
 
     bool CheckNearby(AIMoveCmp aiMove)
     {
-        aiMove.finished = IsNearby(aiMove);
-        return aiMove.finished;
+        return IsNearby(aiMove);
+
+        /*aiMove.finished = IsNearby(aiMove);
+        return aiMove.finished;*/
     }
 
 
-    bool ShouldContinue(AIMoveCmp aiMove)
+    bool EverythingIsFine(AIMoveCmp aiMove)
     {
-
-        if (aiMove.target == null)
+        /*if (aiMove.target == null)
         {
             //Debug.LogWarning("target not assign");
             return false;
-        }
+        }*/
 
         if (aiMove.aILerp.GetPathCustom() == null)
         {
@@ -141,9 +151,13 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
         else
         {
             aiMove.rb.velocity = Vector2.zero;
+            aiMove.OnStop(aiMove.entity);
         }
     }
 
+
+
+    //float previous_distance;
     bool IsNearby(AIMoveCmp aiMove)
     {
         Vector2 start = aiMove.transform.position;
@@ -152,7 +166,7 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
 
         aiMove.distance_to_target = (start - fin).magnitude; //debug
 
-
+        //Debug.Log("start = " + start + " fin = " + fin + " target = " + aiMove.target);
         return (start - fin).magnitude < aiMove.nearby_distance;
 
 
@@ -175,3 +189,9 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
         return _out;
     }*/
 }
+
+/*public enum NearbyState
+{
+    nearby,
+    not_nearby
+}*/

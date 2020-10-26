@@ -135,8 +135,10 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
 
     void DebugPath(AIMoveCmp aiMove)
     {
-        Vector3 target_pos = aiMove.current_move_point;
-        Debug.DrawLine(aiMove.transform.position, target_pos, Color.red);
+        Vector3 neaby_target_pos = aiMove.current_move_point;
+        Vector3 final_target = aiMove.target;
+        Debug.DrawLine(aiMove.transform.position, neaby_target_pos, Color.red);
+        Debug.DrawLine(aiMove.transform.position, final_target, Color.blue);
     }
 
     void StopAtTheTarget(AIMoveCmp aiMove)

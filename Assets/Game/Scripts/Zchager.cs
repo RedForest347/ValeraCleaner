@@ -23,7 +23,7 @@ public class Zchager : MonoBehaviour
     {
         //gameObject.transform.position.Set(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.y - height);
         gameObject.transform.SetPositionAndRotation(
-            new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.y - height),
+            new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, (gameObject.transform.position.y - height) * 0.0001f),
             gameObject.transform.rotation);
     }
     

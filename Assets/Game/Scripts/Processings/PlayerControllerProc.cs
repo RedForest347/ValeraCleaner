@@ -28,7 +28,7 @@ public class PlayerControllerProc : ProcessingBase, ICustomUpdate, ICustomFixedU
 
     void Move(int entity)
     {
-        Vector2 direction = new Vector2();
+        Vector3 direction = new Vector3();
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -60,18 +60,19 @@ public class PlayerControllerProc : ProcessingBase, ICustomUpdate, ICustomFixedU
 
     void Shooting(int entity)
     {
-        if (Input.GetMouseButton(0))
-        {
-            Storage.GetComponent<PlayerControllerCmp>(entity).Gun.shooting = true;
-        }
-        else
-        {
-            Storage.GetComponent<PlayerControllerCmp>(entity).Gun.shooting = false;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            Storage.GetComponent<PlayerControllerCmp>(entity).Gun.shooting = false;
-        }
+        Storage.GetComponent<PlayerControllerCmp>(entity).Gun.shooting = Input.GetMouseButton(0);
+        //if (Input.GetMouseButton(0))
+        //{
+        //    Storage.GetComponent<PlayerControllerCmp>(entity).Gun.shooting = true;
+        //}
+        //else
+        //{
+        //    Storage.GetComponent<PlayerControllerCmp>(entity).Gun.shooting = false;
+        //}
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    Storage.GetComponent<PlayerControllerCmp>(entity).Gun.shooting = false;
+        //}
     }
 
 

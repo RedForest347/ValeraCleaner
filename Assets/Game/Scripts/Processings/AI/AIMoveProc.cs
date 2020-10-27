@@ -117,9 +117,13 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
         {
             aiMove.current_move_point = (Vector3)path[1].position;
         }
-        else if (aiMove.path_length == 0)
+        else if (aiMove.path_length == 1)
         {
             aiMove.current_move_point = (Vector3)path[0].position;
+        }
+        else if (aiMove.path_length == 0)
+        {
+            Debug.LogError("длинна найденного пути ноль");
         }
     }
 
@@ -127,6 +131,9 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
     {
         Vector3 target_pos = aiMove.current_move_point;
 
+        //Debug.Log("normalized = " + ((Vector2)(target_pos - aiMove.transform.position)).normalized + " aiMove.acceleration = " + aiMove.acceleration);
+        //Debug.Log("target_pos = " + target_pos + " aiMove.transform.position = " + aiMove.transform.position + " sum = " + (target_pos - aiMove.transform.position));
+        //Debug.Log("new normalized = " + new Vector2().normalized);
         aiMove.rb.AddForce(((Vector2)(target_pos - aiMove.transform.position)).normalized * aiMove.acceleration);
 
         if (aiMove.rb.velocity.magnitude > aiMove.max_speed)

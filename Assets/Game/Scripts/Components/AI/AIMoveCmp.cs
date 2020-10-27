@@ -5,15 +5,18 @@ using RangerV;
 using Pathfinding;
 using System;
 
-[RequireComponent(typeof(AILerp), typeof(Rigidbody2D))]
+[RequireComponent(typeof(AILerp))]
 [Component("AI/AIMove")]
 public class AIMoveCmp : ComponentBase, ICustomAwake
 {
     //public Transform target;
     public Vector3 target;// { get; private set; }
 
+    [Min(0)]
     public float acceleration = 100;
+    [Min(0)]
     public float max_speed = 2f;
+    [Min(0)]
     public float nearby_distance; // дистанция, при которой считается что путь пройден. используется для AIMoveProc. 
                                   // проверку на то, рядом ли цель в превую очередь следует осуществлять в Proc, State и из иных мест
                                   // данная поле показывает то, что путь исчерпан, идти дальше некуда, и пора сообщить об этом через вызов OnReached
@@ -26,7 +29,8 @@ public class AIMoveCmp : ComponentBase, ICustomAwake
     public AILerp aILerp;
 
     [HideInInspector]
-    public Rigidbody2D rb;
+    //public Rigidbody2D rb;
+    public Rigidbody rb;
 
     [HideInInspector]
     public Vector2 current_move_point;
@@ -60,7 +64,7 @@ public class AIMoveCmp : ComponentBase, ICustomAwake
     {
         moveMode = AIMoveMode.Sleep;
         aILerp = GetComponent<AILerp>();
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
         SetDefoultParans();
     }
 

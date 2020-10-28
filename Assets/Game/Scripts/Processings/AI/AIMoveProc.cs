@@ -18,7 +18,7 @@ using Pathfinding;
 /// проходить по ограниченному количеству сущностей за кадр (1- 30, следующий кадр 31 -60, 61 - 25 и т.д.)
 /// </optimization>
 
-public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
+public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
 {
     Group AIMoveGroup = Group.Create(new ComponentsList<AIMoveCmp>());
 
@@ -30,7 +30,7 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
         }
     }
 
-    public void CustomUpdate()
+    public void CustomFixedUpdate()
     {
         //Debug.Log("AIMoveGroup.entities_count = " + AIMoveGroup.entities_count);
         foreach (int AI in AIMoveGroup)
@@ -50,14 +50,17 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
             SearchNewPath(aiMove);
 
             if (!EverythingIsFine(aiMove))
+            {
+                Debug.Log("not fine");
                 return;
+            }
 
             if (CheckNearby(aiMove))
             {
                 //Debug.Log("Nearby");
                 aiMove.finished = true;
                 //StopAtTheTarget(aiMove);
-
+                Debug.Log("CheckNearby");
                 return;
             }
 
@@ -65,7 +68,10 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
 
             FindCurrentMovePoint(aiMove);
             AddForce(aiMove);
-            DebugPath(aiMove);
+            //if (aiMove.draw_gizmos)
+            //{
+                DebugPath(aiMove);
+            //}
         }
         else if (aiMove.moveMode == AIMoveMode.Stopping)
         {
@@ -77,7 +83,7 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
     {
         /*if (aiMove.target == null)
             return;*/
-
+        Debug.Log("SearchNewPath");
         aiMove.aILerp.SearchNewPathCustom(aiMove.target);
     }
 
@@ -132,8 +138,8 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
         Vector3 target_pos = aiMove.current_move_point;
 
         //Debug.Log("normalized = " + ((Vector2)(target_pos - aiMove.transform.position)).normalized + " aiMove.acceleration = " + aiMove.acceleration);
-        //Debug.Log("target_pos = " + target_pos + " aiMove.transform.position = " + aiMove.transform.position + " sum = " + (target_pos - aiMove.transform.position));
-        //Debug.Log("new normalized = " + new Vector2().normalized);
+        //Debug.Log("acceleration = " + (((Vector2)(target_pos - aiMove.transform.position)).normalized * aiMove.acceleration));
+        //Debug.Log("AddForce " + (((Vector2)(target_pos - aiMove.transform.position)).normalized * aiMove.acceleration));
         aiMove.rb.AddForce(((Vector2)(target_pos - aiMove.transform.position)).normalized * aiMove.acceleration);
 
         if (aiMove.rb.velocity.magnitude > aiMove.max_speed)
@@ -142,10 +148,14 @@ public class AIMoveProc : ProcessingBase, ICustomUpdate, ICustomStart
 
     void DebugPath(AIMoveCmp aiMove)
     {
-        Vector3 neaby_target_pos = aiMove.current_move_point;
-        Vector3 final_target = aiMove.target;
-        Debug.DrawLine(aiMove.transform.position, neaby_target_pos, Color.red);
-        Debug.DrawLine(aiMove.transform.position, final_target, Color.blue);
+        if (aiMove.draw_gizmos)
+        {
+            Vector3 neaby_target_pos = aiMove.current_move_point;
+            Vector3 final_target = aiMove.target;
+            Debug.DrawLine(aiMove.transform.position, neaby_target_pos, Color.red);
+            Debug.DrawLine(aiMove.transform.position, final_target, Color.blue);
+        }
+        aiMove.cur_speed = ((Vector2)aiMove.rb.velocity).magnitude;
     }
 
     void StopAtTheTarget(AIMoveCmp aiMove)

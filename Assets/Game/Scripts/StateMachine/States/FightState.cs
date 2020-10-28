@@ -12,20 +12,19 @@ public class FightState : StateBase
     public override void EnterState()
     {
         smData = stateMachine.smData;
-        //smData.aiMove = Storage.GetComponent<AIMoveCmp>(stateMachine.entity);
         smData.aiMove.OnReached += OnReached;
         smData.aiMove.OnStop += OnStopped;
-        //Debug.Log("Enter to FightState");
     }
 
     public override void StateUpdate()
     {
         float distance = ((Vector2)(smData.target.position - smData.aiMove.transform.position)).magnitude;
-
+        //Debug.Log("distance = " + distance);
         if (distance > smData.fight_distance)
         {
             smData.aiMove.SetTarget(smData.target);
             smData.aiMove.moveMode = AIMoveMode.GoToTarget;
+            //Debug.Log("target = " + smData.target + " pos = " + smData.target.transform.position);
 
             if (distance > smData.vision_distance)
             {
@@ -35,13 +34,11 @@ public class FightState : StateBase
         else
         {
             StopMove();
-            //Debug.Log("Удар по Валере");
         }
     }
 
     public override void ExitState()
     {
-        //Debug.Log("Exit from FightState");
         smData.aiMove.OnReached -= OnReached;
         smData.aiMove.OnStop -= OnStopped;
     }

@@ -45,7 +45,11 @@ public class IdleState : StateBase
     }
 
 
-    public override void ExitState() { }
+    public override void ExitState() 
+    {
+        smData.aiMove.OnReached -= OnReached;
+        smData.aiMove.OnStop -= OnStopped;
+    }
 
     bool CheckSetNewState()
     {

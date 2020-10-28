@@ -19,9 +19,7 @@ public class FindTargetState : StateBase
         smData.aiMove.OnReached += OnReached;
         smData.aiMove.OnStop += OnStopped;
 
-
         cur_time = 0;
-        //Debug.Log("Enter to FindTargetState");
     }
 
     public override void StateUpdate()
@@ -44,12 +42,10 @@ public class FindTargetState : StateBase
     {
         smData.aiMove.OnReached -= OnReached;
         smData.aiMove.OnStop -= OnStopped;
-        //Debug.Log("Exit from FindTargetState");
     }
 
     void OnReached(int ent)
     {
-        //Debug.Log("Цель достигнута");
         smData.aiMove.moveMode = AIMoveMode.Stopping;
     }
 

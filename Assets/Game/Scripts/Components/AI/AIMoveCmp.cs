@@ -55,10 +55,11 @@ public class AIMoveCmp : ComponentBase, ICustomAwake
         }
     }
 
-    //Debug
-    [HideInInspector]
-    public float distance_to_target;
 
+    [Header("Debug")]
+    public float distance_to_target;
+    public bool draw_gizmos;
+    public float cur_speed;
 
     public void OnAwake()
     {
@@ -76,7 +77,7 @@ public class AIMoveCmp : ComponentBase, ICustomAwake
     public void SetTarget(Vector3 target)
     {
         this.target = target;
-        aILerp.ResetPathCustom();
+        //aILerp.ResetPathCustom();
     }
 
 

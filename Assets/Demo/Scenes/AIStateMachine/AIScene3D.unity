@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 14559773}
   - component: {fileID: 14559772}
   - component: {fileID: 14559771}
-  - component: {fileID: 14559778}
   - component: {fileID: 14559780}
   - component: {fileID: 14559774}
   - component: {fileID: 14559770}
@@ -146,7 +145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &14559769
 Transform:
   m_ObjectHideFlags: 0
@@ -189,10 +188,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -202,6 +201,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &14559772
 SpriteRenderer:
@@ -275,6 +275,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &14559774
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -364,19 +366,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &14559778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14559768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &14559780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,7 +394,6 @@ GameObject:
   - component: {fileID: 69162338}
   - component: {fileID: 69162337}
   - component: {fileID: 69162336}
-  - component: {fileID: 69162343}
   - component: {fileID: 69162345}
   - component: {fileID: 69162339}
   - component: {fileID: 69162335}
@@ -415,7 +403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &69162334
 Transform:
   m_ObjectHideFlags: 0
@@ -458,10 +446,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -471,6 +459,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &69162337
 SpriteRenderer:
@@ -544,6 +533,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &69162339
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -633,19 +624,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &69162343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69162333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &69162345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,7 +761,6 @@ GameObject:
   - component: {fileID: 108775602}
   - component: {fileID: 108775601}
   - component: {fileID: 108775600}
-  - component: {fileID: 108775598}
   - component: {fileID: 108775608}
   - component: {fileID: 108775603}
   - component: {fileID: 108775599}
@@ -793,7 +770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &108775597
 Transform:
   m_ObjectHideFlags: 0
@@ -808,19 +785,6 @@ Transform:
   m_Father: {fileID: 1074065648}
   m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &108775598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108775596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!136 &108775599
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -849,10 +813,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -862,6 +826,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &108775601
 SpriteRenderer:
@@ -935,6 +900,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &108775603
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1052,7 +1019,6 @@ GameObject:
   - component: {fileID: 118229226}
   - component: {fileID: 118229225}
   - component: {fileID: 118229224}
-  - component: {fileID: 118229231}
   - component: {fileID: 118229233}
   - component: {fileID: 118229227}
   - component: {fileID: 118229223}
@@ -1062,7 +1028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &118229222
 Transform:
   m_ObjectHideFlags: 0
@@ -1105,10 +1071,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -1118,6 +1084,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &118229225
 SpriteRenderer:
@@ -1191,6 +1158,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &118229227
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1280,19 +1249,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &118229231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 118229221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &118229233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1343,12 +1299,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143848530}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4286503, y: 7.154338, z: 12.8}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.8760338, y: 4.4026213, z: 22.979687}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 1436685669}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &148411761
 GameObject:
@@ -1365,7 +1321,6 @@ GameObject:
   - component: {fileID: 148411766}
   - component: {fileID: 148411765}
   - component: {fileID: 148411764}
-  - component: {fileID: 148411771}
   - component: {fileID: 148411773}
   - component: {fileID: 148411767}
   - component: {fileID: 148411763}
@@ -1375,7 +1330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &148411762
 Transform:
   m_ObjectHideFlags: 0
@@ -1418,10 +1373,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -1431,6 +1386,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &148411765
 SpriteRenderer:
@@ -1504,6 +1460,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &148411767
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1593,19 +1551,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &148411771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148411761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &148411773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1634,10 +1579,9 @@ GameObject:
   - component: {fileID: 160383364}
   - component: {fileID: 160383370}
   - component: {fileID: 160383371}
-  - component: {fileID: 160383373}
-  - component: {fileID: 160383375}
   - component: {fileID: 160383372}
   - component: {fileID: 160383365}
+  - component: {fileID: 160383373}
   m_Layer: 0
   m_Name: Bug
   m_TagString: Untagged
@@ -1667,6 +1611,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!136 &160383365
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1832,10 +1778,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -1845,6 +1791,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 1
   cur_state_name: 
 --- !u!54 &160383372
 Rigidbody:
@@ -1871,23 +1818,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 160383363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c1742228fb875848b6fe5d90d94d32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 10
---- !u!114 &160383375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160383363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
+  Acceleration: 0
+  MaxSpeed: 0
 --- !u!1 &171748127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,7 +1838,6 @@ GameObject:
   - component: {fileID: 171748132}
   - component: {fileID: 171748131}
   - component: {fileID: 171748130}
-  - component: {fileID: 171748137}
   - component: {fileID: 171748139}
   - component: {fileID: 171748133}
   - component: {fileID: 171748129}
@@ -1913,7 +1847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &171748128
 Transform:
   m_ObjectHideFlags: 0
@@ -1956,10 +1890,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -1969,6 +1903,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &171748131
 SpriteRenderer:
@@ -2042,6 +1977,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &171748133
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2131,19 +2068,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &171748137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 171748127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &171748139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2281,7 +2205,6 @@ GameObject:
   - component: {fileID: 210567537}
   - component: {fileID: 210567536}
   - component: {fileID: 210567535}
-  - component: {fileID: 210567533}
   - component: {fileID: 210567543}
   - component: {fileID: 210567538}
   - component: {fileID: 210567534}
@@ -2291,7 +2214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &210567532
 Transform:
   m_ObjectHideFlags: 0
@@ -2306,19 +2229,6 @@ Transform:
   m_Father: {fileID: 1074065648}
   m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &210567533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210567531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!136 &210567534
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2347,10 +2257,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -2360,6 +2270,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &210567536
 SpriteRenderer:
@@ -2433,6 +2344,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &210567538
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2550,7 +2463,6 @@ GameObject:
   - component: {fileID: 218233605}
   - component: {fileID: 218233604}
   - component: {fileID: 218233603}
-  - component: {fileID: 218233610}
   - component: {fileID: 218233612}
   - component: {fileID: 218233606}
   - component: {fileID: 218233602}
@@ -2560,7 +2472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &218233601
 Transform:
   m_ObjectHideFlags: 0
@@ -2603,10 +2515,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -2616,6 +2528,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &218233604
 SpriteRenderer:
@@ -2689,6 +2602,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &218233606
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2778,19 +2693,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &218233610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218233600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &218233612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2819,7 +2721,6 @@ GameObject:
   - component: {fileID: 285264607}
   - component: {fileID: 285264606}
   - component: {fileID: 285264605}
-  - component: {fileID: 285264612}
   - component: {fileID: 285264614}
   - component: {fileID: 285264608}
   - component: {fileID: 285264604}
@@ -2829,7 +2730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &285264603
 Transform:
   m_ObjectHideFlags: 0
@@ -2872,10 +2773,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -2885,6 +2786,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &285264606
 SpriteRenderer:
@@ -2958,6 +2860,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &285264608
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3047,19 +2951,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &285264612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285264602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &285264614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3088,7 +2979,6 @@ GameObject:
   - component: {fileID: 287236973}
   - component: {fileID: 287236972}
   - component: {fileID: 287236971}
-  - component: {fileID: 287236978}
   - component: {fileID: 287236980}
   - component: {fileID: 287236974}
   - component: {fileID: 287236970}
@@ -3098,7 +2988,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &287236969
 Transform:
   m_ObjectHideFlags: 0
@@ -3141,10 +3031,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -3154,6 +3044,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &287236972
 SpriteRenderer:
@@ -3227,6 +3118,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &287236974
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3316,19 +3209,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &287236978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287236968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &287236980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3357,7 +3237,6 @@ GameObject:
   - component: {fileID: 292207993}
   - component: {fileID: 292207992}
   - component: {fileID: 292207991}
-  - component: {fileID: 292207989}
   - component: {fileID: 292207999}
   - component: {fileID: 292207994}
   - component: {fileID: 292207990}
@@ -3367,7 +3246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &292207988
 Transform:
   m_ObjectHideFlags: 0
@@ -3382,19 +3261,6 @@ Transform:
   m_Father: {fileID: 1074065648}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &292207989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292207987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!136 &292207990
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3423,10 +3289,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -3436,6 +3302,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &292207992
 SpriteRenderer:
@@ -3509,6 +3376,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &292207994
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3626,7 +3495,6 @@ GameObject:
   - component: {fileID: 297537866}
   - component: {fileID: 297537865}
   - component: {fileID: 297537864}
-  - component: {fileID: 297537871}
   - component: {fileID: 297537873}
   - component: {fileID: 297537867}
   - component: {fileID: 297537863}
@@ -3636,7 +3504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &297537862
 Transform:
   m_ObjectHideFlags: 0
@@ -3679,10 +3547,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -3692,6 +3560,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &297537865
 SpriteRenderer:
@@ -3765,6 +3634,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &297537867
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3854,19 +3725,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &297537871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297537861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &297537873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3895,7 +3753,6 @@ GameObject:
   - component: {fileID: 353067904}
   - component: {fileID: 353067903}
   - component: {fileID: 353067902}
-  - component: {fileID: 353067909}
   - component: {fileID: 353067911}
   - component: {fileID: 353067905}
   - component: {fileID: 353067901}
@@ -3905,7 +3762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &353067900
 Transform:
   m_ObjectHideFlags: 0
@@ -3948,10 +3805,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -3961,6 +3818,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &353067903
 SpriteRenderer:
@@ -4034,6 +3892,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &353067905
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4123,19 +3983,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &353067909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353067899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &353067911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4164,7 +4011,6 @@ GameObject:
   - component: {fileID: 403268376}
   - component: {fileID: 403268375}
   - component: {fileID: 403268374}
-  - component: {fileID: 403268372}
   - component: {fileID: 403268382}
   - component: {fileID: 403268377}
   - component: {fileID: 403268373}
@@ -4174,7 +4020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &403268371
 Transform:
   m_ObjectHideFlags: 0
@@ -4189,19 +4035,6 @@ Transform:
   m_Father: {fileID: 1074065648}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &403268372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 403268370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!136 &403268373
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4230,10 +4063,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -4243,6 +4076,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &403268375
 SpriteRenderer:
@@ -4316,6 +4150,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &403268377
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4476,7 +4312,6 @@ GameObject:
   - component: {fileID: 491991545}
   - component: {fileID: 491991544}
   - component: {fileID: 491991543}
-  - component: {fileID: 491991550}
   - component: {fileID: 491991552}
   - component: {fileID: 491991546}
   - component: {fileID: 491991542}
@@ -4486,7 +4321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &491991541
 Transform:
   m_ObjectHideFlags: 0
@@ -4529,10 +4364,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -4542,6 +4377,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &491991544
 SpriteRenderer:
@@ -4615,6 +4451,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &491991546
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4704,19 +4542,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &491991550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491991540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &491991552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4828,7 +4653,6 @@ GameObject:
   - component: {fileID: 547290513}
   - component: {fileID: 547290512}
   - component: {fileID: 547290511}
-  - component: {fileID: 547290518}
   - component: {fileID: 547290520}
   - component: {fileID: 547290514}
   - component: {fileID: 547290510}
@@ -4838,7 +4662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &547290509
 Transform:
   m_ObjectHideFlags: 0
@@ -4881,10 +4705,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -4894,6 +4718,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &547290512
 SpriteRenderer:
@@ -4967,6 +4792,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &547290514
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5056,19 +4883,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &547290518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547290508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &547290520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5176,7 +4990,6 @@ GameObject:
   - component: {fileID: 607964768}
   - component: {fileID: 607964767}
   - component: {fileID: 607964766}
-  - component: {fileID: 607964773}
   - component: {fileID: 607964775}
   - component: {fileID: 607964769}
   - component: {fileID: 607964765}
@@ -5186,7 +4999,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &607964764
 Transform:
   m_ObjectHideFlags: 0
@@ -5229,10 +5042,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -5242,6 +5055,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &607964767
 SpriteRenderer:
@@ -5315,6 +5129,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &607964769
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5404,19 +5220,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &607964773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607964763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &607964775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5445,7 +5248,6 @@ GameObject:
   - component: {fileID: 648989131}
   - component: {fileID: 648989130}
   - component: {fileID: 648989129}
-  - component: {fileID: 648989136}
   - component: {fileID: 648989138}
   - component: {fileID: 648989132}
   - component: {fileID: 648989128}
@@ -5455,7 +5257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &648989127
 Transform:
   m_ObjectHideFlags: 0
@@ -5498,10 +5300,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -5511,6 +5313,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &648989130
 SpriteRenderer:
@@ -5584,6 +5387,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &648989132
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5673,19 +5478,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &648989136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648989126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &648989138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5714,7 +5506,6 @@ GameObject:
   - component: {fileID: 662750045}
   - component: {fileID: 662750044}
   - component: {fileID: 662750043}
-  - component: {fileID: 662750041}
   - component: {fileID: 662750051}
   - component: {fileID: 662750046}
   - component: {fileID: 662750042}
@@ -5724,7 +5515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &662750040
 Transform:
   m_ObjectHideFlags: 0
@@ -5739,19 +5530,6 @@ Transform:
   m_Father: {fileID: 1074065648}
   m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &662750041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662750039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!136 &662750042
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5780,10 +5558,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -5793,6 +5571,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &662750044
 SpriteRenderer:
@@ -5866,6 +5645,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &662750046
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5983,7 +5764,6 @@ GameObject:
   - component: {fileID: 746513697}
   - component: {fileID: 746513696}
   - component: {fileID: 746513695}
-  - component: {fileID: 746513702}
   - component: {fileID: 746513704}
   - component: {fileID: 746513698}
   - component: {fileID: 746513694}
@@ -5993,7 +5773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &746513693
 Transform:
   m_ObjectHideFlags: 0
@@ -6036,10 +5816,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -6049,6 +5829,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &746513696
 SpriteRenderer:
@@ -6122,6 +5903,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &746513698
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6211,19 +5994,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &746513702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746513692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &746513704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6252,7 +6022,6 @@ GameObject:
   - component: {fileID: 893205621}
   - component: {fileID: 893205620}
   - component: {fileID: 893205619}
-  - component: {fileID: 893205626}
   - component: {fileID: 893205628}
   - component: {fileID: 893205622}
   - component: {fileID: 893205618}
@@ -6262,7 +6031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &893205617
 Transform:
   m_ObjectHideFlags: 0
@@ -6305,10 +6074,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -6318,6 +6087,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &893205620
 SpriteRenderer:
@@ -6391,6 +6161,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &893205622
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6480,19 +6252,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &893205626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893205616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &893205628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6521,7 +6280,6 @@ GameObject:
   - component: {fileID: 969169588}
   - component: {fileID: 969169587}
   - component: {fileID: 969169586}
-  - component: {fileID: 969169593}
   - component: {fileID: 969169595}
   - component: {fileID: 969169589}
   - component: {fileID: 969169585}
@@ -6531,7 +6289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &969169584
 Transform:
   m_ObjectHideFlags: 0
@@ -6574,10 +6332,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -6587,6 +6345,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &969169587
 SpriteRenderer:
@@ -6660,6 +6419,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &969169589
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6749,19 +6510,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &969169593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969169583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &969169595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6790,7 +6538,6 @@ GameObject:
   - component: {fileID: 973698182}
   - component: {fileID: 973698181}
   - component: {fileID: 973698180}
-  - component: {fileID: 973698187}
   - component: {fileID: 973698189}
   - component: {fileID: 973698183}
   - component: {fileID: 973698179}
@@ -6800,7 +6547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &973698178
 Transform:
   m_ObjectHideFlags: 0
@@ -6843,10 +6590,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -6856,6 +6603,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &973698181
 SpriteRenderer:
@@ -6929,6 +6677,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &973698183
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7018,19 +6768,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &973698187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973698177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &973698189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7168,7 +6905,6 @@ GameObject:
   - component: {fileID: 1039986088}
   - component: {fileID: 1039986087}
   - component: {fileID: 1039986086}
-  - component: {fileID: 1039986093}
   - component: {fileID: 1039986095}
   - component: {fileID: 1039986089}
   - component: {fileID: 1039986085}
@@ -7178,7 +6914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1039986084
 Transform:
   m_ObjectHideFlags: 0
@@ -7221,10 +6957,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -7234,6 +6970,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1039986087
 SpriteRenderer:
@@ -7307,6 +7044,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1039986089
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7396,19 +7135,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1039986093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039986083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1039986095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7517,7 +7243,6 @@ GameObject:
   - component: {fileID: 1106703985}
   - component: {fileID: 1106703984}
   - component: {fileID: 1106703983}
-  - component: {fileID: 1106703990}
   - component: {fileID: 1106703992}
   - component: {fileID: 1106703986}
   - component: {fileID: 1106703982}
@@ -7527,7 +7252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1106703981
 Transform:
   m_ObjectHideFlags: 0
@@ -7570,10 +7295,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -7583,6 +7308,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1106703984
 SpriteRenderer:
@@ -7656,6 +7382,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1106703986
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7745,19 +7473,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1106703990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106703980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1106703992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7786,7 +7501,6 @@ GameObject:
   - component: {fileID: 1120506893}
   - component: {fileID: 1120506892}
   - component: {fileID: 1120506891}
-  - component: {fileID: 1120506898}
   - component: {fileID: 1120506900}
   - component: {fileID: 1120506894}
   - component: {fileID: 1120506890}
@@ -7796,7 +7510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1120506889
 Transform:
   m_ObjectHideFlags: 0
@@ -7839,10 +7553,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -7852,6 +7566,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1120506892
 SpriteRenderer:
@@ -7925,6 +7640,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1120506894
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8014,19 +7731,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1120506898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120506888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1120506900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8090,7 +7794,6 @@ GameObject:
   - component: {fileID: 1224776814}
   - component: {fileID: 1224776813}
   - component: {fileID: 1224776812}
-  - component: {fileID: 1224776810}
   - component: {fileID: 1224776820}
   - component: {fileID: 1224776815}
   - component: {fileID: 1224776811}
@@ -8100,7 +7803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1224776809
 Transform:
   m_ObjectHideFlags: 0
@@ -8115,19 +7818,6 @@ Transform:
   m_Father: {fileID: 1074065648}
   m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1224776810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224776808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!136 &1224776811
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8156,10 +7846,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -8169,6 +7859,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1224776813
 SpriteRenderer:
@@ -8242,6 +7933,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1224776815
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8375,7 +8068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAYIewZlKhFagIAAA8FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty4jAQ/BVK5yVlbAzx3nYdQvaQR4Vs5eKLkMZYhSy59AiQFP++kmxjh+WCanpm1N0z8hdiQjdAjFRrxeijpIB+TpA/ox+TAXyAI95JsWGf0Oe8M2oqn4RDzis2TLr4zJdpWYNRjPwSO+6TIxe0gpVS1Su6g1xqo124xFyDg5Q0vlq40NcEHd3fNPMlJ3eKl/706U5ZNDm7IwFhQA2pyU3mf3Gy7CqmURtJs/myK01nN4t0mcShgRWE47oB6tUMfWaLuGuwyEKecEK7FC+KSM6Z7lgic2qCCzlutHUaXQJl2KkO1Hx+BWxXGa9gXPxclhpMZ4nCpzumnHltV/Rbto7WWO9bYh+YW39PnC4Cp7bp43/4dBbgUsn6ob93Fvk7TMXI/hWfCNZmZPk4fPeduBUHzPd4y+G9AvEk10paQR1olPWlVkN8N2p10ZZXQPZDXsv1KmibwfF+xP2AvYhzkH/MOau3HrqZt4ENl8HwsBeg3Gj+OMZha3TXwkU9i78a3vBuvF4dcM+UNg7qZApPbyut8qloFUzzaqzJpRIQwh3pBgTm5vTi2pjrGV5ho2uvkHvsH1J3eYf17+OqJISH/Ci6gl7k4TItXcnDI+jq2RrOBAykPfDkfMqlEO2KjT3pyzZWlZiMynaW0e+7hbJtnCYpTRbZPLrFCZ5GlCzm2xmQ7fyWJHGKwvIx4XRi/tIS7exxUxNDc+EWrf++TNYKN2HdqcKHNfus5chyJkq5IQpAPLcdLsRBuUvcs6QrypxBGzCGiTBv9FUgLskeaHFpVASlq6NRuBi6FKhhH9L4SIHy8EEp0Bmd/wFQSwMEFAAACAgAABgh7MHZXaRtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTVUVBKL0osyCgGihiCOKWZKSB2tJJlkpGpsWmKsZmliYFFonGirkFKsplJkmFqcpKJRbKxkalSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAABgh7BmUqEVqAgAADwUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABgh7MHZXaRtAAAAeAAAAAkAJAAAAAAAAAAAAAAAtwIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABvAwAAAAA=
+    dataString: UEsDBBQAAAgIAAAYIeyrwlNyawIAABEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty4jAQ/BVK5yVlbAzx3nYdQvaQR4Vs5eKLkMZYhSy59AiQFP++kmyw4+WCqnumNT0z8hdiQjdAjFRrxeijpIB+TpA/ox+TnnyAI95JsWGfcIl5Z9RUPgiHmFdsmHT4zKdpWYNRjPwSO+6DIwdawUqp6hXdQS610Q4uMdfgKCWNzxYO+pqgo/ubZj7l5E7x0p8+3SmLJmd3JCAMqD40ucn8L06WXcY0apE0my+71HR2s0iXSRwErCAc1w1Q76bXmS3iTmCRhTjhjHYh3hSRnDPdVYnMqQldyHGjrfPoAijDznUozcdXwHaV8Q6Gyc9lqcF0LVH4dMeUa16rin7LtqM11vu2sA/Mrb8nThehplb08X9+2XorlawfLhfPIn+JqRjZv+ITwdoMej6E775XbsUB8z3ecnivQDzJtZJWUEcaZX2q1RDfDaSu5vIKyL6Pa4sdgbbpW36Z8WXC09nkfA7+jzln9dZTN/MW2HAZOh4WA5SbzR9XcVgb3Uk41FfxV8Mb3g33qyPumdLGUZ1N4cvbSqt8KFqFpnk31uRSCQhwV3QDAnNzenEyZjzEETe4dsTcY/+Suss77vJARikB7uOjaES9yMN1WrqSh0fQ1bM1nImhmGeeXKNyKUS7ZHrE+ryNVSUm0JvdWUa/bxfKtnGapDRZZPPoFid4GlGymG9nQLbzW5LEKQrbx4QzivlLW2nXHzc20YsLt2mXL8xkrXATFp4qfFizz1oOes5EKTdEAYjnVuFaOCh3iXuYdEWZ69AGjGEiDBx9FYhLsgdaXIWK4HR1NAoXvUqBGvYhjUcKlIdPSoHO6PwPUEsDBBQAAAgIAAAYIezB2V2kbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM01VFQSi9KLMgoBooYgjilmSkgdrSSZZKRqbFpirGZpYmBRaJxoq5BSrKZSZJhanKSiUWysZGpUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAYIeyrwlNyawIAABEFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAYIezB2V2kbQAAAHgAAAAJACQAAAAAAAAAAAAAALgCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAcAMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -8445,7 +8138,6 @@ GameObject:
   - component: {fileID: 1296917314}
   - component: {fileID: 1296917313}
   - component: {fileID: 1296917312}
-  - component: {fileID: 1296917319}
   - component: {fileID: 1296917321}
   - component: {fileID: 1296917315}
   - component: {fileID: 1296917311}
@@ -8455,7 +8147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1296917310
 Transform:
   m_ObjectHideFlags: 0
@@ -8498,10 +8190,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -8511,6 +8203,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1296917313
 SpriteRenderer:
@@ -8584,6 +8277,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1296917315
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8673,19 +8368,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1296917319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296917309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1296917321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8714,7 +8396,6 @@ GameObject:
   - component: {fileID: 1314279582}
   - component: {fileID: 1314279581}
   - component: {fileID: 1314279580}
-  - component: {fileID: 1314279578}
   - component: {fileID: 1314279588}
   - component: {fileID: 1314279583}
   - component: {fileID: 1314279579}
@@ -8724,7 +8405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1314279577
 Transform:
   m_ObjectHideFlags: 0
@@ -8739,19 +8420,6 @@ Transform:
   m_Father: {fileID: 1074065648}
   m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1314279578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314279576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!136 &1314279579
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8780,10 +8448,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -8793,6 +8461,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1314279581
 SpriteRenderer:
@@ -8866,6 +8535,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1314279583
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8983,7 +8654,6 @@ GameObject:
   - component: {fileID: 1423920528}
   - component: {fileID: 1423920527}
   - component: {fileID: 1423920526}
-  - component: {fileID: 1423920533}
   - component: {fileID: 1423920535}
   - component: {fileID: 1423920529}
   - component: {fileID: 1423920525}
@@ -8993,7 +8663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1423920524
 Transform:
   m_ObjectHideFlags: 0
@@ -9036,10 +8706,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -9049,6 +8719,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1423920527
 SpriteRenderer:
@@ -9122,6 +8793,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1423920529
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9211,19 +8884,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1423920533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423920523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1423920535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9270,6 +8930,7 @@ Transform:
   - {fileID: 1241784920}
   - {fileID: 1074065648}
   - {fileID: 1157680055}
+  - {fileID: 143848532}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9288,7 +8949,6 @@ GameObject:
   - component: {fileID: 1443595339}
   - component: {fileID: 1443595338}
   - component: {fileID: 1443595337}
-  - component: {fileID: 1443595344}
   - component: {fileID: 1443595346}
   - component: {fileID: 1443595340}
   - component: {fileID: 1443595336}
@@ -9298,7 +8958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1443595335
 Transform:
   m_ObjectHideFlags: 0
@@ -9341,10 +9001,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -9354,6 +9014,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1443595338
 SpriteRenderer:
@@ -9427,6 +9088,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1443595340
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9516,19 +9179,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1443595344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443595334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1443595346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9557,7 +9207,6 @@ GameObject:
   - component: {fileID: 1575226636}
   - component: {fileID: 1575226635}
   - component: {fileID: 1575226634}
-  - component: {fileID: 1575226641}
   - component: {fileID: 1575226643}
   - component: {fileID: 1575226637}
   - component: {fileID: 1575226633}
@@ -9567,7 +9216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1575226632
 Transform:
   m_ObjectHideFlags: 0
@@ -9610,10 +9259,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -9623,6 +9272,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1575226635
 SpriteRenderer:
@@ -9696,6 +9346,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1575226637
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9785,19 +9437,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1575226641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575226631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1575226643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9826,7 +9465,6 @@ GameObject:
   - component: {fileID: 1611529132}
   - component: {fileID: 1611529131}
   - component: {fileID: 1611529130}
-  - component: {fileID: 1611529128}
   - component: {fileID: 1611529138}
   - component: {fileID: 1611529133}
   - component: {fileID: 1611529129}
@@ -9836,7 +9474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1611529127
 Transform:
   m_ObjectHideFlags: 0
@@ -9851,19 +9489,6 @@ Transform:
   m_Father: {fileID: 1074065648}
   m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1611529128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611529126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!136 &1611529129
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9892,10 +9517,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -9905,6 +9530,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1611529131
 SpriteRenderer:
@@ -9978,6 +9604,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1611529133
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10095,7 +9723,6 @@ GameObject:
   - component: {fileID: 1647219280}
   - component: {fileID: 1647219279}
   - component: {fileID: 1647219278}
-  - component: {fileID: 1647219285}
   - component: {fileID: 1647219287}
   - component: {fileID: 1647219281}
   - component: {fileID: 1647219277}
@@ -10105,7 +9732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1647219276
 Transform:
   m_ObjectHideFlags: 0
@@ -10148,10 +9775,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -10161,6 +9788,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1647219279
 SpriteRenderer:
@@ -10234,6 +9862,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1647219281
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10323,19 +9953,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1647219285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647219275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1647219287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10364,7 +9981,6 @@ GameObject:
   - component: {fileID: 1658212017}
   - component: {fileID: 1658212016}
   - component: {fileID: 1658212015}
-  - component: {fileID: 1658212013}
   - component: {fileID: 1658212023}
   - component: {fileID: 1658212018}
   - component: {fileID: 1658212014}
@@ -10374,7 +9990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1658212012
 Transform:
   m_ObjectHideFlags: 0
@@ -10389,19 +10005,6 @@ Transform:
   m_Father: {fileID: 1074065648}
   m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1658212013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658212011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!136 &1658212014
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10430,10 +10033,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -10443,6 +10046,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1658212016
 SpriteRenderer:
@@ -10516,6 +10120,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1658212018
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10633,7 +10239,6 @@ GameObject:
   - component: {fileID: 1689533939}
   - component: {fileID: 1689533938}
   - component: {fileID: 1689533937}
-  - component: {fileID: 1689533944}
   - component: {fileID: 1689533946}
   - component: {fileID: 1689533940}
   - component: {fileID: 1689533936}
@@ -10643,7 +10248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1689533935
 Transform:
   m_ObjectHideFlags: 0
@@ -10686,10 +10291,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -10699,6 +10304,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1689533938
 SpriteRenderer:
@@ -10772,6 +10378,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1689533940
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10861,19 +10469,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1689533944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689533934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1689533946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10902,7 +10497,6 @@ GameObject:
   - component: {fileID: 1708296789}
   - component: {fileID: 1708296788}
   - component: {fileID: 1708296787}
-  - component: {fileID: 1708296794}
   - component: {fileID: 1708296796}
   - component: {fileID: 1708296790}
   - component: {fileID: 1708296786}
@@ -10912,7 +10506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1708296785
 Transform:
   m_ObjectHideFlags: 0
@@ -10955,10 +10549,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -10968,6 +10562,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1708296788
 SpriteRenderer:
@@ -11041,6 +10636,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1708296790
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11130,19 +10727,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1708296794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1708296784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1708296796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11171,7 +10755,6 @@ GameObject:
   - component: {fileID: 1731283856}
   - component: {fileID: 1731283855}
   - component: {fileID: 1731283854}
-  - component: {fileID: 1731283852}
   - component: {fileID: 1731283862}
   - component: {fileID: 1731283857}
   - component: {fileID: 1731283853}
@@ -11181,7 +10764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1731283851
 Transform:
   m_ObjectHideFlags: 0
@@ -11196,19 +10779,6 @@ Transform:
   m_Father: {fileID: 1074065648}
   m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1731283852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731283850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!136 &1731283853
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11237,10 +10807,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -11250,6 +10820,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1731283855
 SpriteRenderer:
@@ -11323,6 +10894,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1731283857
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11440,7 +11013,6 @@ GameObject:
   - component: {fileID: 1737057705}
   - component: {fileID: 1737057704}
   - component: {fileID: 1737057703}
-  - component: {fileID: 1737057701}
   - component: {fileID: 1737057711}
   - component: {fileID: 1737057706}
   - component: {fileID: 1737057702}
@@ -11450,7 +11022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1737057700
 Transform:
   m_ObjectHideFlags: 0
@@ -11465,19 +11037,6 @@ Transform:
   m_Father: {fileID: 1074065648}
   m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1737057701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1737057699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!136 &1737057702
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11506,10 +11065,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -11519,6 +11078,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1737057704
 SpriteRenderer:
@@ -11592,6 +11152,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1737057706
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11709,7 +11271,6 @@ GameObject:
   - component: {fileID: 1738391014}
   - component: {fileID: 1738391013}
   - component: {fileID: 1738391012}
-  - component: {fileID: 1738391019}
   - component: {fileID: 1738391021}
   - component: {fileID: 1738391015}
   - component: {fileID: 1738391011}
@@ -11719,7 +11280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1738391010
 Transform:
   m_ObjectHideFlags: 0
@@ -11762,10 +11323,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -11775,6 +11336,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1738391013
 SpriteRenderer:
@@ -11848,6 +11410,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1738391015
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11937,19 +11501,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1738391019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738391009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1738391021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11978,7 +11529,6 @@ GameObject:
   - component: {fileID: 1780684447}
   - component: {fileID: 1780684446}
   - component: {fileID: 1780684445}
-  - component: {fileID: 1780684443}
   - component: {fileID: 1780684453}
   - component: {fileID: 1780684448}
   - component: {fileID: 1780684444}
@@ -11988,7 +11538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1780684442
 Transform:
   m_ObjectHideFlags: 0
@@ -12003,19 +11553,6 @@ Transform:
   m_Father: {fileID: 1074065648}
   m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1780684443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1780684441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!136 &1780684444
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12044,10 +11581,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -12057,6 +11594,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1780684446
 SpriteRenderer:
@@ -12130,6 +11668,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1780684448
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12356,7 +11896,6 @@ GameObject:
   - component: {fileID: 1784752464}
   - component: {fileID: 1784752463}
   - component: {fileID: 1784752462}
-  - component: {fileID: 1784752469}
   - component: {fileID: 1784752471}
   - component: {fileID: 1784752465}
   - component: {fileID: 1784752461}
@@ -12366,7 +11905,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1784752460
 Transform:
   m_ObjectHideFlags: 0
@@ -12409,10 +11948,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -12422,6 +11961,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1784752463
 SpriteRenderer:
@@ -12495,6 +12035,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1784752465
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12584,19 +12126,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1784752469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784752459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1784752471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12858,7 +12387,6 @@ GameObject:
   - component: {fileID: 1797311784}
   - component: {fileID: 1797311783}
   - component: {fileID: 1797311782}
-  - component: {fileID: 1797311789}
   - component: {fileID: 1797311791}
   - component: {fileID: 1797311785}
   - component: {fileID: 1797311781}
@@ -12868,7 +12396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1797311780
 Transform:
   m_ObjectHideFlags: 0
@@ -12911,10 +12439,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -12924,6 +12452,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1797311783
 SpriteRenderer:
@@ -12997,6 +12526,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1797311785
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13086,19 +12617,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1797311789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797311779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1797311791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13127,7 +12645,6 @@ GameObject:
   - component: {fileID: 1821057862}
   - component: {fileID: 1821057861}
   - component: {fileID: 1821057860}
-  - component: {fileID: 1821057867}
   - component: {fileID: 1821057869}
   - component: {fileID: 1821057863}
   - component: {fileID: 1821057859}
@@ -13137,7 +12654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1821057858
 Transform:
   m_ObjectHideFlags: 0
@@ -13180,10 +12697,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -13193,6 +12710,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1821057861
 SpriteRenderer:
@@ -13266,6 +12784,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1821057863
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13355,19 +12875,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1821057867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1821057857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1821057869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13396,7 +12903,6 @@ GameObject:
   - component: {fileID: 1822215671}
   - component: {fileID: 1822215670}
   - component: {fileID: 1822215669}
-  - component: {fileID: 1822215667}
   - component: {fileID: 1822215677}
   - component: {fileID: 1822215672}
   - component: {fileID: 1822215668}
@@ -13406,7 +12912,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1822215666
 Transform:
   m_ObjectHideFlags: 0
@@ -13421,19 +12927,6 @@ Transform:
   m_Father: {fileID: 1074065648}
   m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1822215667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1822215665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!136 &1822215668
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13462,10 +12955,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -13475,6 +12968,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1822215670
 SpriteRenderer:
@@ -13548,6 +13042,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1822215672
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13665,7 +13161,6 @@ GameObject:
   - component: {fileID: 1872729455}
   - component: {fileID: 1872729454}
   - component: {fileID: 1872729453}
-  - component: {fileID: 1872729451}
   - component: {fileID: 1872729461}
   - component: {fileID: 1872729456}
   - component: {fileID: 1872729452}
@@ -13675,7 +13170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1872729450
 Transform:
   m_ObjectHideFlags: 0
@@ -13690,19 +13185,6 @@ Transform:
   m_Father: {fileID: 1074065648}
   m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1872729451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1872729449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!136 &1872729452
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13731,10 +13213,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -13744,6 +13226,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1872729454
 SpriteRenderer:
@@ -13817,6 +13300,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1872729456
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13934,7 +13419,6 @@ GameObject:
   - component: {fileID: 1924541886}
   - component: {fileID: 1924541885}
   - component: {fileID: 1924541884}
-  - component: {fileID: 1924541891}
   - component: {fileID: 1924541893}
   - component: {fileID: 1924541887}
   - component: {fileID: 1924541883}
@@ -13944,7 +13428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1924541882
 Transform:
   m_ObjectHideFlags: 0
@@ -13987,10 +13471,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -14000,6 +13484,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1924541885
 SpriteRenderer:
@@ -14073,6 +13558,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1924541887
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14162,19 +13649,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1924541891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1924541881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1924541893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14203,7 +13677,6 @@ GameObject:
   - component: {fileID: 1978559964}
   - component: {fileID: 1978559963}
   - component: {fileID: 1978559962}
-  - component: {fileID: 1978559969}
   - component: {fileID: 1978559971}
   - component: {fileID: 1978559965}
   - component: {fileID: 1978559961}
@@ -14213,7 +13686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1978559960
 Transform:
   m_ObjectHideFlags: 0
@@ -14256,10 +13729,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -14269,6 +13742,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &1978559963
 SpriteRenderer:
@@ -14342,6 +13816,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &1978559965
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14431,19 +13907,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1978559969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978559959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &1978559971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14581,7 +14044,6 @@ GameObject:
   - component: {fileID: 2143345580}
   - component: {fileID: 2143345579}
   - component: {fileID: 2143345578}
-  - component: {fileID: 2143345585}
   - component: {fileID: 2143345587}
   - component: {fileID: 2143345581}
   - component: {fileID: 2143345577}
@@ -14591,7 +14053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2143345576
 Transform:
   m_ObjectHideFlags: 0
@@ -14634,10 +14096,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smData:
     target: {fileID: 1788714982}
+    fight_distance: 5
+    vision_distance: 15
+    active_distance: 30
     defaultPos: {x: 0, y: 0, z: 0}
-    fight_distance: 10.6
-    vision_distance: 21.26
-    active_distance: 35.4
     aiMove: {fileID: 0}
   inactiveState:
     inactive_sleep_time: 0
@@ -14647,6 +14109,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!212 &2143345579
 SpriteRenderer:
@@ -14720,6 +14183,8 @@ MonoBehaviour:
   current_move_point: {x: 0, y: 0}
   path_length: 0
   distance_to_target: 0
+  draw_gizmos: 0
+  cur_speed: 0
 --- !u!54 &2143345581
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14809,19 +14274,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &2143345585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2143345575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5956728cdeb5cd418e056b0817443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 10
 --- !u!114 &2143345587
 MonoBehaviour:
   m_ObjectHideFlags: 0

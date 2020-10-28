@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RangerV;
+using UnityEditor;
 
 //сделано допущение, что логика храниться на компоненте в угоду сложности и объему кода
+[Component("AI/StateMachine")]
 public class StateMachineCmp : ComponentBase, ICustomAwake
 {
     StateBase previousState;
     StateBase currentState;
     //StateBase nextState;
 
+    [Header("Data")]
     public SMData smData;
 
     [Header("States")]
@@ -19,19 +22,22 @@ public class StateMachineCmp : ComponentBase, ICustomAwake
     public GoBackState goBackState;
     public IdleState idleState;
 
-    
-
     [Header("Debug")]
     public bool show_gizmos;
+    public bool show_gizmos_alternative;
     public string cur_state_name;
 
     public void OnAwake()
     {
-        inactiveState.Init(this);
-        findTargetState.Init(this);
-        fightState.Init(this);
-        goBackState.Init(this);
-        idleState.Init(this);
+        InitStates(new StateBase[]
+        {
+                inactiveState,
+                findTargetState,
+                fightState,
+                goBackState,
+                idleState
+        });
+
 
         smData.aiMove = Storage.GetComponent<AIMoveCmp>(entity);
         smData.defaultPos = transform.position;
@@ -64,6 +70,14 @@ public class StateMachineCmp : ComponentBase, ICustomAwake
         //nextState = null;
     }
 
+    void InitStates(StateBase[] states)
+    {
+        for (int i = 0; i < states.Length; i++)
+        {
+            states[i].Init(this);
+        }
+    }
+
     public void SetNewState(StateBase newState)
     {
         currentState.ExitState();
@@ -94,6 +108,12 @@ public class StateMachineCmp : ComponentBase, ICustomAwake
             Gizmos.color = new Color(0, 0, 1, 0.3f);
             Gizmos.DrawWireSphere(transform.position, smData.active_distance);
         }
+        if (show_gizmos_alternative)
+        {
+            HandlesExpansion.DrawZone(transform, 360, smData.fight_distance, new Color(1, 0, 0, 0.13f));
+            HandlesExpansion.DrawZone(transform, 360, smData.vision_distance, new Color(0, 0.7f, 0, 0.08f));
+            HandlesExpansion.DrawZone(transform, 360, smData.active_distance, new Color(0, 0, 0.5f, 0.06f));
+        }
     }
 }
 
@@ -102,7 +122,7 @@ public class StateMachineCmp : ComponentBase, ICustomAwake
 public class SMData
 {
     public Transform target;
-    public Vector3 defaultPos;
+
     [Min(0), Tooltip("на какой дистанции можно атаковать (красная область)")]
     public float fight_distance;
     [Min(0), Tooltip("на какой дистанции можно идти к цели (зеленая область)")]
@@ -110,5 +130,8 @@ public class SMData
     [Min(0), Tooltip("на какой дистанции устанавливается неактивное состояние (синяя область)")]
     public float active_distance;
 
+    [HideInInspector]
+    public Vector3 defaultPos;
+    [HideInInspector]
     public AIMoveCmp aiMove;
 }

@@ -5,16 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class GoBackState : StateBase
 {
-
-
     public override void EnterState()
     {
         smData.aiMove.OnReached += OnReached;
         smData.aiMove.OnStop += OnStopped;
         smData.aiMove.SetTarget(smData.defaultPos);
         smData.aiMove.moveMode = AIMoveMode.GoToTarget;
-
-        //Debug.Log("Enter GoBackState");
     }
 
     public override void StateUpdate()
@@ -31,8 +27,6 @@ public class GoBackState : StateBase
     {
         smData.aiMove.OnReached -= OnReached;
         smData.aiMove.OnStop -= OnStopped;
-
-        //Debug.Log("Exit GoBackState");
     }
 
 

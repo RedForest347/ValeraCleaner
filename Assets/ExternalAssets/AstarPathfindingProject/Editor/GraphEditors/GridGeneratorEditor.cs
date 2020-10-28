@@ -464,7 +464,7 @@ namespace Pathfinding {
 					collision.collisionOffset = EditorGUILayout.FloatField(new GUIContent("Offset", "Offset upwards from the node. Can be used so that obstacles can be used as ground and at the same time as obstacles for lower positioned nodes"), collision.collisionOffset);
 				}
 
-				collision.mask = EditorGUILayoutx.LayerMaskField("Obstacle Layer Mask", collision.mask);
+				collision.mask = EditorGUILayoutx.LayerMaskField("Obstacle Layer Mask (что есть препятствие)", collision.mask);
 			}
 
 			GUILayout.Space(2);
@@ -478,7 +478,7 @@ namespace Pathfinding {
 				if (collision.heightCheck) {
 					collision.fromHeight = EditorGUILayout.FloatField(new GUIContent("Ray length", "The height from which to check for ground"), collision.fromHeight);
 
-					collision.heightMask = EditorGUILayoutx.LayerMaskField("Mask", collision.heightMask);
+					collision.heightMask = EditorGUILayoutx.LayerMaskField("Mask (на что реагирует)", collision.heightMask);
 
 					collision.thickRaycast = EditorGUILayout.Toggle(new GUIContent("Thick Raycast", "Use a thick line instead of a thin line"), collision.thickRaycast);
 

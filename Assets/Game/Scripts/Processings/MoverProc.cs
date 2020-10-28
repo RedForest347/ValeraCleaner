@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class MoverProc : ProcessingBase, ICustomFixedUpdate
 {
-    Group MoveGroup = Group.Create(new ComponentsList<MoverCmp, Physics2DCmp>());
+    Group MoveGroup = Group.Create(new ComponentsList<MoverCmp, PhysicsCmp>());
 
     public void CustomFixedUpdate()
     {
@@ -20,7 +20,7 @@ public class MoverProc : ProcessingBase, ICustomFixedUpdate
     {
         MoverCmp moverCmp = Storage.GetComponent<MoverCmp>(entity);
 
-        Rigidbody2D rb = Storage.GetComponent<Physics2DCmp>(entity).Rigidbody;
+        Rigidbody rb = Storage.GetComponent<PhysicsCmp>(entity).Rigidbody;
         rb.AddForce(moverCmp.Direction * moverCmp.Acceleration);
         moverCmp.ResetDirection();
 

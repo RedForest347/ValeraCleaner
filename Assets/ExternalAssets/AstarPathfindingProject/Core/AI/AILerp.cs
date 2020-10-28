@@ -290,6 +290,11 @@ namespace Pathfinding
             return path;
         }
 
+        public void ResetPathCustom()
+        {
+            path = null;
+        }
+
         /// <summary>Only when the previous path has been returned should a search for a new path be done</summary>
         protected bool canSearchAgain = true;
 

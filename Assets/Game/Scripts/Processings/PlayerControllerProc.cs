@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerControllerProc : ProcessingBase, ICustomUpdate, ICustomFixedUpdate
 {
-    Group MoveGroup = Group.Create(new ComponentsList<PlayerControllerCmp, MoverCmp, Physics2DCmp>());
+    Group MoveGroup = Group.Create(new ComponentsList<PlayerControllerCmp, MoverCmp, PhysicsCmp>());
     //Group ShootGroup = Group.Create(new ComponentsList<GunControllerCmp>());
 
     public void CustomUpdate()

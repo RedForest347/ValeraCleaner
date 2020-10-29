@@ -10,15 +10,15 @@ using System;
 public class AIMoveCmp : ComponentBase, ICustomAwake
 {
     public Vector3 target;// { get; private set; }
-    [Tooltip("если истина, то конечная точка маршрута считается Target, иначе центр клетки графа")]
-    public bool end_point_is_target;
+    //[Tooltip("если истина, то конечная точка маршрута считается Target, иначе центр клетки графа")]
+    //public bool end_point_is_target;
 
     [Min(0)]
     public float acceleration = 100;
     [Min(0)]
     public float max_speed = 2f;
-    //[Min(0), Tooltip("дистанция до точки пути, при котором идет переход к следующей точке пути")]
-    //public float nearby_distance; // дистанция, при которой считается что путь пройден. используется для AIMoveProc. 
+    [Min(0), Tooltip("дистанция до точки пути, при котором идет переход к следующей точке пути")]
+    public float nearby_distance; // дистанция, при которой считается что путь пройден. используется для AIMoveProc. 
                                     // проверку на то, рядом ли цель в превую очередь следует осуществлять в Proc, State и из иных мест
                                     // данная поле показывает то, что путь исчерпан, идти дальше некуда, 
                                     // и пора сообщить об этом через вызов OnReached (пока не используется)

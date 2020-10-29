@@ -8,19 +8,13 @@ public class MoverCmp : ComponentBase
     public float Acceleration;
     public float MaxSpeed;
 
-    //[HideInInspector]
     Vector2 direction;
-    public Vector2 Direction
-    {
-        get
-        {
-            return direction;
-        }
-    }
+    public Vector2 Direction { get => direction; }
 
     public void AddDirection(Vector2 dir)
     {
         direction += dir.normalized;
+        direction = direction.normalized;
     }
     
     

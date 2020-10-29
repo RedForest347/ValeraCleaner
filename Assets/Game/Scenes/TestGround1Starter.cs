@@ -18,6 +18,7 @@ public class TestGround1Starter : Starter
         GlobalSystemStorage.Add<CameraFollowProc>();
 
         GlobalSystemStorage.Add<AIMoveProc>();
+        GlobalSystemStorage.Add<StateMachineProc>();
 
 
     }

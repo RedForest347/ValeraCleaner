@@ -14,7 +14,7 @@ using Pathfinding;
 /// </summary>
 public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
 {
-    Group AIMoveGroup = Group.Create(new ComponentsList<AIMoveCmp>());
+    Group AIMoveGroup = Group.Create(new ComponentsList<AIMoveCmp, MoverCmp>());
 
     public void OnStart()
     {
@@ -37,6 +37,7 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
     void CustomMoveToTarget(int ai)
     {
         AIMoveCmp aiMove = Storage.GetComponent<AIMoveCmp>(ai);
+        MoverCmp mover = Storage.GetComponent<MoverCmp>(ai);
 
         if (aiMove.moveMode == AIMoveMode.GoToTarget)
         {
@@ -54,7 +55,9 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
             }
 
             FindCurrentMovePoint(aiMove);
-            AddForce(aiMove);
+            AddForce(aiMove, mover);
+            //mover.AddDirection();
+
             DebugPath(aiMove);
         }
         else if (aiMove.moveMode == AIMoveMode.Stopping)
@@ -99,14 +102,14 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
         }
     }
 
-    void AddForce(AIMoveCmp aiMove)
+    void AddForce(AIMoveCmp aiMove, MoverCmp mover)
     {
         Vector3 target_pos = aiMove.current_move_point;
-
-        aiMove.rb.AddForce(((Vector2)(target_pos - aiMove.transform.position)).normalized * aiMove.acceleration);
+        mover.AddDirection(target_pos - aiMove.transform.position);
+        /*aiMove.rb.AddForce(((Vector2)(target_pos - aiMove.transform.position)).normalized * aiMove.acceleration);
 
         if (aiMove.rb.velocity.magnitude > aiMove.max_speed)
-            aiMove.rb.velocity = aiMove.rb.velocity.normalized * aiMove.max_speed;
+            aiMove.rb.velocity = aiMove.rb.velocity.normalized * aiMove.max_speed;*/
     }
 
     void DebugPath(AIMoveCmp aiMove)
@@ -143,7 +146,7 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
         List<GraphNode> path = aiMove.aILerp.GetPathCustom().path;
         //Vector2 fin = (Vector3)path[path.Count - 1].position;
         Vector2 fin = aiMove.target;
-        Debug.Log("start =" + start + " fin = " + fin);
+        //Debug.Log("start =" + start + " fin = " + fin);
 
         aiMove.distance_to_target = (start - fin).magnitude; //debug
 

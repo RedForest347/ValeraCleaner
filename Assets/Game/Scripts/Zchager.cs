@@ -25,6 +25,8 @@ public class Zchager : MonoBehaviour
         gameObject.transform.SetPositionAndRotation(
             new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, (gameObject.transform.position.y - height) * 0.0001f),
             gameObject.transform.rotation);
+
+        //new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -height * 0.0001f),
     }
-    
+
 }

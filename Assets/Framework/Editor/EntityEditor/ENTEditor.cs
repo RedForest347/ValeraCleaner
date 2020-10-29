@@ -40,7 +40,7 @@ namespace RangerV
             EditorGUILayout.BeginVertical(GUIEditorSettings.box_1_0);
             {
                 EditorGUILayout.BeginVertical(GUIEditorSettings.box_1_1);
-                EditorGUILayout.LabelField("ETITY:    " + selected_object.entity.ToString() + "    '" + selected_object.gameObject.name + "'", GUIEditorSettings.headerLabel);
+                EditorGUILayout.LabelField("ENTITY:    " + selected_object.entity.ToString() + "    '" + selected_object.gameObject.name + "'", GUIEditorSettings.headerLabel);
                 EditorGUILayout.EndVertical();
                 EditorGUILayout.Separator();
 

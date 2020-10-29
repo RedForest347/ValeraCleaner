@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class InactiveState : StateBase
 {
-    [Tooltip("раз во сколько кадров работает логика"), Min(0)]
+    [Tooltip("раз во сколько кадров совершается проверка на нахождение цели в области реагирования"), Min(0)]
     public int inactive_sleep_time;
     int cur_frame;
 

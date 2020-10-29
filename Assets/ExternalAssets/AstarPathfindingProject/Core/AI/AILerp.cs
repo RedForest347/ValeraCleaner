@@ -48,10 +48,10 @@ namespace Pathfinding
         public float repathRate = 0.5F;
 
         /// <summary>\copydoc Pathfinding::IAstarAI::canSearch</summary>
-        public bool canSearch = true;
+        public bool canSearch = false;
 
         /// <summary>\copydoc Pathfinding::IAstarAI::canMove</summary>
-        public bool canMove = true;
+        public bool canMove = false;
 
         /// <summary>Speed in world units</summary>
         public float speed = 3;
@@ -284,6 +284,8 @@ namespace Pathfinding
 
         /// <summary>Current path which is followed</summary>
         protected ABPath path;
+
+        public ABPath Path { get => path; }
 
         public ABPath GetPathCustom()
         {

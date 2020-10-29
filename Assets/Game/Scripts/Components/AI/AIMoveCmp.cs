@@ -9,17 +9,19 @@ using System;
 [Component("AI/AIMove")]
 public class AIMoveCmp : ComponentBase, ICustomAwake
 {
-    //public Transform target;
     public Vector3 target;// { get; private set; }
+    [Tooltip("если истина, то конечная точка маршрута считается Target, иначе центр клетки графа")]
+    public bool end_point_is_target;
 
     [Min(0)]
     public float acceleration = 100;
     [Min(0)]
     public float max_speed = 2f;
-    [Min(0)]
-    public float nearby_distance; // дистанция, при которой считается что путь пройден. используется для AIMoveProc. 
-                                  // проверку на то, рядом ли цель в превую очередь следует осуществлять в Proc, State и из иных мест
-                                  // данная поле показывает то, что путь исчерпан, идти дальше некуда, и пора сообщить об этом через вызов OnReached
+    //[Min(0), Tooltip("дистанция до точки пути, при котором идет переход к следующей точке пути")]
+    //public float nearby_distance; // дистанция, при которой считается что путь пройден. используется для AIMoveProc. 
+                                    // проверку на то, рядом ли цель в превую очередь следует осуществлять в Proc, State и из иных мест
+                                    // данная поле показывает то, что путь исчерпан, идти дальше некуда, 
+                                    // и пора сообщить об этом через вызов OnReached (пока не используется)
     public AIMoveMode moveMode;
 
     public Action<int> OnReached; // вошел в зону цели
@@ -29,18 +31,15 @@ public class AIMoveCmp : ComponentBase, ICustomAwake
     public AILerp aILerp;
 
     [HideInInspector]
-    //public Rigidbody2D rb;
     public Rigidbody rb;
 
     [HideInInspector]
     public Vector2 current_move_point;
 
-    [HideInInspector]
+    [Header("Debug")]
     public int path_length;
 
-    //[HideInInspector]
     bool _finished;
-    //public bool can_move;
 
     public bool finished
     {
@@ -77,7 +76,6 @@ public class AIMoveCmp : ComponentBase, ICustomAwake
     public void SetTarget(Vector3 target)
     {
         this.target = target;
-        //aILerp.ResetPathCustom();
     }
 
 

@@ -7,17 +7,11 @@ using Pathfinding;
 
 /// <summary>
 /// как пользоваться:
-///     просто вешаешь на Entuty компонент AIMoveCmp (остальное вешается само)
+///     просто вешаешь на Entity компонент AIMoveCmp, Rigitbody (остальное вешается само)
 ///     добавляешь данный процессинг в стартер
 ///     на сцене должен быть Pathfinder (класс называется AstarPath, но имя компонента изменено 
 ///     для инспектора и в инспекторе оно будет именно Pathfinder), причем только один
 /// </summary>
-/// 
-/// <optimization>
-/// обновлять путь только при перестроении карты проходимости (даст внушительный прирост)
-/// проходить по ограниченному количеству сущностей за кадр (1- 30, следующий кадр 31 -60, 61 - 25 и т.д.)
-/// </optimization>
-
 public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
 {
     Group AIMoveGroup = Group.Create(new ComponentsList<AIMoveCmp>());
@@ -32,7 +26,6 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
 
     public void CustomFixedUpdate()
     {
-        //Debug.Log("AIMoveGroup.entities_count = " + AIMoveGroup.entities_count);
         foreach (int AI in AIMoveGroup)
         {
             CustomMoveToTarget(AI);
@@ -51,27 +44,18 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
 
             if (!EverythingIsFine(aiMove))
             {
-                Debug.Log("not fine");
                 return;
             }
 
-            if (CheckNearby(aiMove))
+            if (IsNearby(aiMove))
             {
-                //Debug.Log("Nearby");
                 aiMove.finished = true;
-                //StopAtTheTarget(aiMove);
-                Debug.Log("CheckNearby");
                 return;
             }
-
-
 
             FindCurrentMovePoint(aiMove);
             AddForce(aiMove);
-            //if (aiMove.draw_gizmos)
-            //{
-                DebugPath(aiMove);
-            //}
+            DebugPath(aiMove);
         }
         else if (aiMove.moveMode == AIMoveMode.Stopping)
         {
@@ -81,32 +65,13 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
 
     void SearchNewPath(AIMoveCmp aiMove)
     {
-        /*if (aiMove.target == null)
-            return;*/
-        Debug.Log("SearchNewPath");
         aiMove.aILerp.SearchNewPathCustom(aiMove.target);
     }
 
-    bool CheckNearby(AIMoveCmp aiMove)
-    {
-        return IsNearby(aiMove);
-
-        /*aiMove.finished = IsNearby(aiMove);
-        return aiMove.finished;*/
-    }
-
-
     bool EverythingIsFine(AIMoveCmp aiMove)
     {
-        /*if (aiMove.target == null)
-        {
-            //Debug.LogWarning("target not assign");
-            return false;
-        }*/
-
         if (aiMove.aILerp.GetPathCustom() == null)
         {
-            //Debug.LogWarning("GetPathCustom() == null");
             return false;
         }
 
@@ -115,19 +80,20 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
 
     void FindCurrentMovePoint(AIMoveCmp aiMove)
     {
-        List<GraphNode> path = aiMove.aILerp.GetPathCustom().path;
-        aiMove.path_length = path.Count;
+        List<GraphNode> path = aiMove.aILerp.Path.path;
+        int path_length = path.Count;
+        aiMove.path_length = path_length;
         aiMove.finished = false;
 
-        if (aiMove.path_length > 1)
+        if (path_length > 1)
         {
             aiMove.current_move_point = (Vector3)path[1].position;
         }
-        else if (aiMove.path_length == 1)
+        else if (path_length == 1)
         {
-            aiMove.current_move_point = (Vector3)path[0].position;
+            aiMove.current_move_point = aiMove.target;
         }
-        else if (aiMove.path_length == 0)
+        else if (path_length == 0)
         {
             Debug.LogError("длинна найденного пути ноль");
         }
@@ -137,9 +103,6 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
     {
         Vector3 target_pos = aiMove.current_move_point;
 
-        //Debug.Log("normalized = " + ((Vector2)(target_pos - aiMove.transform.position)).normalized + " aiMove.acceleration = " + aiMove.acceleration);
-        //Debug.Log("acceleration = " + (((Vector2)(target_pos - aiMove.transform.position)).normalized * aiMove.acceleration));
-        //Debug.Log("AddForce " + (((Vector2)(target_pos - aiMove.transform.position)).normalized * aiMove.acceleration));
         aiMove.rb.AddForce(((Vector2)(target_pos - aiMove.transform.position)).normalized * aiMove.acceleration);
 
         if (aiMove.rb.velocity.magnitude > aiMove.max_speed)
@@ -174,43 +137,17 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
         }
     }
 
-
-
-    //float previous_distance;
     bool IsNearby(AIMoveCmp aiMove)
     {
         Vector2 start = aiMove.transform.position;
         List<GraphNode> path = aiMove.aILerp.GetPathCustom().path;
-        Vector2 fin = (Vector3)path[path.Count - 1].position;
+        //Vector2 fin = (Vector3)path[path.Count - 1].position;
+        Vector2 fin = aiMove.target;
+        Debug.Log("start =" + start + " fin = " + fin);
 
         aiMove.distance_to_target = (start - fin).magnitude; //debug
 
-        //Debug.Log("start = " + start + " fin = " + fin + " target = " + aiMove.target);
         return (start - fin).magnitude < aiMove.nearby_distance;
-
-
-        /*
-          if ((start - fin).magnitude < aiMove.nearby_distance)
-            if (InLineOfSight(aiMove, start, fin))
-                return true;
-        return false;
-         */
-
     }
 
-
-    /*bool InLineOfSight(AIMoveCmp aiMove, Vector2 RayStart, Vector2 RayFin) // в зоне прямой видимости. дописать
-    {
-        RaycastHit2D[] raycast = Physics2D.RaycastAll(RayStart, RayFin - RayStart, aiMove.nearby_distance);
-
-        bool _out = raycast.collider.gameObject == aiMove.target.gameObject;
-        Debug.Log("out = " + _out + " collider = " + raycast.collider.gameObject + " target = " + aiMove.target.gameObject);
-        return _out;
-    }*/
 }
-
-/*public enum NearbyState
-{
-    nearby,
-    not_nearby
-}*/

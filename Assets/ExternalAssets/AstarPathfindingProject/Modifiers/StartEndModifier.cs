@@ -69,7 +69,8 @@ namespace Pathfinding {
 			SnapToNode,
 			/// <summary>
 			/// The point is set to the exact point which was passed when creating the path request.
-			/// Note that if a path was for example requested to a point inside an obstacle, then the last point of the path will be inside that obstacle, which is usually not what you want.
+			/// Note that if a path was for example requested to a point inside an obstacle, then the 
+			/// last point of the path will be inside that obstacle, which is usually not what you want.
 			/// Consider using the <see cref="ClosestOnNode"/> option instead.
 			///
 			/// [Open online documentation to see images]
@@ -84,7 +85,9 @@ namespace Pathfinding {
 			/// </summary>
 			Interpolate,
 			/// <summary>
-			/// The point is set to the closest point on the surface of the node. Note that some node types (point nodes) do not have a surface, so the "closest point" is simply the node's position which makes this identical to <see cref="Exactness.SnapToNode"/>.
+			/// The point is set to the closest point on the surface of the node. Note that some node 
+			/// types (point nodes) do not have a surface, so the "closest point" is simply the node's 
+			/// position which makes this identical to <see cref="Exactness.SnapToNode"/>.
 			/// This is the mode that you almost always want to use in a free movement 3D world.
 			/// [Open online documentation to see images]
 			/// </summary>
@@ -93,7 +96,9 @@ namespace Pathfinding {
 			/// The point is set to the closest point on one of the connections from the start/end node.
 			/// This mode may be useful in a grid based or point graph based world when using the AILerp script.
 			///
-			/// Note: If you are using this mode with a <see cref="Pathfinding.PointGraph"/> you probably also want to use the <see cref="Pathfinding.PointGraph.NodeDistanceMode Connection"/> for <see cref="Pathfinding.PointGraph.nearestNodeDistanceMode"/>.
+			/// Note: If you are using this mode with a <see cref="Pathfinding.PointGraph"/> you probably also 
+			/// want to use the <see cref="Pathfinding.PointGraph.NodeDistanceMode Connection"/> 
+			/// for <see cref="Pathfinding.PointGraph.nearestNodeDistanceMode"/>.
 			///
 			/// [Open online documentation to see images]
 			/// </summary>

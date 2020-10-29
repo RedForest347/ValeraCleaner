@@ -6,10 +6,10 @@ using UnityEngine;
 [System.Serializable]
 public class FindTargetState : StateBase
 {
-    public float pursued_time; // время преследования
+    [Min(0), Tooltip("время преследования, секунды")]
+    public float pursued_time;
     float cur_time;
 
-    
 
     public override void EnterState()
     {
@@ -34,6 +34,7 @@ public class FindTargetState : StateBase
         {
             stateMachine.SetNewState(stateMachine.fightState);
         }
+
         cur_time += Time.deltaTime;
     }
 

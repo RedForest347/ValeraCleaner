@@ -9,7 +9,7 @@ using UnityEngine.Events;
 
 public class InteractiveCmp : ComponentBase, ICustomAwake
 {
-    [Range(0, 40)]
+    [Min(0)]
     public float active_distance;
     [Range(0, 360)]
     public float active_angle;
@@ -42,7 +42,6 @@ public class InteractiveCmp : ComponentBase, ICustomAwake
 
     private void OnDrawGizmosSelected()
     {
-
         HandlesExpansion.DrawZone(transform, active_angle, angle_offset, active_distance, new Color(0.1f, 0.93f, 0.13f, 0.16f));
     }
 }

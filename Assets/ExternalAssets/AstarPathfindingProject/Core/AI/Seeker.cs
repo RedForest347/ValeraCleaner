@@ -27,7 +27,7 @@ namespace Pathfinding
         ///
         /// See: OnDrawGizmos
         /// </summary>
-        public bool drawGizmos = true;
+        public bool drawGizmos = false;
 
         /// <summary>
         /// Enables drawing of the non-postprocessed path using Gizmos.

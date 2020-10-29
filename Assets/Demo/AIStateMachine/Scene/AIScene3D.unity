@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 14559773}
   - component: {fileID: 14559772}
   - component: {fileID: 14559771}
-  - component: {fileID: 14559780}
   - component: {fileID: 14559774}
   - component: {fileID: 14559770}
   m_Layer: 0
@@ -190,7 +189,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -266,7 +265,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -274,8 +274,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &14559774
 Rigidbody:
@@ -329,12 +329,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -366,19 +366,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &14559780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14559768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &69162333
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +381,6 @@ GameObject:
   - component: {fileID: 69162338}
   - component: {fileID: 69162337}
   - component: {fileID: 69162336}
-  - component: {fileID: 69162345}
   - component: {fileID: 69162339}
   - component: {fileID: 69162335}
   m_Layer: 0
@@ -448,7 +434,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -524,7 +510,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -532,8 +519,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &69162339
 Rigidbody:
@@ -587,12 +574,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -624,19 +611,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &69162345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69162333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &89888295
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,7 +735,6 @@ GameObject:
   - component: {fileID: 108775602}
   - component: {fileID: 108775601}
   - component: {fileID: 108775600}
-  - component: {fileID: 108775608}
   - component: {fileID: 108775603}
   - component: {fileID: 108775599}
   m_Layer: 0
@@ -815,7 +788,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -891,7 +864,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -899,8 +873,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &108775603
 Rigidbody:
@@ -954,12 +928,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -991,19 +965,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &108775608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108775596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &118229221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,7 +980,6 @@ GameObject:
   - component: {fileID: 118229226}
   - component: {fileID: 118229225}
   - component: {fileID: 118229224}
-  - component: {fileID: 118229233}
   - component: {fileID: 118229227}
   - component: {fileID: 118229223}
   m_Layer: 0
@@ -1073,7 +1033,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -1149,7 +1109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -1157,8 +1118,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &118229227
 Rigidbody:
@@ -1212,12 +1173,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -1249,19 +1210,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &118229233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 118229221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &143848530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,7 +1269,6 @@ GameObject:
   - component: {fileID: 148411766}
   - component: {fileID: 148411765}
   - component: {fileID: 148411764}
-  - component: {fileID: 148411773}
   - component: {fileID: 148411767}
   - component: {fileID: 148411763}
   m_Layer: 0
@@ -1375,7 +1322,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -1451,7 +1398,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -1459,8 +1407,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &148411767
 Rigidbody:
@@ -1514,12 +1462,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -1551,19 +1499,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &148411773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148411761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &160383363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1516,6 @@ GameObject:
   - component: {fileID: 160383371}
   - component: {fileID: 160383372}
   - component: {fileID: 160383365}
-  - component: {fileID: 160383373}
   m_Layer: 0
   m_Name: Bug
   m_TagString: Untagged
@@ -1602,7 +1536,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -1610,9 +1545,9 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
-  cur_speed: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
+  cur_speed: 0.39
 --- !u!136 &160383365
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1663,12 +1598,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -1780,7 +1715,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -1791,7 +1726,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 3
   show_gizmos: 0
-  show_gizmos_alternative: 1
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!54 &160383372
 Rigidbody:
@@ -1809,20 +1744,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 56
   m_CollisionDetection: 1
---- !u!114 &160383373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160383363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1742228fb875848b6fe5d90d94d32a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Acceleration: 0
-  MaxSpeed: 0
 --- !u!1 &171748127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1838,7 +1759,6 @@ GameObject:
   - component: {fileID: 171748132}
   - component: {fileID: 171748131}
   - component: {fileID: 171748130}
-  - component: {fileID: 171748139}
   - component: {fileID: 171748133}
   - component: {fileID: 171748129}
   m_Layer: 0
@@ -1892,7 +1812,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -1968,7 +1888,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -1976,8 +1897,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &171748133
 Rigidbody:
@@ -2031,12 +1952,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -2068,19 +1989,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &171748139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 171748127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &206253943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,7 +2113,6 @@ GameObject:
   - component: {fileID: 210567537}
   - component: {fileID: 210567536}
   - component: {fileID: 210567535}
-  - component: {fileID: 210567543}
   - component: {fileID: 210567538}
   - component: {fileID: 210567534}
   m_Layer: 0
@@ -2259,7 +2166,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -2335,7 +2242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -2343,8 +2251,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &210567538
 Rigidbody:
@@ -2398,12 +2306,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -2435,19 +2343,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &210567543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210567531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &218233600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2463,7 +2358,6 @@ GameObject:
   - component: {fileID: 218233605}
   - component: {fileID: 218233604}
   - component: {fileID: 218233603}
-  - component: {fileID: 218233612}
   - component: {fileID: 218233606}
   - component: {fileID: 218233602}
   m_Layer: 0
@@ -2517,7 +2411,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -2593,7 +2487,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -2601,8 +2496,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &218233606
 Rigidbody:
@@ -2656,12 +2551,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -2693,19 +2588,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &218233612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218233600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &285264602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2721,7 +2603,6 @@ GameObject:
   - component: {fileID: 285264607}
   - component: {fileID: 285264606}
   - component: {fileID: 285264605}
-  - component: {fileID: 285264614}
   - component: {fileID: 285264608}
   - component: {fileID: 285264604}
   m_Layer: 0
@@ -2775,7 +2656,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -2851,7 +2732,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -2859,8 +2741,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &285264608
 Rigidbody:
@@ -2914,12 +2796,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -2951,19 +2833,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &285264614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285264602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &287236968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2979,7 +2848,6 @@ GameObject:
   - component: {fileID: 287236973}
   - component: {fileID: 287236972}
   - component: {fileID: 287236971}
-  - component: {fileID: 287236980}
   - component: {fileID: 287236974}
   - component: {fileID: 287236970}
   m_Layer: 0
@@ -3033,7 +2901,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -3109,7 +2977,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -3117,8 +2986,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &287236974
 Rigidbody:
@@ -3172,12 +3041,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -3209,19 +3078,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &287236980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287236968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &292207987
 GameObject:
   m_ObjectHideFlags: 0
@@ -3237,7 +3093,6 @@ GameObject:
   - component: {fileID: 292207993}
   - component: {fileID: 292207992}
   - component: {fileID: 292207991}
-  - component: {fileID: 292207999}
   - component: {fileID: 292207994}
   - component: {fileID: 292207990}
   m_Layer: 0
@@ -3291,7 +3146,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -3367,7 +3222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -3375,8 +3231,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &292207994
 Rigidbody:
@@ -3430,12 +3286,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -3467,19 +3323,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &292207999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292207987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &297537861
 GameObject:
   m_ObjectHideFlags: 0
@@ -3495,7 +3338,6 @@ GameObject:
   - component: {fileID: 297537866}
   - component: {fileID: 297537865}
   - component: {fileID: 297537864}
-  - component: {fileID: 297537873}
   - component: {fileID: 297537867}
   - component: {fileID: 297537863}
   m_Layer: 0
@@ -3549,7 +3391,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -3625,7 +3467,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -3633,8 +3476,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &297537867
 Rigidbody:
@@ -3688,12 +3531,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -3725,19 +3568,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &297537873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297537861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &353067899
 GameObject:
   m_ObjectHideFlags: 0
@@ -3753,7 +3583,6 @@ GameObject:
   - component: {fileID: 353067904}
   - component: {fileID: 353067903}
   - component: {fileID: 353067902}
-  - component: {fileID: 353067911}
   - component: {fileID: 353067905}
   - component: {fileID: 353067901}
   m_Layer: 0
@@ -3807,7 +3636,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -3883,7 +3712,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -3891,8 +3721,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &353067905
 Rigidbody:
@@ -3946,12 +3776,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -3983,19 +3813,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &353067911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353067899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &403268370
 GameObject:
   m_ObjectHideFlags: 0
@@ -4011,7 +3828,6 @@ GameObject:
   - component: {fileID: 403268376}
   - component: {fileID: 403268375}
   - component: {fileID: 403268374}
-  - component: {fileID: 403268382}
   - component: {fileID: 403268377}
   - component: {fileID: 403268373}
   m_Layer: 0
@@ -4065,7 +3881,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -4141,7 +3957,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -4149,8 +3966,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &403268377
 Rigidbody:
@@ -4204,12 +4021,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -4241,19 +4058,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &403268382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 403268370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &404824907
 GameObject:
   m_ObjectHideFlags: 0
@@ -4294,7 +4098,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 404824907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e62e1c0e3fa91eb48817cc7bbafb134e, type: 3}
+  m_Script: {fileID: 11500000, guid: a12aa8bf293f5b84aa3fcf0478104800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &491991540
@@ -4312,7 +4116,6 @@ GameObject:
   - component: {fileID: 491991545}
   - component: {fileID: 491991544}
   - component: {fileID: 491991543}
-  - component: {fileID: 491991552}
   - component: {fileID: 491991546}
   - component: {fileID: 491991542}
   m_Layer: 0
@@ -4366,7 +4169,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -4442,7 +4245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -4450,8 +4254,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &491991546
 Rigidbody:
@@ -4505,12 +4309,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -4542,19 +4346,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &491991552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491991540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &505051268
 GameObject:
   m_ObjectHideFlags: 0
@@ -4653,7 +4444,6 @@ GameObject:
   - component: {fileID: 547290513}
   - component: {fileID: 547290512}
   - component: {fileID: 547290511}
-  - component: {fileID: 547290520}
   - component: {fileID: 547290514}
   - component: {fileID: 547290510}
   m_Layer: 0
@@ -4707,7 +4497,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -4783,7 +4573,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -4791,8 +4582,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &547290514
 Rigidbody:
@@ -4846,12 +4637,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -4883,19 +4674,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &547290520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547290508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &591572624
 GameObject:
   m_ObjectHideFlags: 0
@@ -4990,7 +4768,6 @@ GameObject:
   - component: {fileID: 607964768}
   - component: {fileID: 607964767}
   - component: {fileID: 607964766}
-  - component: {fileID: 607964775}
   - component: {fileID: 607964769}
   - component: {fileID: 607964765}
   m_Layer: 0
@@ -5044,7 +4821,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -5120,7 +4897,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -5128,8 +4906,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &607964769
 Rigidbody:
@@ -5183,12 +4961,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -5220,19 +4998,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &607964775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607964763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &648989126
 GameObject:
   m_ObjectHideFlags: 0
@@ -5248,7 +5013,6 @@ GameObject:
   - component: {fileID: 648989131}
   - component: {fileID: 648989130}
   - component: {fileID: 648989129}
-  - component: {fileID: 648989138}
   - component: {fileID: 648989132}
   - component: {fileID: 648989128}
   m_Layer: 0
@@ -5302,7 +5066,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -5378,7 +5142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -5386,8 +5151,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &648989132
 Rigidbody:
@@ -5441,12 +5206,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -5478,19 +5243,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &648989138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648989126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &662750039
 GameObject:
   m_ObjectHideFlags: 0
@@ -5506,7 +5258,6 @@ GameObject:
   - component: {fileID: 662750045}
   - component: {fileID: 662750044}
   - component: {fileID: 662750043}
-  - component: {fileID: 662750051}
   - component: {fileID: 662750046}
   - component: {fileID: 662750042}
   m_Layer: 0
@@ -5560,7 +5311,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -5636,7 +5387,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -5644,8 +5396,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &662750046
 Rigidbody:
@@ -5699,12 +5451,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -5736,19 +5488,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &662750051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662750039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &746513692
 GameObject:
   m_ObjectHideFlags: 0
@@ -5764,7 +5503,6 @@ GameObject:
   - component: {fileID: 746513697}
   - component: {fileID: 746513696}
   - component: {fileID: 746513695}
-  - component: {fileID: 746513704}
   - component: {fileID: 746513698}
   - component: {fileID: 746513694}
   m_Layer: 0
@@ -5818,7 +5556,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -5894,7 +5632,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -5902,8 +5641,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &746513698
 Rigidbody:
@@ -5957,12 +5696,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -5994,19 +5733,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &746513704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746513692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &893205616
 GameObject:
   m_ObjectHideFlags: 0
@@ -6022,7 +5748,6 @@ GameObject:
   - component: {fileID: 893205621}
   - component: {fileID: 893205620}
   - component: {fileID: 893205619}
-  - component: {fileID: 893205628}
   - component: {fileID: 893205622}
   - component: {fileID: 893205618}
   m_Layer: 0
@@ -6076,7 +5801,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -6152,7 +5877,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -6160,8 +5886,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &893205622
 Rigidbody:
@@ -6215,12 +5941,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -6252,19 +5978,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &893205628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893205616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &969169583
 GameObject:
   m_ObjectHideFlags: 0
@@ -6280,7 +5993,6 @@ GameObject:
   - component: {fileID: 969169588}
   - component: {fileID: 969169587}
   - component: {fileID: 969169586}
-  - component: {fileID: 969169595}
   - component: {fileID: 969169589}
   - component: {fileID: 969169585}
   m_Layer: 0
@@ -6334,7 +6046,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -6410,7 +6122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -6418,8 +6131,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &969169589
 Rigidbody:
@@ -6473,12 +6186,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -6510,19 +6223,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &969169595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969169583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &973698177
 GameObject:
   m_ObjectHideFlags: 0
@@ -6538,7 +6238,6 @@ GameObject:
   - component: {fileID: 973698182}
   - component: {fileID: 973698181}
   - component: {fileID: 973698180}
-  - component: {fileID: 973698189}
   - component: {fileID: 973698183}
   - component: {fileID: 973698179}
   m_Layer: 0
@@ -6592,7 +6291,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -6668,7 +6367,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -6676,8 +6376,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &973698183
 Rigidbody:
@@ -6731,12 +6431,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -6768,19 +6468,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &973698189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973698177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1039319292
 GameObject:
   m_ObjectHideFlags: 0
@@ -6905,7 +6592,6 @@ GameObject:
   - component: {fileID: 1039986088}
   - component: {fileID: 1039986087}
   - component: {fileID: 1039986086}
-  - component: {fileID: 1039986095}
   - component: {fileID: 1039986089}
   - component: {fileID: 1039986085}
   m_Layer: 0
@@ -6959,7 +6645,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -7035,7 +6721,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -7043,8 +6730,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1039986089
 Rigidbody:
@@ -7098,12 +6785,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -7135,19 +6822,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1039986095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039986083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1074065647
 GameObject:
   m_ObjectHideFlags: 0
@@ -7243,7 +6917,6 @@ GameObject:
   - component: {fileID: 1106703985}
   - component: {fileID: 1106703984}
   - component: {fileID: 1106703983}
-  - component: {fileID: 1106703992}
   - component: {fileID: 1106703986}
   - component: {fileID: 1106703982}
   m_Layer: 0
@@ -7297,7 +6970,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -7373,7 +7046,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -7381,8 +7055,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1106703986
 Rigidbody:
@@ -7436,12 +7110,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -7473,19 +7147,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1106703992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106703980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1120506888
 GameObject:
   m_ObjectHideFlags: 0
@@ -7501,7 +7162,6 @@ GameObject:
   - component: {fileID: 1120506893}
   - component: {fileID: 1120506892}
   - component: {fileID: 1120506891}
-  - component: {fileID: 1120506900}
   - component: {fileID: 1120506894}
   - component: {fileID: 1120506890}
   m_Layer: 0
@@ -7555,7 +7215,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -7631,7 +7291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -7639,8 +7300,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1120506894
 Rigidbody:
@@ -7694,12 +7355,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -7731,19 +7392,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1120506900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120506888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1157680054
 GameObject:
   m_ObjectHideFlags: 0
@@ -7794,7 +7442,6 @@ GameObject:
   - component: {fileID: 1224776814}
   - component: {fileID: 1224776813}
   - component: {fileID: 1224776812}
-  - component: {fileID: 1224776820}
   - component: {fileID: 1224776815}
   - component: {fileID: 1224776811}
   m_Layer: 0
@@ -7848,7 +7495,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -7924,7 +7571,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -7932,8 +7580,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1224776815
 Rigidbody:
@@ -7987,12 +7635,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -8024,19 +7672,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1224776820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224776808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1241784918
 GameObject:
   m_ObjectHideFlags: 0
@@ -8068,7 +7703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAYIeyrwlNyawIAABEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty4jAQ/BVK5yVlbAzx3nYdQvaQR4Vs5eKLkMZYhSy59AiQFP++kmyw4+WCqnumNT0z8hdiQjdAjFRrxeijpIB+TpA/ox+TnnyAI95JsWGfcIl5Z9RUPgiHmFdsmHT4zKdpWYNRjPwSO+6DIwdawUqp6hXdQS610Q4uMdfgKCWNzxYO+pqgo/ubZj7l5E7x0p8+3SmLJmd3JCAMqD40ucn8L06WXcY0apE0my+71HR2s0iXSRwErCAc1w1Q76bXmS3iTmCRhTjhjHYh3hSRnDPdVYnMqQldyHGjrfPoAijDznUozcdXwHaV8Q6Gyc9lqcF0LVH4dMeUa16rin7LtqM11vu2sA/Mrb8nThehplb08X9+2XorlawfLhfPIn+JqRjZv+ITwdoMej6E775XbsUB8z3ecnivQDzJtZJWUEcaZX2q1RDfDaSu5vIKyL6Pa4sdgbbpW36Z8WXC09nkfA7+jzln9dZTN/MW2HAZOh4WA5SbzR9XcVgb3Uk41FfxV8Mb3g33qyPumdLGUZ1N4cvbSqt8KFqFpnk31uRSCQhwV3QDAnNzenEyZjzEETe4dsTcY/+Suss77vJARikB7uOjaES9yMN1WrqSh0fQ1bM1nImhmGeeXKNyKUS7ZHrE+ryNVSUm0JvdWUa/bxfKtnGapDRZZPPoFid4GlGymG9nQLbzW5LEKQrbx4QzivlLW2nXHzc20YsLt2mXL8xkrXATFp4qfFizz1oOes5EKTdEAYjnVuFaOCh3iXuYdEWZ69AGjGEiDBx9FYhLsgdaXIWK4HR1NAoXvUqBGvYhjUcKlIdPSoHO6PwPUEsDBBQAAAgIAAAYIezB2V2kbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM01VFQSi9KLMgoBooYgjilmSkgdrSSZZKRqbFpirGZpYmBRaJxoq5BSrKZSZJhanKSiUWysZGpUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAYIeyrwlNyawIAABEFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAYIezB2V2kbQAAAHgAAAAJACQAAAAAAAAAAAAAALgCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAcAMAAAAA
+    dataString: UEsDBBQAAAgIAAAYIez5m9+hVwIAAP0EAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty4jAQ/BVK5yWFeSXZ265DyB6SUCFbufgipDFWIUsuPQKE4t93JBvseE+Wp3tmukdjn4hQtgLmtFkawZ81B/JzQMKZ/Bi04BMc6FartfiCC+dDcFcEEo2cN+qExngS0qwuwRnBfqmtDOQRBr0SuTblgm8h1dZZDOdUWkDIaBeyFYZOA3LAx/A+pByb1K/wHJzxxEA5MC1v2rCGSUObJTfz2e1kHNleMUnLCnjQ3SYlo0txPEWiQk8NJwkY01IK2ygi7lhFxymtrEc/SOCCosOoJHQuQGwLhy/jbvJrnltwjQdDjw/C4KDqquS3rqdXUrurpX1S6UOf8WweRdVFn//Hb2t3udHl06Vx7ckVgu3e6JFR6zrz7YYfviv3ak/ljm4kfBSgXvTSaK84gs74kOotjB86pa7m0gLYruXVYntBX7VD79/nMBmcz9H/IZWi3AToZloH1lLHicclAIOX8wcVxxWxTQmMBhV/LbzTbXeXGuBRGOsQamyqIG+jvQlUsohDC268S7VREMON6AoUle64wjKuf4k9rNO2hzzS8NU0zRvs8jH0UmK45Y9GPWil99fbsoXeP4MtXr2TQkErOgAvOKdUK1XvWHcml7S1NzllXQ1bL/j37SL3m/FsMuOT+f10dEcndDjibD7dJMA20zs2Gc9I3D6h0CiVq1ppMx+8NtWKUrhpl7/JYGloFReeG7pfiq9Sd2YuVK7XzACo17rCVTkYbIJfJl9wgRNag3NCxQsnp4xIzXbAs2uhLFpdHJyhWVslI5X41C5EMpLGP0hGzuT8D1BLAwQUAAAICAAAGCHswdldpG0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNVRUEovSizIKAaKGII4pZkpIHa0kmWSkamxaYqxmaWJgUWicaKuQUqymUmSYWpykolFsrGRqVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAGCHs+ZvfoVcCAAD9BAAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAGCHswdldpG0AAAB4AAAACQAkAAAAAAAAAAAAAACkAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAFwDAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -8138,7 +7773,6 @@ GameObject:
   - component: {fileID: 1296917314}
   - component: {fileID: 1296917313}
   - component: {fileID: 1296917312}
-  - component: {fileID: 1296917321}
   - component: {fileID: 1296917315}
   - component: {fileID: 1296917311}
   m_Layer: 0
@@ -8192,7 +7826,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -8268,7 +7902,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -8276,8 +7911,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1296917315
 Rigidbody:
@@ -8331,12 +7966,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -8368,19 +8003,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1296917321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296917309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1314279576
 GameObject:
   m_ObjectHideFlags: 0
@@ -8396,7 +8018,6 @@ GameObject:
   - component: {fileID: 1314279582}
   - component: {fileID: 1314279581}
   - component: {fileID: 1314279580}
-  - component: {fileID: 1314279588}
   - component: {fileID: 1314279583}
   - component: {fileID: 1314279579}
   m_Layer: 0
@@ -8450,7 +8071,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -8526,7 +8147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -8534,8 +8156,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1314279583
 Rigidbody:
@@ -8589,12 +8211,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -8626,19 +8248,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1314279588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314279576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1423920523
 GameObject:
   m_ObjectHideFlags: 0
@@ -8654,7 +8263,6 @@ GameObject:
   - component: {fileID: 1423920528}
   - component: {fileID: 1423920527}
   - component: {fileID: 1423920526}
-  - component: {fileID: 1423920535}
   - component: {fileID: 1423920529}
   - component: {fileID: 1423920525}
   m_Layer: 0
@@ -8708,7 +8316,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -8784,7 +8392,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -8792,8 +8401,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1423920529
 Rigidbody:
@@ -8847,12 +8456,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -8884,19 +8493,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1423920535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423920523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1436685668
 GameObject:
   m_ObjectHideFlags: 0
@@ -8949,7 +8545,6 @@ GameObject:
   - component: {fileID: 1443595339}
   - component: {fileID: 1443595338}
   - component: {fileID: 1443595337}
-  - component: {fileID: 1443595346}
   - component: {fileID: 1443595340}
   - component: {fileID: 1443595336}
   m_Layer: 0
@@ -9003,7 +8598,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -9079,7 +8674,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -9087,8 +8683,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1443595340
 Rigidbody:
@@ -9142,12 +8738,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -9179,19 +8775,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1443595346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443595334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1575226631
 GameObject:
   m_ObjectHideFlags: 0
@@ -9207,7 +8790,6 @@ GameObject:
   - component: {fileID: 1575226636}
   - component: {fileID: 1575226635}
   - component: {fileID: 1575226634}
-  - component: {fileID: 1575226643}
   - component: {fileID: 1575226637}
   - component: {fileID: 1575226633}
   m_Layer: 0
@@ -9261,7 +8843,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -9337,7 +8919,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -9345,8 +8928,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1575226637
 Rigidbody:
@@ -9400,12 +8983,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -9437,19 +9020,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1575226643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575226631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1611529126
 GameObject:
   m_ObjectHideFlags: 0
@@ -9465,7 +9035,6 @@ GameObject:
   - component: {fileID: 1611529132}
   - component: {fileID: 1611529131}
   - component: {fileID: 1611529130}
-  - component: {fileID: 1611529138}
   - component: {fileID: 1611529133}
   - component: {fileID: 1611529129}
   m_Layer: 0
@@ -9519,7 +9088,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -9595,7 +9164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -9603,8 +9173,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1611529133
 Rigidbody:
@@ -9658,12 +9228,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -9695,19 +9265,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1611529138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611529126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1647219275
 GameObject:
   m_ObjectHideFlags: 0
@@ -9723,7 +9280,6 @@ GameObject:
   - component: {fileID: 1647219280}
   - component: {fileID: 1647219279}
   - component: {fileID: 1647219278}
-  - component: {fileID: 1647219287}
   - component: {fileID: 1647219281}
   - component: {fileID: 1647219277}
   m_Layer: 0
@@ -9777,7 +9333,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -9853,7 +9409,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -9861,8 +9418,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1647219281
 Rigidbody:
@@ -9916,12 +9473,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -9953,19 +9510,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1647219287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647219275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1658212011
 GameObject:
   m_ObjectHideFlags: 0
@@ -9981,7 +9525,6 @@ GameObject:
   - component: {fileID: 1658212017}
   - component: {fileID: 1658212016}
   - component: {fileID: 1658212015}
-  - component: {fileID: 1658212023}
   - component: {fileID: 1658212018}
   - component: {fileID: 1658212014}
   m_Layer: 0
@@ -10035,7 +9578,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -10111,7 +9654,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -10119,8 +9663,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1658212018
 Rigidbody:
@@ -10174,12 +9718,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -10211,19 +9755,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1658212023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658212011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1689533934
 GameObject:
   m_ObjectHideFlags: 0
@@ -10239,7 +9770,6 @@ GameObject:
   - component: {fileID: 1689533939}
   - component: {fileID: 1689533938}
   - component: {fileID: 1689533937}
-  - component: {fileID: 1689533946}
   - component: {fileID: 1689533940}
   - component: {fileID: 1689533936}
   m_Layer: 0
@@ -10293,7 +9823,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -10369,7 +9899,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -10377,8 +9908,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1689533940
 Rigidbody:
@@ -10432,12 +9963,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -10469,19 +10000,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1689533946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689533934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1708296784
 GameObject:
   m_ObjectHideFlags: 0
@@ -10497,7 +10015,6 @@ GameObject:
   - component: {fileID: 1708296789}
   - component: {fileID: 1708296788}
   - component: {fileID: 1708296787}
-  - component: {fileID: 1708296796}
   - component: {fileID: 1708296790}
   - component: {fileID: 1708296786}
   m_Layer: 0
@@ -10551,7 +10068,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -10627,7 +10144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -10635,8 +10153,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1708296790
 Rigidbody:
@@ -10690,12 +10208,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -10727,19 +10245,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1708296796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1708296784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1731283850
 GameObject:
   m_ObjectHideFlags: 0
@@ -10755,7 +10260,6 @@ GameObject:
   - component: {fileID: 1731283856}
   - component: {fileID: 1731283855}
   - component: {fileID: 1731283854}
-  - component: {fileID: 1731283862}
   - component: {fileID: 1731283857}
   - component: {fileID: 1731283853}
   m_Layer: 0
@@ -10809,7 +10313,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -10885,7 +10389,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -10893,8 +10398,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1731283857
 Rigidbody:
@@ -10948,12 +10453,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -10985,19 +10490,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1731283862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731283850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1737057699
 GameObject:
   m_ObjectHideFlags: 0
@@ -11013,7 +10505,6 @@ GameObject:
   - component: {fileID: 1737057705}
   - component: {fileID: 1737057704}
   - component: {fileID: 1737057703}
-  - component: {fileID: 1737057711}
   - component: {fileID: 1737057706}
   - component: {fileID: 1737057702}
   m_Layer: 0
@@ -11067,7 +10558,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -11143,7 +10634,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -11151,8 +10643,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1737057706
 Rigidbody:
@@ -11206,12 +10698,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -11243,19 +10735,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1737057711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1737057699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1738391009
 GameObject:
   m_ObjectHideFlags: 0
@@ -11271,7 +10750,6 @@ GameObject:
   - component: {fileID: 1738391014}
   - component: {fileID: 1738391013}
   - component: {fileID: 1738391012}
-  - component: {fileID: 1738391021}
   - component: {fileID: 1738391015}
   - component: {fileID: 1738391011}
   m_Layer: 0
@@ -11325,7 +10803,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -11401,7 +10879,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -11409,8 +10888,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1738391015
 Rigidbody:
@@ -11464,12 +10943,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -11501,19 +10980,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1738391021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738391009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1780684441
 GameObject:
   m_ObjectHideFlags: 0
@@ -11529,7 +10995,6 @@ GameObject:
   - component: {fileID: 1780684447}
   - component: {fileID: 1780684446}
   - component: {fileID: 1780684445}
-  - component: {fileID: 1780684453}
   - component: {fileID: 1780684448}
   - component: {fileID: 1780684444}
   m_Layer: 0
@@ -11583,7 +11048,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -11659,7 +11124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -11667,8 +11133,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1780684448
 Rigidbody:
@@ -11722,12 +11188,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -11759,19 +11225,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1780684453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1780684441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1782259475
 GameObject:
   m_ObjectHideFlags: 0
@@ -11896,7 +11349,6 @@ GameObject:
   - component: {fileID: 1784752464}
   - component: {fileID: 1784752463}
   - component: {fileID: 1784752462}
-  - component: {fileID: 1784752471}
   - component: {fileID: 1784752465}
   - component: {fileID: 1784752461}
   m_Layer: 0
@@ -11950,7 +11402,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -12026,7 +11478,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -12034,8 +11487,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1784752465
 Rigidbody:
@@ -12089,12 +11542,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -12126,19 +11579,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1784752471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784752459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1788714980
 GameObject:
   m_ObjectHideFlags: 0
@@ -12387,7 +11827,6 @@ GameObject:
   - component: {fileID: 1797311784}
   - component: {fileID: 1797311783}
   - component: {fileID: 1797311782}
-  - component: {fileID: 1797311791}
   - component: {fileID: 1797311785}
   - component: {fileID: 1797311781}
   m_Layer: 0
@@ -12441,7 +11880,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -12517,7 +11956,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -12525,8 +11965,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1797311785
 Rigidbody:
@@ -12580,12 +12020,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -12617,19 +12057,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1797311791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797311779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1821057857
 GameObject:
   m_ObjectHideFlags: 0
@@ -12645,7 +12072,6 @@ GameObject:
   - component: {fileID: 1821057862}
   - component: {fileID: 1821057861}
   - component: {fileID: 1821057860}
-  - component: {fileID: 1821057869}
   - component: {fileID: 1821057863}
   - component: {fileID: 1821057859}
   m_Layer: 0
@@ -12699,7 +12125,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -12775,7 +12201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -12783,8 +12210,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1821057863
 Rigidbody:
@@ -12838,12 +12265,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -12875,19 +12302,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1821057869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1821057857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1822215665
 GameObject:
   m_ObjectHideFlags: 0
@@ -12903,7 +12317,6 @@ GameObject:
   - component: {fileID: 1822215671}
   - component: {fileID: 1822215670}
   - component: {fileID: 1822215669}
-  - component: {fileID: 1822215677}
   - component: {fileID: 1822215672}
   - component: {fileID: 1822215668}
   m_Layer: 0
@@ -12957,7 +12370,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -13033,7 +12446,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -13041,8 +12455,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1822215672
 Rigidbody:
@@ -13096,12 +12510,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -13133,19 +12547,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1822215677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1822215665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1872729449
 GameObject:
   m_ObjectHideFlags: 0
@@ -13161,7 +12562,6 @@ GameObject:
   - component: {fileID: 1872729455}
   - component: {fileID: 1872729454}
   - component: {fileID: 1872729453}
-  - component: {fileID: 1872729461}
   - component: {fileID: 1872729456}
   - component: {fileID: 1872729452}
   m_Layer: 0
@@ -13215,7 +12615,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -13291,7 +12691,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -13299,8 +12700,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1872729456
 Rigidbody:
@@ -13354,12 +12755,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -13391,19 +12792,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1872729461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1872729449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1924541881
 GameObject:
   m_ObjectHideFlags: 0
@@ -13419,7 +12807,6 @@ GameObject:
   - component: {fileID: 1924541886}
   - component: {fileID: 1924541885}
   - component: {fileID: 1924541884}
-  - component: {fileID: 1924541893}
   - component: {fileID: 1924541887}
   - component: {fileID: 1924541883}
   m_Layer: 0
@@ -13473,7 +12860,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -13549,7 +12936,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -13557,8 +12945,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1924541887
 Rigidbody:
@@ -13612,12 +13000,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -13649,19 +13037,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1924541893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1924541881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1978559959
 GameObject:
   m_ObjectHideFlags: 0
@@ -13677,7 +13052,6 @@ GameObject:
   - component: {fileID: 1978559964}
   - component: {fileID: 1978559963}
   - component: {fileID: 1978559962}
-  - component: {fileID: 1978559971}
   - component: {fileID: 1978559965}
   - component: {fileID: 1978559961}
   m_Layer: 0
@@ -13731,7 +13105,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -13807,7 +13181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -13815,8 +13190,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &1978559965
 Rigidbody:
@@ -13870,12 +13245,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -13907,19 +13282,6 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &1978559971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978559959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0
 --- !u!1 &1985139854
 GameObject:
   m_ObjectHideFlags: 0
@@ -14044,7 +13406,6 @@ GameObject:
   - component: {fileID: 2143345580}
   - component: {fileID: 2143345579}
   - component: {fileID: 2143345578}
-  - component: {fileID: 2143345587}
   - component: {fileID: 2143345581}
   - component: {fileID: 2143345577}
   m_Layer: 0
@@ -14098,7 +13459,7 @@ MonoBehaviour:
     target: {fileID: 1788714982}
     fight_distance: 5
     vision_distance: 15
-    active_distance: 30
+    active_distance: 40
     defaultPos: {x: 0, y: 0, z: 0}
     aiMove: {fileID: 0}
   inactiveState:
@@ -14174,7 +13535,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 200
+  end_point_is_target: 1
+  acceleration: 100
   max_speed: 10
   nearby_distance: 0.5
   moveMode: 0
@@ -14182,8 +13544,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
-  draw_gizmos: 0
+  distance_to_target: -0.33
+  draw_gizmos: 1
   cur_speed: 0
 --- !u!54 &2143345581
 Rigidbody:
@@ -14237,12 +13599,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -14274,16 +13636,3 @@ MonoBehaviour:
     initialized: 0
     runtime: 0
   show_comp: 0000
---- !u!114 &2143345587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2143345575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  height: 0

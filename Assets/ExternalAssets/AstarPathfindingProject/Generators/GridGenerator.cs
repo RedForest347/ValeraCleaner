@@ -215,7 +215,7 @@ namespace Pathfinding {
 
 		/// <summary>Rotation of the grid in degrees</summary>
 		[JsonMember]
-		public Vector3 rotation;
+		public Vector3 rotation = new Vector3(-90, 0, 0);
 
 		/// <summary>Center point of the grid</summary>
 		[JsonMember]

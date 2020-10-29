@@ -14,10 +14,10 @@
         Tags
         { 
             "Queue"="Transparent" 
-            "IgnoreProjector"="True" 
+            //"IgnoreProjector"="True" 
             "RenderType"="Transparent" 
-            "PreviewType"="Plane"
-            "CanUseSpriteAtlas"="True"
+            //"PreviewType"="Plane"
+            //"CanUseSpriteAtlas"="True"
         }
 
         Cull Off

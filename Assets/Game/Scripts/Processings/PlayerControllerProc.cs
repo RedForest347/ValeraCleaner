@@ -61,18 +61,6 @@ public class PlayerControllerProc : ProcessingBase, ICustomUpdate, ICustomFixedU
     void Shooting(int entity)
     {
         Storage.GetComponent<PlayerControllerCmp>(entity).Gun.shooting = Input.GetMouseButton(0);
-        //if (Input.GetMouseButton(0))
-        //{
-        //    Storage.GetComponent<PlayerControllerCmp>(entity).Gun.shooting = true;
-        //}
-        //else
-        //{
-        //    Storage.GetComponent<PlayerControllerCmp>(entity).Gun.shooting = false;
-        //}
-        //if (Input.GetMouseButtonUp(0))
-        //{
-        //    Storage.GetComponent<PlayerControllerCmp>(entity).Gun.shooting = false;
-        //}
     }
 
 

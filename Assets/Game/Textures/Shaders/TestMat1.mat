@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AlphaMask
-  m_Shader: {fileID: 4800000, guid: 4b7dbe06284e814429029444fca95dab, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _USEFADE_ON
+  m_Name: TestMat1
+  m_Shader: {fileID: 4800000, guid: ad14fa1380fa14645a86ff370b413636, type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -47,6 +51,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NormalMapTex:
+        m_Texture: {fileID: 2800000, guid: 0c3c38fdb44d7df4b8e54882cd1a4cae, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -61,12 +69,10 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FadeAreaMax: 3.36
-    - _FadeAreaMin: 1.55
+    - _EnableExternalAlpha: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _MaxOpacity: 0.076
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -75,9 +81,11 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _UseFade: 1
     - _ZWrite: 1
     m_Colors:
+    - _BaseScale: {r: 1, g: 1, b: 1, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FadeOrigin: {r: -1.7992402, g: 0.05720964, b: 0, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _LightOrigin: {r: -45.08, g: 0.6, b: 0, a: 1.5}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

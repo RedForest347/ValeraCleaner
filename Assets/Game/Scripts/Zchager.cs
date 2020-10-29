@@ -6,17 +6,25 @@ using UnityEngine;
 public class Zchager : MonoBehaviour
 {
     public float height;
+    public bool OnlyEditMode;
 
-    void Start()
+    private void Update()
     {
-        
+        bool Zexecute = true;
+
+        if (OnlyEditMode)
+            Zexecute = (Application.isEditor && !Application.isPlaying);
+
+        if (Zexecute)
+            ZChange();
     }
 
-    void Update()
+    void ZChange()
     {
         //gameObject.transform.position.Set(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.y - height);
         gameObject.transform.SetPositionAndRotation(
             new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, (gameObject.transform.position.y - height) * 0.0001f),
             gameObject.transform.rotation);
     }
+    
 }

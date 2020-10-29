@@ -7,6 +7,6 @@ public class BulletCmp : ComponentBase
 {
     private void Update()
     {
-        gameObject.transform.Translate(Vector3.right * Time.deltaTime * 10);
+        gameObject.transform.Translate(Vector3.right * Time.deltaTime * 20);
     }
 }

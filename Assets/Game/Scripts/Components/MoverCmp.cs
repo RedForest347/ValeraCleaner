@@ -20,8 +20,10 @@ public class MoverCmp : ComponentBase
 
     public void AddDirection(Vector2 dir)
     {
-        direction += dir;
+        direction += dir.normalized;
     }
+    
+    
     public void ResetDirection()
     {
         direction = new Vector2();

@@ -271,10 +271,10 @@ namespace RangerV
 
         void CheckCmpsOnCorrect()
         {
-            Component[] components = selected_gameObject.GetComponents<Component>();
+            ComponentBase[] components = selected_gameObject.GetComponents<ComponentBase>();
             List<ComponentBase> componentBases = selected_object.GetAllComponents();
 
-            List<Component> NeedAdd = components.Where((cmp) => cmp is ComponentBase && !componentBases.Contains(cmp as ComponentBase)).ToList();
+            List<ComponentBase> NeedAdd = components.Where((cmp) => !componentBases.Contains(cmp)).ToList();
             List<Type> Dublicates = components.GroupBy(x => x?.GetType()).Where(g => g.Count() > 1).Select(y => y.Key).ToList();
 
 

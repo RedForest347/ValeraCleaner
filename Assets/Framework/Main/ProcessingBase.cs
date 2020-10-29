@@ -52,11 +52,11 @@ using RangerV;
 
 public class DDD : ProcessingBase, ICustomStart, ICustomUpdate
 {
-    Group group = Group.Create(new ComponentsList<DDD>());
+    Group Group = Group.Create(new ComponentsList<DDD>());
 
     public void OnStart()
     {
-        group.InitEvents(OnAdd, OnRemove);
+
     }
 
     public void CustomUpdate()
@@ -78,7 +78,7 @@ using RangerV;
 
 public class DDD : ProcessingBase, ICustomAwake, ICustomStart, ICustomUpdate, ICustomDisable
 {
-    Group group = Group.Create(new ComponentsList<DDD>());
+    Group Group = Group.Create(new ComponentsList<DDD>());
 
     public void OnAwake()
     {

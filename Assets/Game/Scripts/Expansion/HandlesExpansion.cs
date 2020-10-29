@@ -45,8 +45,11 @@ public static class HandlesExpansion
         Handles.DrawSolidArc(targetTransform.position, Vector3.forward, from, angle, distance);
         Handles.DrawSolidArc(targetTransform.position, Vector3.forward, from, -angle, distance);
         Handles.color = Color.black;
-        Handles.DrawLine((Vector2)targetTransform.position, 
-            (Vector2)targetTransform.position + ((Vector2)(targetTransform.up * distance)).Rotate(angle_offset));
+        if (angle < 180 - 1)
+        {
+            Handles.DrawLine((Vector2)targetTransform.position,
+                (Vector2)targetTransform.position + ((Vector2)(targetTransform.up * distance)).Rotate(angle_offset));
+        }
 #endif
     }
 }

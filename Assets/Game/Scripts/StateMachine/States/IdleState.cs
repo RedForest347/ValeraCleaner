@@ -6,8 +6,12 @@ using UnityEngine;
 [System.Serializable]
 public class IdleState : StateBase
 {
+    [Min(0)]
     public float time_befor_walk;
+    [Min(0)]
     public float walk_distance;
+
+
     float cur_walk_time;
     bool walking;
     

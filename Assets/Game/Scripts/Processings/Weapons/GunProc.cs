@@ -22,7 +22,7 @@ public class GunProc : ProcessingBase, ICustomFixedUpdate
         if (gunCmp.shooting && gunCmp.timer >= gunCmp.rateOfFire)
         {
             int entity_bullet = GameObject.Instantiate(gunCmp.Bullet, gunCmp.transform.position, gunCmp.transform.rotation).GetComponent<Entity>().entity;
-            Storage.GetComponent<Collision2DCmp>(entity_bullet).IgnoreColliders.AddRange(Storage.GetComponent<GunCmp>(entity).IgnoreColliders);
+            Storage.GetComponent<CollisionCmp>(entity_bullet).IgnoreColliders.AddRange(Storage.GetComponent<GunCmp>(entity).IgnoreColliders);
             gunCmp.timer = 0;
         }
 

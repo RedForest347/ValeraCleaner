@@ -22,10 +22,11 @@ public class Zchager : MonoBehaviour
     void ZChange()
     {
         //gameObject.transform.position.Set(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.y - height);
-        gameObject.transform.SetPositionAndRotation(
+        /*gameObject.transform.SetPositionAndRotation(
             new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, (gameObject.transform.position.y - height) * 0.0001f),
-            gameObject.transform.rotation);
-
+            gameObject.transform.rotation);*/
+        Vector3 pos = transform.position;
+        transform.position = new Vector3(pos.x, pos.y, -height * 0.0001f);
         //new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -height * 0.0001f),
     }
 

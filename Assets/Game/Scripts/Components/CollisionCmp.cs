@@ -13,10 +13,10 @@ public enum CollisionActionType
 
 
 [Component("Engine/Collision Component", "BoxCollider Icon")]
-public class CollisionCmp : ComponentBase, ICustomAwake
+public class CollisionCmp : ComponentBase
 {
-    [HideInInspector, SerializeField]
-    private int entity;
+    public bool DestroyOnCollision;
+    public List<Collider> IgnoreColliders;
 
     public CollisionCmp()
     {
@@ -26,13 +26,6 @@ public class CollisionCmp : ComponentBase, ICustomAwake
             "onCollisionStayActionDictionary Count = " + onCollisionStayActionDictionary.Count
             );*/
     }
-
-    public void OnAwake()
-    {
-        entity = gameObject.GetComponent<Entity>().entity;
-    }
-
-
 
     #region LIGHT_VERSION
 
@@ -102,11 +95,14 @@ public class CollisionCmp : ComponentBase, ICustomAwake
     private Dictionary<collisionAction, Collider[]> onCollisionStayActionDictionary = new Dictionary<collisionAction, Collider[]>();
     private void OnCollisionAction(Collision other, Dictionary<collisionAction, Collider[]> triggerDictionary)
     {
-        Debug.Log("OnCollisionAction");
+        //Debug.Log("OnCollisionAction");
         foreach (var action in triggerDictionary)
         {
             for (int collider = 0; collider < action.Value.Length; collider++)
                 if (other.collider == action.Value[collider])
+                    return;
+            for (int collider = 0; collider < IgnoreColliders.Count; collider++)
+                if (other.collider == IgnoreColliders[collider])
                     return;
             action.Key(other, entity);
         }
@@ -182,6 +178,9 @@ public class CollisionCmp : ComponentBase, ICustomAwake
         {
             for (int collider = 0; collider < action.Value.Length; collider++)
                 if (other == action.Value[collider])
+                    return;
+            for (int collider = 0; collider < IgnoreColliders.Count; collider++)
+                if (other == IgnoreColliders[collider])
                     return;
 
             //Debug.Log("OnTriggerAction");

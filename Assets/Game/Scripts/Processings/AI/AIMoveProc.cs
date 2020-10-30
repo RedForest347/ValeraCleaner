@@ -28,13 +28,13 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
     {
         foreach (int AI in AIMoveGroup)
         {
-            CustomMoveToTarget(AI);
+            MoveToTarget(AI);
         }
     }
 
 
 
-    void CustomMoveToTarget(int ai)
+    void MoveToTarget(int ai)
     {
         AIMoveCmp aiMove = Storage.GetComponent<AIMoveCmp>(ai);
         MoverCmp mover = Storage.GetComponent<MoverCmp>(ai);
@@ -56,8 +56,6 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
 
             FindCurrentMovePoint(aiMove);
             AddForce(aiMove, mover);
-            //mover.AddDirection();
-
             DebugPath(aiMove);
         }
         else if (aiMove.moveMode == AIMoveMode.Stopping)
@@ -106,10 +104,6 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
     {
         Vector3 target_pos = aiMove.current_move_point;
         mover.AddDirection(target_pos - aiMove.transform.position);
-        /*aiMove.rb.AddForce(((Vector2)(target_pos - aiMove.transform.position)).normalized * aiMove.acceleration);
-
-        if (aiMove.rb.velocity.magnitude > aiMove.max_speed)
-            aiMove.rb.velocity = aiMove.rb.velocity.normalized * aiMove.max_speed;*/
     }
 
     void DebugPath(AIMoveCmp aiMove)

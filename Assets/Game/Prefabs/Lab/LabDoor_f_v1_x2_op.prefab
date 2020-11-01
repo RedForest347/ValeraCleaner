@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2652509347362976849}
   - component: {fileID: 5988233872673010613}
   - component: {fileID: 3908488971071426079}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,15 +211,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e1f9b88a859c94db05d57547e7de86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: 0
   Components:
   - {fileID: 2652509347442818192}
   - {fileID: 2652509347442818199}
-  state:
-    enabled: 0
-    requireStarter: 0
-    initialized: 0
-    runtime: 0
   show_comp: 0000
 --- !u!114 &2652509347442818192
 MonoBehaviour:

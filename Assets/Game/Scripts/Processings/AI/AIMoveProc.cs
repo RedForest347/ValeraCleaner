@@ -56,11 +56,12 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
 
             FindCurrentMovePoint(aiMove);
             AddForce(aiMove, mover);
+            SetRotation(aiMove, mover);
             DebugPath(aiMove);
         }
         else if (aiMove.moveMode == AIMoveMode.Stopping)
         {
-            StopAtTheTarget(aiMove);
+            StopAtTheTarget(aiMove, mover);
         }
     }
 
@@ -106,6 +107,15 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
         mover.AddDirection(target_pos - aiMove.transform.position);
     }
 
+    void SetRotation(AIMoveCmp aiMove, MoverCmp mover)
+    {
+        Vector2 start = (Vector3)Vector2.right;
+        Vector2 end = aiMove.current_move_point - (Vector2)aiMove.transform.position;
+
+        float cur_rotation = Vector2.SignedAngle(start, end);
+        mover.SetRotation(cur_rotation);
+    }
+
     void DebugPath(AIMoveCmp aiMove)
     {
         if (aiMove.draw_gizmos)
@@ -118,19 +128,19 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
         aiMove.cur_speed = ((Vector2)aiMove.rb.velocity).magnitude;
     }
 
-    void StopAtTheTarget(AIMoveCmp aiMove)
+    void StopAtTheTarget(AIMoveCmp aiMove, MoverCmp mover)
     {
         Vector2 toStop = -aiMove.rb.velocity;
 
-        if (toStop.magnitude > aiMove.max_speed)
+        if (toStop.magnitude > mover.MaxSpeed)
         {
-            toStop = toStop * aiMove.max_speed;
-            aiMove.rb.AddForce(toStop);
+            //toStop = toStop * mover.MaxSpeed;
+            mover.AddDirection(-toStop); 
         }
         else
         {
-            aiMove.rb.velocity = Vector2.zero;
-            aiMove.OnStop(aiMove.entity);
+            aiMove.rb.velocity = Vector2.zero; /// !!!!!!!!!!!!!!!!!!!!!!!!!! есть необходимость задавать кастомную скорость
+            aiMove.OnStop(aiMove.entity); 
         }
     }
 
@@ -138,11 +148,9 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
     {
         Vector2 start = aiMove.transform.position;
         List<GraphNode> path = aiMove.aILerp.GetPathCustom().path;
-        //Vector2 fin = (Vector3)path[path.Count - 1].position;
         Vector2 fin = aiMove.target;
-        //Debug.Log("start =" + start + " fin = " + fin);
 
-        aiMove.distance_to_target = (start - fin).magnitude; //debug
+        aiMove.distance_to_target = (start - fin).magnitude; // for debug
 
         return (start - fin).magnitude < aiMove.nearby_distance;
     }

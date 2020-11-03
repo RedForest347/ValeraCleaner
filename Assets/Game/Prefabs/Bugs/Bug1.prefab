@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 4926858482145139557}
   - component: {fileID: 888271284624323701}
   - component: {fileID: 8403187575459597902}
+  - component: {fileID: 6514950540968029465}
+  - component: {fileID: 1844294303930414568}
   m_Layer: 8
   m_Name: Bug1
   m_TagString: Untagged
@@ -34,7 +36,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6935841004709213904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.18, y: 10.46, z: -0.7}
+  m_LocalPosition: {x: -6.18, y: 10.46, z: -0.000060000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1245557084411713920}
@@ -79,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: f7df5da5f365f7943ba2d70995fd3fcc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -108,7 +110,8 @@ MonoBehaviour:
   - {fileID: 1510627737630941869}
   - {fileID: -3749191572083949623}
   - {fileID: 888271284624323701}
-  show_comp: 00000000
+  - {fileID: 1844294303930414568}
+  show_comp: 0000000001
 --- !u!114 &-2837539107263561525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,8 +176,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  acceleration: 100
-  max_speed: 2
   nearby_distance: 0
   moveMode: 0
   aILerp: {fileID: 0}
@@ -212,6 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Acceleration: 100
   MaxSpeed: 5
+  rotation: 0
 --- !u!54 &4926858482145139557
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -268,8 +270,37 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6197777, y: 0.58457184, z: 5}
-  m_Center: {x: 0.06571913, y: -0.041247368, z: 0}
+  m_Size: {x: 1.6898737, y: 0.58457184, z: 5}
+  m_Center: {x: 0.035048008, y: 0, z: 0}
+--- !u!114 &6514950540968029465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6935841004709213904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d57d3c6d6234f458f60bef59fadb0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  height: 0.6
+  OnlyEditMode: 0
+--- !u!114 &1844294303930414568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6935841004709213904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb0f52daeb4601429463ef4e7d756fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  health_add:
+    health_regen: 0
 --- !u!1 &8975628957933557689
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1245557084411713920}
-  - component: {fileID: 2641257670726467967}
+  - component: {fileID: 7888242108019982102}
   m_Layer: 12
   m_Name: BugCollider
   m_TagString: Untagged
@@ -295,14 +326,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8975628957933557689}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.04016781, y: -0.12016773, z: 1.4902833}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6935841004709213870}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &2641257670726467967
-CapsuleCollider:
+--- !u!65 &7888242108019982102
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -311,7 +342,6 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.21
-  m_Height: 1.18
-  m_Direction: 2
-  m_Center: {x: 0.21, y: 0.15, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 1.6226811, y: 0.32013416, z: 5}
+  m_Center: {x: 0.06353879, y: -0.358994, z: 0}

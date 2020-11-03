@@ -56,6 +56,8 @@ GameObject:
   - component: {fileID: 411722711809140611}
   - component: {fileID: 411722711809140670}
   - component: {fileID: 5208451339500769125}
+  - component: {fileID: 2889506480978797618}
+  - component: {fileID: 6024251160250378279}
   m_Layer: 8
   m_Name: LabWall_s_v1_x2
   m_TagString: Untagged
@@ -156,3 +158,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 5}
   m_Center: {x: 0, y: 3, z: 0}
+--- !u!114 &2889506480978797618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411722711809140668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e1f9b88a859c94db05d57547e7de86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Components:
+  - {fileID: 6024251160250378279}
+  show_comp: 0000
+--- !u!114 &6024251160250378279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411722711809140668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb0f52daeb4601429463ef4e7d756fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  health_add:
+    health_regen: 0

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8191615011963652122}
   - component: {fileID: 2839638147599528777}
   - component: {fileID: -3742918939607928269}
-  - component: {fileID: 6757158602075030442}
   - component: {fileID: 462776222321234578}
   - component: {fileID: 3019118923332218553}
   - component: {fileID: 8535762520173168590}
@@ -103,19 +102,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e1f9b88a859c94db05d57547e7de86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: 0
   Components:
   - {fileID: 8191615011963652122}
   - {fileID: 2839638147599528777}
   - {fileID: -3742918939607928269}
-  - {fileID: 6757158602075030442}
   - {fileID: 8535762520173168590}
   - {fileID: 4869106059678057406}
-  state:
-    enabled: 0
-    requireStarter: 0
-    initialized: 0
-    runtime: 0
   show_comp: 00000000010000
 --- !u!114 &8191615011963652122
 MonoBehaviour:
@@ -155,23 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  DestroyOnCollision: 0
---- !u!114 &6757158602075030442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5144178387059372873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06a206b515c996742a7fac000e168ddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameObject: {fileID: 5144178387059372873}
-  previous_positon: {x: 0, y: 0, z: 0}
-  current_position: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
+  DestroyOnCollision: 1
 --- !u!114 &462776222321234578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,5 +218,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b80ab874c0a3a4d89d76e12cf8d129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyOnCollision: 1
   IgnoreColliders: []

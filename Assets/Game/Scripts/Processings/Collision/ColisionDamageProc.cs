@@ -4,8 +4,8 @@ using System;
 
 public class ColisionDamageProc : ProcessingBase, ICustomUpdate, ICustomStart
 {
-    Group collision_group = Group.Create(new ComponentsList<CollisionDamageCmp, Physics2DCmp, Collision2DCmp>());
-    Group target_group = Group.Create(new ComponentsList<HealthCmp, GameObjectCmp>());
+    Group collision_group = Group.Create(new ComponentsList<CollisionDamageCmp, PhysicsCmp, CollisionCmp>());
+    Group target_group = Group.Create(new ComponentsList<HealthCmp>());
 
 
     public void OnStart()
@@ -15,7 +15,7 @@ public class ColisionDamageProc : ProcessingBase, ICustomUpdate, ICustomStart
 
     void ADDDAction(int entity)
     {
-        Storage.GetComponent<Collision2DCmp>(entity).AddOnTriggerAction(GiveDamage, Collision2DActionType.Enter);
+        Storage.GetComponent<CollisionCmp>(entity).AddOnTriggerAction(GiveDamage, CollisionActionType.Enter);
     }
 
 
@@ -25,22 +25,25 @@ public class ColisionDamageProc : ProcessingBase, ICustomUpdate, ICustomStart
     }
 
 
-    public void GiveDamage(Collider2D collider, int entity)
+    public void GiveDamage(Collider collider, int entity)
     {
-        int target_entity = collider.gameObject.GetComponent<Entity>()?.entity ?? -107;
+        int target_entity = collider.gameObject.GetComponent<Entity>()?.entity ?? -1;
 
-        if (target_entity != 107 && target_group.Contains(target_entity))
+        if (target_group.Contains(target_entity))
         {
             HealthCmp healthComponent = Storage.GetComponent<HealthCmp>(target_entity);
             healthComponent.health -= 5;
             if (healthComponent.health <= 0)
-                GameObject.Destroy(Storage.GetComponent<GameObjectCmp>(target_entity).GameObject);
+                GameObject.Destroy(collider.gameObject);
 
-            bool DoC = Storage.GetComponent<CollisionDamageCmp>(entity)?.DestroyOnCollision ?? false;
+            CollisionDamageCmp collisionDamage = Storage.GetComponent<CollisionDamageCmp>(entity);
+            bool DoC = collisionDamage?.DestroyOnCollision ?? false;
+            Debug.Log("<CollisionDamageCmp>(entity) = " + Storage.GetComponent<CollisionDamageCmp>(entity));
+            Debug.Log("Storage.GetComponent<CollisionDamageCmp>(entity)?.DestroyOnCollision = " + Storage.GetComponent<CollisionDamageCmp>(entity)?.DestroyOnCollision);
             if (DoC)
             {
                 //Debug.Log("Storage.GetComponent<GameObjectComponent>(entity) = " + Storage.GetComponent<GameObjectComponent>(entity));
-                GameObject.Destroy(Storage.GetComponent<GameObjectCmp>(entity).GameObject);
+                GameObject.Destroy(collisionDamage.gameObject);
             }
         }
     }

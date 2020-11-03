@@ -15,7 +15,7 @@ public enum CollisionActionType
 [Component("Engine/Collision Component", "BoxCollider Icon")]
 public class CollisionCmp : ComponentBase
 {
-    public bool DestroyOnCollision;
+    //public bool DestroyOnCollision;
     public List<Collider> IgnoreColliders;
 
     public CollisionCmp()

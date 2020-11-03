@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8948216243578422703}
   - component: {fileID: 8849686102176407106}
   - component: {fileID: 6190806632769424908}
+  - component: {fileID: 6377241022016318370}
+  - component: {fileID: -1803993823915165491}
   m_Layer: 8
   m_Name: LabDoor_s_v1_x4_op
   m_TagString: Untagged
@@ -126,6 +128,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 5}
   m_Center: {x: 0, y: 2.5, z: 0}
+--- !u!114 &6377241022016318370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8948216243578422701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e1f9b88a859c94db05d57547e7de86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Components:
+  - {fileID: -1803993823915165491}
+  show_comp: 0000
+--- !u!114 &-1803993823915165491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8948216243578422701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb0f52daeb4601429463ef4e7d756fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  health_add:
+    health_regen: 0
 --- !u!1 &8948216244363714397
 GameObject:
   m_ObjectHideFlags: 0

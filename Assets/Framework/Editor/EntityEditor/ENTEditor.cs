@@ -318,7 +318,7 @@ namespace RangerV
             {
                 for (int i = 0; i < NeedAdd.Count; i++)
                 {
-                    selected_object.Components.Add(NeedAdd[i] as ComponentBase);
+                    selected_object.Components.Add(NeedAdd[i]);
                     selected_object.show_comp.Add(false);
                 }
 

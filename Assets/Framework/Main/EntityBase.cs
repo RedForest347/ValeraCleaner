@@ -21,11 +21,12 @@ namespace RangerV
         public static int entity_count { get => EntityBaseData.Instance.nextMax; }
 
         [HideInInspector]
+        public List<ComponentBase> Components = new List<ComponentBase>();
+
+        [HideInInspector, NonSerialized]
         public int entity;
 
-        [HideInInspector]
-        public List<ComponentBase> Components = new List<ComponentBase>();
-        [HideInInspector]
+        [HideInInspector, NonSerialized]
         public EntityState state;
 
         public static EntityBase GetEntity(int entity)

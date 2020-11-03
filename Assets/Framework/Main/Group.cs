@@ -282,15 +282,15 @@ namespace RangerV
             for (int comp = 0; comp < Components.Count; comp++)
                 if (Storage.ContainsComponent(Components[comp], entity))
                 {
-                    Debug.LogWarning("При добавлении сущности в группу, на ней не должны находится компоненты, " +
-                        "по идее. сейчас находятся. работа продолжится в штатном режиме");
+                    Debug.LogWarning("При инициализации новой сущности в группе, на ней не должны находится компоненты, " +
+                                        "по идее. сейчас находятся. работа продолжится в штатном режиме");
                     entContainer.remains_components--;
                 }
 
             for (int exc = 0; exc < Exceptions.Count; exc++)
                 if (Storage.ContainsComponent(Exceptions[exc], entity))
                 {
-                    Debug.LogWarning("При добавлении сущности в группу, на ней не должны находится компоненты, " +
+                    Debug.LogWarning("При инициализации новой сущности в группе, на ней не должны находится компоненты, " +
                         "по идее. сейчас находятся. работа продолжится в штатном режиме");
                     entContainer.remains_exceptions++;
                 }

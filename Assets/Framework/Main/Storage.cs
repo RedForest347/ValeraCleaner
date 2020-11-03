@@ -116,6 +116,8 @@ namespace RangerV
                 }
                 set
                 {
+                    if (index == 0)
+                        Debug.LogError("Попытка добавить компонент сущности \"0\"");
                     if (_entityData.Length <= index)
                         Array.Resize(ref _entityData, index + 10);
                     _entityData[index] = value;

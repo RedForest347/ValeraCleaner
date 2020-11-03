@@ -14,7 +14,7 @@ using Pathfinding;
 /// </summary>
 public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
 {
-    Group AIMoveGroup = Group.Create(new ComponentsList<AIMoveCmp>());
+    Group AIMoveGroup = Group.Create(new ComponentsList<AIMoveCmp, MoverCmp>());
 
     public void OnStart()
     {
@@ -28,15 +28,16 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
     {
         foreach (int AI in AIMoveGroup)
         {
-            CustomMoveToTarget(AI);
+            MoveToTarget(AI);
         }
     }
 
 
 
-    void CustomMoveToTarget(int ai)
+    void MoveToTarget(int ai)
     {
         AIMoveCmp aiMove = Storage.GetComponent<AIMoveCmp>(ai);
+        MoverCmp mover = Storage.GetComponent<MoverCmp>(ai);
 
         if (aiMove.moveMode == AIMoveMode.GoToTarget)
         {
@@ -54,12 +55,13 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
             }
 
             FindCurrentMovePoint(aiMove);
-            AddForce(aiMove);
+            AddForce(aiMove, mover);
+            SetRotation(aiMove, mover);
             DebugPath(aiMove);
         }
         else if (aiMove.moveMode == AIMoveMode.Stopping)
         {
-            StopAtTheTarget(aiMove);
+            StopAtTheTarget(aiMove, mover);
         }
     }
 
@@ -99,14 +101,19 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
         }
     }
 
-    void AddForce(AIMoveCmp aiMove)
+    void AddForce(AIMoveCmp aiMove, MoverCmp mover)
     {
         Vector3 target_pos = aiMove.current_move_point;
+        mover.AddDirection(target_pos - aiMove.transform.position);
+    }
 
-        aiMove.rb.AddForce(((Vector2)(target_pos - aiMove.transform.position)).normalized * aiMove.acceleration);
+    void SetRotation(AIMoveCmp aiMove, MoverCmp mover)
+    {
+        Vector2 start = (Vector3)Vector2.right;
+        Vector2 end = aiMove.current_move_point - (Vector2)aiMove.transform.position;
 
-        if (aiMove.rb.velocity.magnitude > aiMove.max_speed)
-            aiMove.rb.velocity = aiMove.rb.velocity.normalized * aiMove.max_speed;
+        float cur_rotation = Vector2.SignedAngle(start, end);
+        mover.SetRotation(cur_rotation);
     }
 
     void DebugPath(AIMoveCmp aiMove)
@@ -121,19 +128,19 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
         aiMove.cur_speed = ((Vector2)aiMove.rb.velocity).magnitude;
     }
 
-    void StopAtTheTarget(AIMoveCmp aiMove)
+    void StopAtTheTarget(AIMoveCmp aiMove, MoverCmp mover)
     {
         Vector2 toStop = -aiMove.rb.velocity;
 
-        if (toStop.magnitude > aiMove.max_speed)
+        if (toStop.magnitude > mover.MaxSpeed)
         {
-            toStop = toStop * aiMove.max_speed;
-            aiMove.rb.AddForce(toStop);
+            //toStop = toStop * mover.MaxSpeed;
+            mover.AddDirection(-toStop); 
         }
         else
         {
-            aiMove.rb.velocity = Vector2.zero;
-            aiMove.OnStop(aiMove.entity);
+            aiMove.rb.velocity = Vector2.zero; /// !!!!!!!!!!!!!!!!!!!!!!!!!! есть необходимость задавать кастомную скорость
+            aiMove.OnStop(aiMove.entity); 
         }
     }
 
@@ -141,11 +148,9 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
     {
         Vector2 start = aiMove.transform.position;
         List<GraphNode> path = aiMove.aILerp.GetPathCustom().path;
-        //Vector2 fin = (Vector3)path[path.Count - 1].position;
         Vector2 fin = aiMove.target;
-        Debug.Log("start =" + start + " fin = " + fin);
 
-        aiMove.distance_to_target = (start - fin).magnitude; //debug
+        aiMove.distance_to_target = (start - fin).magnitude; // for debug
 
         return (start - fin).magnitude < aiMove.nearby_distance;
     }

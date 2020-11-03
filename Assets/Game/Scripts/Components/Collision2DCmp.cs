@@ -13,11 +13,8 @@ public enum Collision2DActionType
 
 
 [Component("Engine/Collision 2D Component", "BoxCollider2D Icon")]
-public class Collision2DCmp : ComponentBase, ICustomAwake
+public class Collision2DCmp : ComponentBase
 {
-    [HideInInspector, SerializeField]
-    private int entity;
-
     public bool DestroyOnCollision;
     public List<Collider2D> IgnoreColliders;
 
@@ -29,13 +26,6 @@ public class Collision2DCmp : ComponentBase, ICustomAwake
             "onCollisionStayActionDictionary Count = " + onCollisionStayActionDictionary.Count
             );*/
     }
-
-    public void OnAwake()
-    {
-        entity = gameObject.GetComponent<Entity>().entity;
-    }
-
-
 
     #region LIGHT_VERSION
 

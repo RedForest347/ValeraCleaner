@@ -10,7 +10,7 @@ public class MoverCmp : ComponentBase
 
 
     [SerializeField, Tooltip("0 градусов - вправа, увеличение против часовой стрелки")]
-    float rotation;
+    public float rotation;
     public float NormalisedRotation // возвращает значение поварота от 0 - 360
     {
         get => rotation < 0 ? rotation + 360 : rotation;

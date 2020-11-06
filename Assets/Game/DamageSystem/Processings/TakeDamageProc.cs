@@ -5,7 +5,7 @@ using RangerV;
 
 public class TakeDamageProc : ProcessingBase, ICustomStart, ICustomUpdate, IReceive<DamageSignal>, ICustomDisable
 {
-    Group DamageGiverGroup = Group.Create(new ComponentsList<DamageGiverCmp>());
+    Group DamageGiverGroup = Group.Create(new ComponentsList<AttackCmp>());
 
     public void OnStart()
     {
@@ -24,8 +24,9 @@ public class TakeDamageProc : ProcessingBase, ICustomStart, ICustomUpdate, IRece
 
     public void SignalHandler(DamageSignal arg)
     {
-        arg.damageGiver.time_after_last_attack = 0;
-        Debug.Log("объекту " + arg.damageTaker.name + " нанесен урон " + arg.damageGiver.damage + " от " + arg.damageGiver.entityBase.name + " (" + arg.damageGiver.entity + ")");
+        //arg.attackCmp.time_after_last_attack = 0;
+        Debug.Log("объекту " + arg.attackTarget.name + " нанесен урон " + arg.attackParameters.damage + " от " + arg.attaker.gameObject.name + " (" + arg.attaker.entity + ")");
+        Storage.GetComponent<HealthCmp>(arg.attackTarget.entity).health -= arg.attackParameters.damage;
     }
 
 

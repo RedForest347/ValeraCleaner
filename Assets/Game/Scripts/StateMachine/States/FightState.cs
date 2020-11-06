@@ -67,7 +67,7 @@ public class FightState : StateBase
         {
             if (damageGiverCmp.readyToAttack)
             {
-                SignalManager<DamageSignal>.SendSignal(new DamageSignal(damageGiverCmp, healthCmp.entityBase));
+                //SignalManager<DamageSignal>.SendSignal(new DamageSignal(damageGiverCmp, healthCmp.entityBase, damageGiverCmp.gameObject));
             }
         }
     }

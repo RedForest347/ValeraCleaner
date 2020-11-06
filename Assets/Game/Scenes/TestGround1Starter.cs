@@ -20,6 +20,9 @@ public class TestGround1Starter : Starter
         GlobalSystemStorage.Add<AIMoveProc>();
         GlobalSystemStorage.Add<StateMachineProc>();
 
+        GlobalSystemStorage.Add<TakeDamageProc>();
+        GlobalSystemStorage.Add<PalyerAttackProc>();
+
 
     }
 }

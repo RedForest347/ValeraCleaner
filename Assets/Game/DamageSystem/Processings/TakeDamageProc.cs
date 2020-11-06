@@ -25,7 +25,8 @@ public class TakeDamageProc : ProcessingBase, ICustomStart, ICustomUpdate, IRece
     public void SignalHandler(DamageSignal arg)
     {
         //arg.attackCmp.time_after_last_attack = 0;
-        Debug.Log("объекту " + arg.attackTarget.name + " нанесен урон " + arg.attackParameters.damage + " от " + arg.attaker.gameObject.name + " (" + arg.attaker.entity + ")");
+        Debug.Log("объекту " + arg.attackTarget.name + " нанесен урон " + arg.attackParameters.damage + " от " 
+            + arg.attaker.gameObject.name + " (" + arg.attaker.entity + ")");
         Storage.GetComponent<HealthCmp>(arg.attackTarget.entity).health -= arg.attackParameters.damage;
     }
 

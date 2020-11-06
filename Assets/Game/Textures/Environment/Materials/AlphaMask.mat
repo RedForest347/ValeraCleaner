@@ -80,4 +80,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FadeOrigin: {r: 8.083471, g: -3.3122413, b: 0, a: 1}
+    - _FadeOrigin: {r: -7.030924, g: 0.9096055, b: 0, a: 1}

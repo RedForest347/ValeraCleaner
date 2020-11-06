@@ -4,9 +4,26 @@ using UnityEngine;
 using RangerV;
 using UnityEditor;
 
-public class PalyerAttackProc : ProcessingBase, ICustomUpdate
+public class PalyerAttackProc : ProcessingBase, ICustomUpdate, ICustomStart, ICustomDisable
 {
     Group AttackGroup = Group.Create(new ComponentsList<AttackCmp, MoverCmp>());
+
+
+    public void OnStart()
+    {
+        AttackGroup.InitEvents(OnAdd, OnRemove);
+    }
+
+    void OnAdd(int entity)
+    {
+        Storage.GetComponent<AttackCmp>(entity).OnAttack += AttackHandler;
+    }
+
+    void OnRemove(int entity)
+    {
+        Storage.GetComponent<AttackCmp>(entity).OnAttack -= AttackHandler;
+    }
+
 
 
     public void CustomUpdate()
@@ -17,30 +34,17 @@ public class PalyerAttackProc : ProcessingBase, ICustomUpdate
         foreach (int entity in AttackGroup)
         {
             AttackCmp attackCmp = Storage.GetComponent<AttackCmp>(entity);
-            RaycastHit[] castInfos;
 
             if (Input.GetKeyDown(KeyCode.V))
             {
-                Attack attack = attackCmp.attackList[0];
-                Vector3 pos = attackCmp.transform.position + (Vector3)((Vector2)attackCmp.transform.right * attack.attackZone.distance)
-                    .Rotate(attack.attackZone.angleOffset);
-                Quaternion rotation = Quaternion.Euler(0, 0, -attack.attackZone.angleOffset);
-
-                castInfos = Physics.BoxCastAll(pos, attack.attackZone.cubeSize / 2, Vector3.forward,
-                    rotation, 5, attack.attackZone.layerMask);
-
-                for (int i = 0; i < castInfos.Length; i++)
-                {
-                    if (castInfos[i].collider.attachedRigidbody.TryGetComponent(out EntityBase target))
-                    {
-                        SignalManager<DamageSignal>.SendSignal(new DamageSignal(attack, target, attackCmp.entityBase));
-                    }
-                }
+                attackCmp.currentAttackType = 0;
+                attackCmp.animator.SetTrigger("Kick");
             }
 
             if (Input.GetKeyDown(KeyCode.C))
             {
-
+                attackCmp.currentAttackType = 1;
+                attackCmp.animator.SetTrigger("JumpKick");
             }
 
             if (Input.GetKeyDown(KeyCode.F))
@@ -53,7 +57,44 @@ public class PalyerAttackProc : ProcessingBase, ICustomUpdate
 
             }
         }
+
+
+
     }
 
-    //public
+    void AttackHandler(int sender, Attack attack)
+    {
+        AttackCmp attackCmp = Storage.GetComponent<AttackCmp>(sender);
+        MoverCmp moverCmp = Storage.GetComponent<MoverCmp>(sender);
+        RaycastHit[] castInfos;
+
+        Quaternion rotation = Quaternion.Euler(0, 0, -attack.attackZone.angleOffset + moverCmp.rotation);
+        Vector3 pos = attackCmp.transform.position + (Vector3)((Vector2)attackCmp.transform.right * attack.attackZone.distance)
+            .Rotate(-rotation.eulerAngles.z);
+
+        castInfos = Physics.BoxCastAll(pos, attack.attackZone.cubeSize / 2, Vector3.forward,
+            rotation, 5, attack.attackZone.layerMask);
+
+        for (int i = 0; i < castInfos.Length; i++)
+        {
+            EntityBase target = null;
+            if (castInfos[i].collider.attachedRigidbody?.TryGetComponent(out target) ?? false)
+            {
+                //Debug.Log();
+                if (target.entity != sender)
+                {
+                    target.GetComponent<Rigidbody>().AddForce(((Vector2)target.transform.position - (Vector2)attackCmp.transform.position) * attack.pushForce);
+                    //attackCmp.GetComponent<Rigidbody>().AddForce(-((Vector2)target.transform.position - (Vector2)attackCmp.transform.position) * attack.pushForce);
+
+                    SignalManager<DamageSignal>.SendSignal(new DamageSignal(attack, target, attackCmp.entityBase));
+                }
+            }
+        }
+    }
+
+    public void OnCustomDisable()
+    {
+        AttackGroup.DeinitEvents(OnAdd, OnRemove);
+    }
+
 }

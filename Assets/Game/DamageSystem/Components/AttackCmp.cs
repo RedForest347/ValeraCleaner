@@ -4,16 +4,25 @@ using UnityEngine;
 using RangerV;
 using UnityEditor;
 using UnityEngine.Events;
+using System;
 
 public class AttackCmp : ComponentBase, ICustomAwake
 {
-	public UnityEvent unityEvent;
+	
     public Attack[] attackList;
-
+	public Action<int, Attack> OnAttack;
+	public int currentAttackType;
+	public Animator animator;
 
 	public void OnAwake()
 	{
+		animator = GetComponent<Animator>();
+	}
 
+	public void Kick()
+    {
+
+		OnAttack(entity, attackList[currentAttackType]);
 	}
 
 	private void OnDrawGizmos()
@@ -23,7 +32,7 @@ public class AttackCmp : ComponentBase, ICustomAwake
         {
 			if (attackList[i].attackZone.showZone)
 			{
-				Quaternion rotation = Quaternion.Euler(0, 0, -attackList[i].attackZone.angleOffset);
+				Quaternion rotation = Quaternion.Euler(0, 0, -(attackList[i].attackZone.angleOffset - GetComponent<MoverCmp>().rotation));
 				Gizmos.color = attackList[i].attackZone.color;
 
 				Vector3 pos = attackList[i].attackZone.cubeSize;
@@ -33,15 +42,10 @@ public class AttackCmp : ComponentBase, ICustomAwake
 				attackList[i].attackZone.cubeSize = pos;
 
 				Gizmos.DrawWireMesh(CreateCube(), transform.position + (Vector3)((Vector2)transform.right * attackList[i].attackZone.distance)
-					.Rotate(attackList[i].attackZone.angleOffset), rotation, attackList[i].attackZone.cubeSize);
+					.Rotate(-rotation.eulerAngles.z), rotation, attackList[i].attackZone.cubeSize);
 			}
 		}
 	}
-
-    private void OnTriggerStay(Collider other)
-    {
-
-    }
 
     private Mesh CreateCube()
 	{
@@ -89,7 +93,10 @@ public struct Attack
 	public string attackName;
 
 	public float damage;
+
+	//public UnityEvent unityEvent;
 	public float timeBetweenAttacks;
+	[HideInInspector]
 	public float timeAfterLastAttack;
 
 	public float pushForce;
@@ -102,7 +109,7 @@ public struct Attack
 public class AttackZone
 {
 	public bool showZone;
-	public Color color;
+	public Color color = Color.blue;
 
 	public LayerMask layerMask;
 	public float distance;

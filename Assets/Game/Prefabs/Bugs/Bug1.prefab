@@ -111,7 +111,7 @@ MonoBehaviour:
   - {fileID: -3749191572083949623}
   - {fileID: 888271284624323701}
   - {fileID: 1844294303930414568}
-  show_comp: 0000000001
+  show_comp: 0000000101
 --- !u!114 &-2837539107263561525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,13 +176,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  nearby_distance: 0
+  nearby_distance: 0.3
   moveMode: 0
   aILerp: {fileID: 0}
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
+  current_distance_to_target: 0
   draw_gizmos: 0
   cur_speed: 0
 --- !u!114 &1510627737630941869
@@ -228,7 +228,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 48
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &888271284624323701
 MonoBehaviour:
@@ -257,7 +257,7 @@ MonoBehaviour:
     time_befor_walk: 3
     walk_distance: 1
   show_gizmos: 0
-  show_gizmos_alternative: 1
+  show_gizmos_alternative: 0
   cur_state_name: 
 --- !u!65 &8403187575459597902
 BoxCollider:

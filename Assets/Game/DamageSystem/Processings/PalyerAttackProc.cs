@@ -17,7 +17,7 @@ public class PalyerAttackProc : ProcessingBase, ICustomUpdate
 
             for (int i = 0; i < castInfos.Length; i++)
             {
-                Debug.Log(castInfos[i].collider.gameObject.name);
+                //Debug.Log(castInfos[i].collider.gameObject.name);
             }
 
             if (Input.GetKeyDown(KeyCode.V))

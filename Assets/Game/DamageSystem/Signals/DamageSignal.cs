@@ -5,12 +5,14 @@ using RangerV;
 
 public class DamageSignal : ISignal
 {
-    public DamageGiverCmp damageGiver;
-    public EntityBase damageTaker;
+    public Attack attackParameters;
+    public EntityBase attaker;
+    public EntityBase attackTarget;
 
-    public DamageSignal(DamageGiverCmp damageGiver, EntityBase damageTaker)
+    public DamageSignal(Attack attackParameters, EntityBase attackTarget, EntityBase attaker)
     {
-        this.damageGiver = damageGiver;
-        this.damageTaker = damageTaker;
+        this.attackParameters = attackParameters;
+        this.attackTarget = attackTarget;
+        this.attaker = attaker;
     }
 }

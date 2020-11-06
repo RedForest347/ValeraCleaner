@@ -21,6 +21,7 @@ public class TestGround1Starter : Starter
         GlobalSystemStorage.Add<StateMachineProc>();
 
         GlobalSystemStorage.Add<TakeDamageProc>();
+        GlobalSystemStorage.Add<PalyerAttackProc>();
 
 
     }

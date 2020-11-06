@@ -3523,6 +3523,7 @@ GameObject:
   - component: {fileID: 1210908663}
   - component: {fileID: 1210908658}
   - component: {fileID: 1210908661}
+  - component: {fileID: 1210908662}
   m_Layer: 8
   m_Name: Valera1
   m_TagString: Untagged
@@ -3630,7 +3631,8 @@ MonoBehaviour:
   - {fileID: 1210908659}
   - {fileID: 1210908664}
   - {fileID: 1210908661}
-  show_comp: 0000000000000000
+  - {fileID: 1210908662}
+  show_comp: 000000000001000000
 --- !u!114 &1210908657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3702,6 +3704,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Collider: {fileID: 0}
   Rigidbody: {fileID: 1210908658}
+--- !u!114 &1210908662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210908652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25daf88b25be42f45bc593b17cebad1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  elementalDamage:
+    lightningDamage: 0
+    toxicDamage: 0
+  CubeCenter: {x: -8.19, y: 0.66, z: 0}
+  CubeSize: {x: 1, y: 1, z: 1}
 --- !u!65 &1210908663
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7497,7 +7517,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   current_move_point: {x: 0, y: 0}
   path_length: 0
-  distance_to_target: 0
+  current_distance_to_target: 0
   draw_gizmos: 0
   cur_speed: 0
 --- !u!54 &4926858481836565762
@@ -7846,6 +7866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   time_between_attacks: 1
+  time_after_last_attack: 0
 --- !u!114 &6935841005020858553
 MonoBehaviour:
   m_ObjectHideFlags: 0

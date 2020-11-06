@@ -19,12 +19,11 @@ public class FightState : StateBase
     public override void StateUpdate()
     {
         float distance = ((Vector2)(smData.target.position - smData.aiMove.transform.position)).magnitude;
-        //Debug.Log("distance = " + distance);
+
         if (distance > smData.fight_distance)
         {
             smData.aiMove.SetTarget(smData.target);
             smData.aiMove.moveMode = AIMoveMode.GoToTarget;
-            //Debug.Log("target = " + smData.target + " pos = " + smData.target.transform.position);
 
             if (distance > smData.vision_distance)
             {
@@ -34,6 +33,7 @@ public class FightState : StateBase
         else
         {
             StopMove();
+            Fight();
         }
     }
 
@@ -60,7 +60,17 @@ public class FightState : StateBase
         }
     }
 
+    void Fight()
+    {
 
+        if (smData.target.TryGetComponent(out HealthCmp healthCmp) && stateMachine.TryGetComponent(out DamageGiverCmp damageGiverCmp))
+        {
+            if (damageGiverCmp.readyToAttack)
+            {
+                SignalManager<DamageSignal>.SendSignal(new DamageSignal(damageGiverCmp, healthCmp.entityBase));
+            }
+        }
+    }
 
     void OnReached(int ent)
     {

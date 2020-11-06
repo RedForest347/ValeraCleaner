@@ -150,7 +150,7 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
         List<GraphNode> path = aiMove.aILerp.GetPathCustom().path;
         Vector2 fin = aiMove.target;
 
-        aiMove.distance_to_target = (start - fin).magnitude; // for debug
+        aiMove.current_distance_to_target = (start - fin).magnitude; // for debug
 
         return (start - fin).magnitude < aiMove.nearby_distance;
     }

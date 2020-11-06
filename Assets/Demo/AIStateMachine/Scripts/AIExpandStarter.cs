@@ -14,7 +14,7 @@ public class AIExpandStarter : Starter
         GlobalSystemStorage.Add<CameraFollowProc>();
 
 
-        GlobalSystemStorage.Add<AIFindTargetProc>();
+        //GlobalSystemStorage.Add<AIFindTargetProc>();
         GlobalSystemStorage.Add<AIMoveProc>();
         GlobalSystemStorage.Add<StateMachineProc>();
 

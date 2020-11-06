@@ -38,11 +38,8 @@ public class ColisionDamageProc : ProcessingBase, ICustomUpdate, ICustomStart
 
             CollisionDamageCmp collisionDamage = Storage.GetComponent<CollisionDamageCmp>(entity);
             bool DoC = collisionDamage?.DestroyOnCollision ?? false;
-            Debug.Log("<CollisionDamageCmp>(entity) = " + Storage.GetComponent<CollisionDamageCmp>(entity));
-            Debug.Log("Storage.GetComponent<CollisionDamageCmp>(entity)?.DestroyOnCollision = " + Storage.GetComponent<CollisionDamageCmp>(entity)?.DestroyOnCollision);
             if (DoC)
             {
-                //Debug.Log("Storage.GetComponent<GameObjectComponent>(entity) = " + Storage.GetComponent<GameObjectComponent>(entity));
                 GameObject.Destroy(collisionDamage.gameObject);
             }
         }

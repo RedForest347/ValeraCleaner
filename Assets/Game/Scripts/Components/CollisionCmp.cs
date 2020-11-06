@@ -2,7 +2,7 @@
 using RangerV;
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
 
 public enum CollisionActionType
 {
@@ -95,8 +95,9 @@ public class CollisionCmp : ComponentBase
     private Dictionary<collisionAction, Collider[]> onCollisionStayActionDictionary = new Dictionary<collisionAction, Collider[]>();
     private void OnCollisionAction(Collision other, Dictionary<collisionAction, Collider[]> triggerDictionary)
     {
-        //Debug.Log("OnCollisionAction");
-        foreach (var action in triggerDictionary)
+        List<KeyValuePair<collisionAction, Collider[]>> Action = (triggerDictionary as IEnumerable<KeyValuePair<collisionAction, Collider[]>>).ToList();
+
+        foreach (var action in Action)
         {
             for (int collider = 0; collider < action.Value.Length; collider++)
                 if (other.collider == action.Value[collider])
@@ -173,8 +174,10 @@ public class CollisionCmp : ComponentBase
     private Dictionary<triggerAction, Collider[]> onTriggerStayActionDictionary = new Dictionary<triggerAction, Collider[]>();
     private void OnTriggerAction(Collider other, Dictionary<triggerAction, Collider[]> triggerDictionary)
     {
-        
-        foreach (var action in triggerDictionary)
+        List<KeyValuePair<triggerAction, Collider[]>> Action = (triggerDictionary as IEnumerable<KeyValuePair<triggerAction, Collider[]>>).ToList();
+
+
+        foreach (var action in Action)
         {
             for (int collider = 0; collider < action.Value.Length; collider++)
                 if (other == action.Value[collider])

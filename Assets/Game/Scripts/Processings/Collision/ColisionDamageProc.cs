@@ -32,7 +32,7 @@ public class ColisionDamageProc : ProcessingBase, ICustomUpdate, ICustomStart, I
 
     public void GiveDamage(Collider damage_recipient, int damage_giver)
     {
-        int target_entity = damage_recipient.attachedRigidbody?.GetComponent<Entity>()?.entity ?? -1;
+        int target_entity = damage_recipient.attachedRigidbody?.GetComponent<Entity>()?.entity ?? damage_recipient.GetComponent<Entity>()?.entity ?? - 1;
 
         if (target_group.Contains(target_entity))
         {

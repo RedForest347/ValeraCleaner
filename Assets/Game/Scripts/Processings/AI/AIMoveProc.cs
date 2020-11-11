@@ -67,6 +67,7 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
 
     void SearchNewPath(AIMoveCmp aiMove)
     {
+        //Debug.Log("SearchNewPath");
         aiMove.aILerp.SearchNewPathCustom(aiMove.target);
     }
 
@@ -151,6 +152,7 @@ public class AIMoveProc : ProcessingBase, ICustomFixedUpdate, ICustomStart
         Vector2 fin = aiMove.target;
 
         aiMove.current_distance_to_target = (start - fin).magnitude; // for debug
+        aiMove.current_distance_to_nearby_point = (start - aiMove.current_move_point).magnitude; // for debug
 
         return (start - fin).magnitude < aiMove.nearby_distance;
     }

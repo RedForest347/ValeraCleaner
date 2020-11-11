@@ -69,18 +69,18 @@ public class PalyerAttackProc : ProcessingBase, ICustomUpdate, ICustomStart, ICu
         RaycastHit[] castInfos;
 
         Quaternion rotation = Quaternion.Euler(0, 0, -attack.attackZone.angleOffset + moverCmp.rotation);
-        Vector3 pos = attackCmp.transform.position + (Vector3)((Vector2)attackCmp.transform.right * attack.attackZone.distance)
-            .Rotate(-rotation.eulerAngles.z);
+        Vector3 pos = attackCmp.transform.position + (attackCmp.transform.right * attack.attackZone.distance)
+            .RotateHowVector2(-rotation.eulerAngles.z);
 
-        castInfos = Physics.BoxCastAll(pos, attack.attackZone.cubeSize / 2, Vector3.forward,
-            rotation, 5, attack.attackZone.layerMask);
+        castInfos = Physics.BoxCastAll(pos, attack.attackZone.cubeSize / 2, Vector3.forward, rotation, 5, attack.attackZone.layerMask);
+
+        castInfos = SupportFunction.CreateCorrectRaycastHits(castInfos);
+
 
         for (int i = 0; i < castInfos.Length; i++)
         {
-            EntityBase target = null;
-            if (castInfos[i].collider.attachedRigidbody?.TryGetComponent(out target) ?? false)
+            if (castInfos[i].collider.attachedRigidbody.TryGetComponent(out EntityBase target))
             {
-                //Debug.Log();
                 if (target.entity != sender)
                 {
                     target.GetComponent<Rigidbody>().AddForce(((Vector2)target.transform.position - (Vector2)attackCmp.transform.position) * attack.pushForce);

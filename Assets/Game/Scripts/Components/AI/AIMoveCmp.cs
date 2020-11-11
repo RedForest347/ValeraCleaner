@@ -55,6 +55,7 @@ public class AIMoveCmp : ComponentBase, ICustomAwake
     }
 
     public float current_distance_to_target;
+    public float current_distance_to_nearby_point;
     public bool draw_gizmos;
     public float cur_speed;
 

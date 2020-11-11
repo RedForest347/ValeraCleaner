@@ -8,10 +8,13 @@ using System;
 
 public class AttackCmp : ComponentBase, ICustomAwake
 {
-	
     public Attack[] attackList;
+
+
 	public Action<int, Attack> OnAttack;
+	[HideInInspector]
 	public int currentAttackType;
+	[HideInInspector]
 	public Animator animator;
 
 	public void OnAwake()
@@ -27,12 +30,13 @@ public class AttackCmp : ComponentBase, ICustomAwake
 
 	private void OnDrawGizmos()
     {
+		MoverCmp moverCmp = GetComponent<MoverCmp>();
 
-        for (int i = 0; i < attackList.Length; i++)
+		for (int i = 0; i < attackList.Length; i++)
         {
 			if (attackList[i].attackZone.showZone)
 			{
-				Quaternion rotation = Quaternion.Euler(0, 0, -(attackList[i].attackZone.angleOffset - GetComponent<MoverCmp>().rotation));
+				Quaternion rotation = Quaternion.Euler(0, 0, -(attackList[i].attackZone.angleOffset - moverCmp.rotation));
 				Gizmos.color = attackList[i].attackZone.color;
 
 				Vector3 pos = attackList[i].attackZone.cubeSize;
@@ -41,8 +45,8 @@ public class AttackCmp : ComponentBase, ICustomAwake
 				if (pos.z < 0) pos.z = 0;
 				attackList[i].attackZone.cubeSize = pos;
 
-				Gizmos.DrawWireMesh(CreateCube(), transform.position + (Vector3)((Vector2)transform.right * attackList[i].attackZone.distance)
-					.Rotate(-rotation.eulerAngles.z), rotation, attackList[i].attackZone.cubeSize);
+				Gizmos.DrawWireMesh(CreateCube(), transform.position + (transform.right * attackList[i].attackZone.distance)
+					.RotateHowVector2(-rotation.eulerAngles.z), rotation, attackList[i].attackZone.cubeSize);
 			}
 		}
 	}

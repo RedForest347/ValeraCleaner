@@ -37,13 +37,13 @@ public class PalyerAttackProc : ProcessingBase, ICustomUpdate, ICustomStart, ICu
 
             if (Input.GetKeyDown(KeyCode.V))
             {
-                attackCmp.currentAttackType = 0;
+                attackCmp.currentAttackIndex = 0;
                 attackCmp.animator.SetTrigger("Kick");
             }
 
             if (Input.GetKeyDown(KeyCode.C))
             {
-                attackCmp.currentAttackType = 1;
+                attackCmp.currentAttackIndex = 1;
                 attackCmp.animator.SetTrigger("JumpKick");
             }
 
@@ -62,10 +62,10 @@ public class PalyerAttackProc : ProcessingBase, ICustomUpdate, ICustomStart, ICu
 
     }
 
-    void AttackHandler(int sender, Attack attack)
+    void AttackHandler(AttackCmp attackCmp)
     {
-        AttackCmp attackCmp = Storage.GetComponent<AttackCmp>(sender);
-        MoverCmp moverCmp = Storage.GetComponent<MoverCmp>(sender);
+        MoverCmp moverCmp = Storage.GetComponent<MoverCmp>(attackCmp.entity);
+        Attack attack = attackCmp.CurrentAttack;
         RaycastHit[] castInfos;
 
         Quaternion rotation = Quaternion.Euler(0, 0, -attack.attackZone.angleOffset + moverCmp.rotation);
@@ -74,22 +74,7 @@ public class PalyerAttackProc : ProcessingBase, ICustomUpdate, ICustomStart, ICu
 
         castInfos = Physics.BoxCastAll(pos, attack.attackZone.cubeSize / 2, Vector3.forward, rotation, 5, attack.attackZone.layerMask);
 
-        castInfos = SupportFunction.CreateCorrectRaycastHits(castInfos);
-
-
-        for (int i = 0; i < castInfos.Length; i++)
-        {
-            if (castInfos[i].collider.attachedRigidbody.TryGetComponent(out EntityBase target))
-            {
-                if (target.entity != sender)
-                {
-                    target.GetComponent<Rigidbody>().AddForce(((Vector2)target.transform.position - (Vector2)attackCmp.transform.position) * attack.pushForce);
-                    //attackCmp.GetComponent<Rigidbody>().AddForce(-((Vector2)target.transform.position - (Vector2)attackCmp.transform.position) * attack.pushForce);
-
-                    SignalManager<DamageSignal>.SendSignal(new DamageSignal(attack, target, attackCmp.entityBase));
-                }
-            }
-        }
+        SignalManager<PreparateDamageSignal>.SendSignal(new PreparateDamageSignal(attackCmp, castInfos));
     }
 
     public void OnCustomDisable()

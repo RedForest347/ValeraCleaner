@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using RangerV;
 using System;
+using UnityEditor;
 
 public class GrenadeProc : ProcessingBase, ICustomUpdate
 {
-    Group GrenadeGroup = Group.Create(new ComponentsList<GrenadeCmp>());
+    Group GrenadeGroup = Group.Create(new ComponentsList<GrenadeCmp, AttackCmp>());
 
     public void CustomUpdate()
     {
         foreach (int grenade in GrenadeGroup)
         {
             GrenadeCmp grenadeCmp = Storage.GetComponent<GrenadeCmp>(grenade);
+            AttackCmp attackCmp = Storage.GetComponent<AttackCmp>(grenade);
 
             if (OutLiveTime(grenadeCmp))
             {
-                AddBoomForce(grenadeCmp);
+                AddBoomForce(grenadeCmp, attackCmp);
             }
         }
     }
@@ -33,19 +35,26 @@ public class GrenadeProc : ProcessingBase, ICustomUpdate
         return outLiveTime;
     }
 
-    void AddBoomForce(GrenadeCmp grenadeCmp)
+    void AddBoomForce(GrenadeCmp grenadeCmp, AttackCmp attackCmp)
     {
-        RaycastHit[] hits = Physics.SphereCastAll(grenadeCmp.transform.position, grenadeCmp.blast_radius, new Vector2(0, 0));
+        Vector3 point1 = grenadeCmp.transform.position + new Vector3(0, 0, 5);
+        Vector3 point2 = grenadeCmp.transform.position + new Vector3(0, 0, -5);
 
-        for (int i = 0; i < hits.Length; i++)
+
+
+        RaycastHit[] hits = Physics.CapsuleCastAll(point1, point2, grenadeCmp.blast_radius, new Vector3(0, 0, -1), 500, grenadeCmp.attackMask);
+        //Debug.Log("Add boom force to " + hits.Length);
+        SignalManager<PreparateDamageSignal>.SendSignal(new PreparateDamageSignal(attackCmp, hits));
+
+        /*for (int i = 0; i < hits.Length; i++)
         {
             if (!hits[i].collider.isTrigger && hits[i].collider.gameObject.TryGetComponent(out EntityBase entity))
             {
                 Vector2 forceVector = CalculateBlastForce(grenadeCmp, entity.gameObject);
 
-                Storage.GetComponent<Physics2DCmp>(entity.entity).Rigidbody.AddForce(forceVector);
+                Storage.GetComponent<PhysicsCmp>(entity.entity).Rigidbody.AddForce(forceVector);
             }
-        }
+        }*/
 
         FinalizeGrenade(grenadeCmp);
     }

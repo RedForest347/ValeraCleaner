@@ -46,9 +46,9 @@ public class TakeDamageProc : ProcessingBase, ICustomStart, ICustomUpdate, IRece
     public void SignalHandler(PreparateDamageSignal arg)
     {
         RaycastHit[] castInfos = CreateCorrectRaycastHits(arg.raycastHits);
-        int sender = arg.damageSignal.attaker.entity;
-        Attack attack = arg.damageSignal.attackParameters;
-        AttackCmp attackCmp = arg.damageSignal.attackTarget.GetCmp<AttackCmp>();
+        int sender = arg.attackSender.entity;
+        Attack attack = arg.attackSender.attackList[arg.attackSender.currentAttackIndex];
+        AttackCmp attackCmp = arg.attackSender;
 
         for (int i = 0; i < castInfos.Length; i++)
         {

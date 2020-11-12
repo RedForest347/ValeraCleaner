@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RangerV;
 
+/// <обрабатывается cref="TakeDamageProc"/>
 public class DamageSignal : ISignal
 {
     public Attack attackParameters;

@@ -285,7 +285,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bc7e9363c1668ec42a2c98c50cfddb49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a84ffe04c97adf41bea8ead07bd44ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1081846482}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f1339d48069a0348b9bdfab1a55a22f, type: 3}
+  m_Script: {fileID: 11500000, guid: 556de08ca84357b45bb9f04032333438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1450587540
@@ -555,7 +555,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: da9bfdac596cef745aca44dfa6389f8e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e0111429ab186aa479f1b86c15a26730, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -582,6 +582,7 @@ GameObject:
   - component: {fileID: 1781714182}
   - component: {fileID: 1781714183}
   - component: {fileID: 1781714177}
+  - component: {fileID: 1781714184}
   m_Layer: 0
   m_Name: Valera
   m_TagString: Untagged
@@ -597,7 +598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781714175}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.43, y: -5.23, z: 0}
+  m_LocalPosition: {x: 1.59, y: -4.937, z: -1.967}
   m_LocalScale: {x: 0.28138, y: 0.28138, z: 0.28138}
   m_Children:
   - {fileID: 1452121682}
@@ -613,7 +614,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1781714175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eddc60ed145a49741987f7d00f9c95ff, type: 3}
+  m_Script: {fileID: 11500000, guid: d26ffcb7ce398434f81024c9c9299d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   should_show: 1
@@ -645,6 +646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Acceleration: 11
   MaxSpeed: 11
+  rotation: 0
 --- !u!114 &1781714180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,19 +674,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e1f9b88a859c94db05d57547e7de86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: 0
   Components:
   - {fileID: 1781714180}
   - {fileID: 1781714179}
   - {fileID: 1781714178}
   - {fileID: 1781714183}
   - {fileID: 1781714177}
-  state:
-    enabled: 0
-    requireStarter: 0
-    initialized: 0
-    runtime: 0
-  show_comp: 0000000000
+  show_comp: 000000000000
 --- !u!50 &1781714182
 Rigidbody2D:
   serializedVersion: 4
@@ -723,6 +719,36 @@ MonoBehaviour:
   rateOfFire: 0
   IgnoreColliders: []
   timer: 0
+--- !u!114 &1781714184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781714175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c0b50e8f53935846b3f754d7a794087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active_distance: 2.1
+  active_angle: 360
+  angle_offset: -60
+  select_key: 0
+  was_select_in_previous_frame: 0
+  select_in_current_frame: 0
+  SelectUE:
+    m_PersistentCalls:
+      m_Calls: []
+  EnterUE:
+    m_PersistentCalls:
+      m_Calls: []
+  StayUE:
+    m_PersistentCalls:
+      m_Calls: []
+  ExitUE:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2000982744
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,7 +843,6 @@ GameObject:
   - component: {fileID: 2106072075}
   - component: {fileID: 2106072078}
   - component: {fileID: 2106072077}
-  - component: {fileID: 2106072076}
   m_Layer: 0
   m_Name: InterObj
   m_TagString: Untagged
@@ -841,20 +866,6 @@ Transform:
   m_Father: {fileID: 1470319233}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2106072076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106072074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4a81e8e5e645ab4080641980eeec82f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OpenChestSprite: {fileID: 192493829}
-  CloseChestSprite: {fileID: 1645791536}
 --- !u!114 &2106072077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -897,13 +908,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e1f9b88a859c94db05d57547e7de86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: 0
   Components:
   - {fileID: 2106072077}
-  - {fileID: 2106072076}
-  state:
-    enabled: 0
-    requireStarter: 0
-    initialized: 0
-    runtime: 0
   show_comp: 000100

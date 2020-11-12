@@ -9,6 +9,10 @@ using UnityEditor;
 
 public static class HandlesExpansion
 {
+
+
+    #region DrawZone
+
     /// <summary>
     /// рисует зону окружности
     /// зона рисуется по сторонам от вектора targetTransform.up + angle_offset
@@ -45,11 +49,15 @@ public static class HandlesExpansion
         Handles.DrawSolidArc(targetTransform.position, Vector3.forward, from, angle, distance);
         Handles.DrawSolidArc(targetTransform.position, Vector3.forward, from, -angle, distance);
         Handles.color = Color.black;
-        if (angle < 180 - 1)
+        if (angle < 180 - 0.5f)
         {
-            Handles.DrawLine((Vector2)targetTransform.position,
-                (Vector2)targetTransform.position + ((Vector2)(targetTransform.up * distance)).Rotate(angle_offset));
+            Handles.DrawLine(targetTransform.position,
+                targetTransform.position + (targetTransform.up * distance).RotateHowVector2(angle_offset));
         }
 #endif
     }
+
+    #endregion DrawZone
+
+
 }

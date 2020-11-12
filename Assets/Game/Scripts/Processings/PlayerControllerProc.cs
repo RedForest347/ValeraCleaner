@@ -53,7 +53,7 @@ public class PlayerControllerProc : ProcessingBase, ICustomUpdate, ICustomFixedU
     void HandRotation(int entity)
     {
         GameObject Hand = Storage.GetComponent<PlayerControllerCmp>(entity).Hand;
-        float angle = FindRotateAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition), Hand.transform.position);
+        float angle = FindRotateAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition), EntityBase.GetEntity(entity).transform.position);
         //EntityBase.GetEntity(entity).GetComponent<Rigidbody2D>().SetRotation(angle);
         Hand.transform.eulerAngles = new Vector3(0, 0, angle + 90);
 

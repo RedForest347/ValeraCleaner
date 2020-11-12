@@ -43,6 +43,23 @@ namespace RangerV
             return StorageDictionary.ContainsKey(type) ? StorageDictionary[type].GetComponent(entity) : null;
         }
 
+        public static bool TryGetComponent<T>(out T component, int entity) where T : ComponentBase, IComponent, new()
+        {
+            component = (T)Storage<T>.Instance.entityData[entity].component;
+
+            return component != null;
+        }
+
+        public static bool TryGetComponent(Type type, out ComponentBase componentBase, int entity)
+        {
+            if (type == null)
+                Debug.LogException(new ArgumentNullException("parameter name: type"));
+
+            componentBase = StorageDictionary.ContainsKey(type) ? StorageDictionary[type].GetComponent(entity) : null;
+
+            return componentBase != null;
+        }
+
         public static Storage GetStorage(Type ComponentType)
         {
             if (!StorageDictionary.ContainsKey(ComponentType))

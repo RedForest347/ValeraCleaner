@@ -270,8 +270,12 @@ namespace RangerV
 
         public bool TryGetCmp<T>(out T component) where T : ComponentBase, IComponent, new()
         {
-            component = Storage.GetComponent<T>(entity);
-            return component == null ? false : true;
+            return Storage.TryGetComponent(out component, entity);
+        }
+
+        public bool TryGetCmp(Type componentType, out ComponentBase componentBase)
+        {
+            return Storage.TryGetComponent(componentType, out componentBase, entity);
         }
 
         public bool ContainsCmp<T>() where T : ComponentBase, IComponent, new()

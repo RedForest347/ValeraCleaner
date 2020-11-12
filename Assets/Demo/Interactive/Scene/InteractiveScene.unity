@@ -581,6 +581,8 @@ GameObject:
   - component: {fileID: 1781714178}
   - component: {fileID: 1781714182}
   - component: {fileID: 1781714183}
+  - component: {fileID: 1781714177}
+  - component: {fileID: 1781714184}
   m_Layer: 0
   m_Name: Valera
   m_TagString: Untagged
@@ -596,13 +598,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781714175}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.43, y: -5.23, z: 0}
+  m_LocalPosition: {x: 1.59, y: -4.937, z: -1.967}
   m_LocalScale: {x: 0.28138, y: 0.28138, z: 0.28138}
   m_Children:
   - {fileID: 1452121682}
   m_Father: {fileID: 1450587541}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &1781714177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781714175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26ffcb7ce398434f81024c9c9299d6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  should_show: 1
 --- !u!114 &1781714178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,8 +679,8 @@ MonoBehaviour:
   - {fileID: 1781714179}
   - {fileID: 1781714178}
   - {fileID: 1781714183}
-  - {fileID: 0}
-  show_comp: 0000000000
+  - {fileID: 1781714177}
+  show_comp: 000000000000
 --- !u!50 &1781714182
 Rigidbody2D:
   serializedVersion: 4
@@ -704,6 +719,36 @@ MonoBehaviour:
   rateOfFire: 0
   IgnoreColliders: []
   timer: 0
+--- !u!114 &1781714184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781714175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c0b50e8f53935846b3f754d7a794087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active_distance: 2.1
+  active_angle: 360
+  angle_offset: -60
+  select_key: 0
+  was_select_in_previous_frame: 0
+  select_in_current_frame: 0
+  SelectUE:
+    m_PersistentCalls:
+      m_Calls: []
+  EnterUE:
+    m_PersistentCalls:
+      m_Calls: []
+  StayUE:
+    m_PersistentCalls:
+      m_Calls: []
+  ExitUE:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2000982744
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,5 +910,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Components:
   - {fileID: 2106072077}
-  - {fileID: 0}
   show_comp: 000100

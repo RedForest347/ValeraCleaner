@@ -265,10 +265,13 @@ namespace RangerV
 
         public ComponentBase GetCmp(Type type)
         {
-            if (type == null)
-                Debug.LogException(new ArgumentNullException("parametr name: type"));
-
             return Storage.GetComponent(type, entity);
+        }
+
+        public bool TryGetCmp<T>(out T component) where T : ComponentBase, IComponent, new()
+        {
+            component = Storage.GetComponent<T>(entity);
+            return component == null ? false : true;
         }
 
         public bool ContainsCmp<T>() where T : ComponentBase, IComponent, new()
@@ -278,9 +281,6 @@ namespace RangerV
 
         public bool ContainsCmp(Type type)
         {
-            if (type == null)
-                Debug.LogException(new ArgumentNullException("parametr name: type"));
-
             return Storage.ContainsComponent(type, entity) ? true : false;
         }
 

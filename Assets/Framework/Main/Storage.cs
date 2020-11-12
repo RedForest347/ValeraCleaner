@@ -37,6 +37,9 @@ namespace RangerV
 
         public static ComponentBase GetComponent(Type type, int entity)
         {
+            if (type == null)
+                Debug.LogException(new ArgumentNullException("parameter name: type"));
+
             return StorageDictionary.ContainsKey(type) ? StorageDictionary[type].GetComponent(entity) : null;
         }
 
@@ -54,6 +57,9 @@ namespace RangerV
 
         public static bool ContainsComponent(Type componentType, int entity)
         {
+            if (componentType == null)
+                Debug.LogException(new ArgumentNullException("parameter name: componentType"));
+
             if (StorageDictionary.ContainsKey(componentType))
                 return StorageDictionary[componentType].entityData[entity].have_component;
             return false;

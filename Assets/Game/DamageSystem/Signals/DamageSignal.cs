@@ -6,13 +6,13 @@ using RangerV;
 /// <обрабатывается cref="TakeDamageProc"/>
 public class DamageSignal : ISignal
 {
-    public Attack attackParameters;
+    public AttackInfo attackInfo;
     public EntityBase attaker;
     public EntityBase attackTarget;
 
-    public DamageSignal(Attack attackParameters, EntityBase attackTarget, EntityBase attaker)
+    public DamageSignal(AttackInfo attackInfo, EntityBase attackTarget, EntityBase attaker)
     {
-        this.attackParameters = attackParameters;
+        this.attackInfo = attackInfo;
         this.attackTarget = attackTarget;
         this.attaker = attaker;
     }

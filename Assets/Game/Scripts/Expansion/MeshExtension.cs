@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class MeshExpansion
+public static class MeshExtension
 {
     public static Mesh CreateCube(this Mesh mesh)
     {

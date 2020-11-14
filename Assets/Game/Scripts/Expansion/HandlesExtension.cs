@@ -7,7 +7,7 @@ using UnityEngine.Assertions.Must;
 using UnityEditor;
 #endif
 
-public static class HandlesExpansion
+public static class HandlesExtension
 {
 
 
@@ -31,13 +31,13 @@ public static class HandlesExpansion
 
     public static void DrawZone(this Gizmos gizmos, Transform targetTransform, float angle, float angle_offset, float distance, Color color)
     {
-        Vector3 from = Vector2Expansion.Rotate(targetTransform.up, angle_offset);
+        Vector3 from = Vector2Extension.Rotate(targetTransform.up, angle_offset);
         DrawZoneBase(targetTransform, from, angle, angle_offset, distance, color);
     }
 
     public static void DrawZone(Transform targetTransform, float angle, float angle_offset, float distance, Color color)
     {
-        Vector3 from = Vector2Expansion.Rotate(targetTransform.up, angle_offset);
+        Vector3 from = Vector2Extension.Rotate(targetTransform.up, angle_offset);
         DrawZoneBase(targetTransform, from, angle, angle_offset, distance, color);
     }
 

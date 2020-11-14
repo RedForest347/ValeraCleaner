@@ -7,14 +7,14 @@ using UnityEditor;
 
 public class GrenadeProc : ProcessingBase, ICustomUpdate
 {
-    Group GrenadeGroup = Group.Create(new ComponentsList<GrenadeCmp, AttackCmp>());
+    Group GrenadeGroup = Group.Create(new ComponentsList<GrenadeCmp, MeleeAttackCmp>());
 
     public void CustomUpdate()
     {
         foreach (int grenade in GrenadeGroup)
         {
             GrenadeCmp grenadeCmp = Storage.GetComponent<GrenadeCmp>(grenade);
-            AttackCmp attackCmp = Storage.GetComponent<AttackCmp>(grenade);
+            MeleeAttackCmp attackCmp = Storage.GetComponent<MeleeAttackCmp>(grenade);
 
             if (OutLiveTime(grenadeCmp))
             {
@@ -35,7 +35,7 @@ public class GrenadeProc : ProcessingBase, ICustomUpdate
         return outLiveTime;
     }
 
-    void AddBoomForce(GrenadeCmp grenadeCmp, AttackCmp attackCmp)
+    void AddBoomForce(GrenadeCmp grenadeCmp, MeleeAttackCmp attackCmp)
     {
         Vector3 point1 = grenadeCmp.transform.position + new Vector3(0, 0, 5);
         Vector3 point2 = grenadeCmp.transform.position + new Vector3(0, 0, -5);

@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using RangerV;
 
-public class TakeDamageProc : ProcessingBase, ICustomStart, ICustomUpdate, IReceive<DamageSignal>, IReceive<PreparateDamageSignal>, ICustomDisable
+public class TakeDamageProc : ProcessingBase, ICustomStart, ICustomUpdate, IReceive<DamageSignal>, ICustomDisable
 {
-    Group DamageGiverGroup = Group.Create(new ComponentsList<AttackCmp>());
+    Group DamageGiverGroup = Group.Create(new ComponentsList<MeleeAttackCmp>());
     //Group PhisicsGroup
 
     public void OnStart()
     {
         SignalManager<DamageSignal>.AddReceiver(this);
-        SignalManager<PreparateDamageSignal>.AddReceiver(this);
+        //SignalManager<PreparateDamageSignal>.AddReceiver(this);
     }
 
     public void CustomUpdate() { }
@@ -20,13 +20,13 @@ public class TakeDamageProc : ProcessingBase, ICustomStart, ICustomUpdate, IRece
     public void SignalHandler(DamageSignal arg)
     {
         EntityBase target = arg.attackTarget;
-        AttackCmp attackCmp = arg.attaker.GetCmp<AttackCmp>();
-        Attack attack = arg.attackParameters;
+        MeleeAttackCmp attackCmp = arg.attaker.GetCmp<MeleeAttackCmp>();
+        AttackInfo attack = arg.attackInfo;
 
 
         if (target.TryGetCmp(out HealthCmp healthCmp))
         {
-            healthCmp.health -= arg.attackParameters.damage;
+            healthCmp.health -= attack.damage;
         }
 
         if (target.TryGetCmp(out MoverCmp moverCmp) && target.TryGetCmp(out PhysicsCmp physicsCmp))
@@ -39,16 +39,16 @@ public class TakeDamageProc : ProcessingBase, ICustomStart, ICustomUpdate, IRece
 
 
 
-        Debug.Log("объекту " + arg.attackTarget.name + " нанесен урон " + arg.attackParameters.damage + " от "
+        Debug.Log("объекту " + arg.attackTarget.name + " нанесен урон " + attack.damage + " от "
             + arg.attaker.gameObject.name + " (" + arg.attaker.entity + ")");
     }
 
-    public void SignalHandler(PreparateDamageSignal arg)
+    /*public void SignalHandler(PreparateDamageSignal arg)
     {
         RaycastHit[] castInfos = CreateCorrectRaycastHits(arg.raycastHits);
         int sender = arg.attackSender.entity;
-        Attack attack = arg.attackSender.attackList[arg.attackSender.currentAttackIndex];
-        AttackCmp attackCmp = arg.attackSender;
+        MeleeAttackInfo attack = arg.attackSender.attackList[arg.attackSender.currentAttackIndex];
+        MeleeAttackCmp attackCmp = arg.attackSender;
 
         for (int i = 0; i < castInfos.Length; i++)
         {
@@ -60,12 +60,12 @@ public class TakeDamageProc : ProcessingBase, ICustomStart, ICustomUpdate, IRece
                 }
             }
         }
-    }
+    }*/
 
     public void OnCustomDisable()
     {
         SignalManager<DamageSignal>.RemoveReceiver(this);
-        SignalManager<PreparateDamageSignal>.RemoveReceiver(this);
+        //SignalManager<PreparateDamageSignal>.RemoveReceiver(this);
     }
 
 

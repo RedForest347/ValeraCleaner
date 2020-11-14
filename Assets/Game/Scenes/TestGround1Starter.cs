@@ -7,6 +7,7 @@ public class TestGround1Starter : Starter
 {
     public override void StarterSetup()
     {
+        GlobalSystemStorage.Add<CorutineManager>();
         //GlobalSystemStorage.Add<PlayerControllerProc>();DelayDestroyProc
         GlobalSystemStorage.Add<DelayDestroyProc>();
         GlobalSystemStorage.Add<ColisionDamageProc>(); 
@@ -22,6 +23,9 @@ public class TestGround1Starter : Starter
 
         GlobalSystemStorage.Add<TakeDamageProc>();
         GlobalSystemStorage.Add<PalyerAttackProc>();
+
+        GlobalSystemStorage.Add<MeleeAttackProc>();
+        GlobalSystemStorage.Add<ExplosionAttackProc>();
 
 
     }

@@ -2,18 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RangerV;
-using UnityEditor;
-using UnityEngine.Events;
 using System;
 
-public class AttackCmp : ComponentBase, ICustomAwake
+public class ExplosionAttackCmp : ComponentBase
 {
-    public Attack CurrentAttack { get => attackList[currentAttackIndex]; }
+    public MeleeAttackInfo CurrentAttack { get => attackList[currentAttackIndex]; }
 
-    public Attack[] attackList;
+    public MeleeAttackInfo[] attackList;
 
 
-    public Action<AttackCmp> OnAttack;
+    public Action<ExplosionAttackCmp> OnAttack;
     [HideInInspector]
     public int currentAttackIndex;
     [HideInInspector]
@@ -24,7 +22,7 @@ public class AttackCmp : ComponentBase, ICustomAwake
         animator = GetComponent<Animator>();
     }
 
-    public void Kick()
+    public void ExplosionAttack()
     {
         OnAttack(this);
     }
@@ -50,7 +48,7 @@ public class AttackCmp : ComponentBase, ICustomAwake
                     if (pos.z < 0) pos.z = 0;
                     attackList[i].attackZone.cubeSize = pos;
 
-                    Gizmos.DrawWireMesh(MeshExpansion.CreateCube(), transform.position + (transform.right * attackList[i].attackZone.distance)
+                    Gizmos.DrawWireMesh(MeshExtension.CreateCube(), transform.position + (transform.right * attackList[i].attackZone.distance)
                         .RotateHowVector2(-rotation.eulerAngles.z), rotation, attackList[i].attackZone.cubeSize);
                 }
             }
@@ -59,32 +57,17 @@ public class AttackCmp : ComponentBase, ICustomAwake
 }
 
 [System.Serializable]
-public struct Attack
+public struct ExplosionAttackInfo
 {
     public string attackName;
-
     public float damage;
-
-    //public UnityEvent unityEvent;
-    public float timeBetweenAttacks;
-    [HideInInspector]
-    public float timeAfterLastAttack;
-
     public float pushForce;
 
+    public float attackDelay;
+    public float timeBetweenAttacks;
     public EffectBase[] effects;
     public AttackZone attackZone;
-}
 
-[System.Serializable]
-public class AttackZone
-{
-    public bool showZone;
-    public Color color = Color.blue;
-
-    public LayerMask layerMask;
-    public float distance;
-    public float angleOffset;
-    public Vector3 cubeSize;
-
+    [HideInInspector]
+    public float timeAfterLastAttack;
 }

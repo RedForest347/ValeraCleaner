@@ -42,6 +42,6 @@ public class InteractiveCmp : ComponentBase, ICustomAwake
 
     private void OnDrawGizmosSelected()
     {
-        HandlesExtension.DrawZone(transform, active_angle, angle_offset, active_distance, new Color(0.1f, 0.93f, 0.13f, 0.16f));
+        GizmosExtension.DrawZone(transform, active_angle, angle_offset, active_distance, new Color(0.1f, 0.93f, 0.13f, 0.16f));
     }
 }

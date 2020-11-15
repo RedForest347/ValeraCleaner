@@ -38,25 +38,13 @@ public class MeleeAttackCmp : ComponentBase, ICustomAwake
     {
         MoverCmp moverCmp = GetComponent<MoverCmp>();
 
-        if (meleeAttackInfos != null)
+        if (meleeAttackInfos != null && moverCmp != null)
         {
-            if (moverCmp == null) return;
-
             for (int i = 0; i < meleeAttackInfos.Length; i++)
             {
                 if (meleeAttackInfos[i].attackZone.showZone)
                 {
-                    Quaternion rotation = Quaternion.Euler(0, 0, -(meleeAttackInfos[i].attackZone.angleOffset - moverCmp.rotation));
-                    Gizmos.color = meleeAttackInfos[i].attackZone.color;
-
-                    Vector3 pos = meleeAttackInfos[i].attackZone.cubeSize;
-                    if (pos.x < 0) pos.x = 0;
-                    if (pos.y < 0) pos.y = 0;
-                    if (pos.z < 0) pos.z = 0;
-                    meleeAttackInfos[i].attackZone.cubeSize = pos;
-
-                    Gizmos.DrawWireMesh(MeshExtension.CreateCube(), transform.position + (transform.right * meleeAttackInfos[i].attackZone.distance)
-                        .RotateHowVector2(-rotation.eulerAngles.z), rotation, meleeAttackInfos[i].attackZone.cubeSize);
+                    GizmosExtension.DrawCube(transform, meleeAttackInfos[i].attackZone, moverCmp.rotation);
                 }
             }
         }

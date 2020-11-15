@@ -27,15 +27,15 @@ public class MeleeAttackProc : ProcessingBase, ICustomAwake, ICustomStart, ICust
 
     void AttackHandler(MeleeAttackCmp attackCmp)
     {
-        Debug.Log("AttackHandler");
+        //Debug.Log("AttackHandler");
         MoverCmp moverCmp = Storage.GetComponent<MoverCmp>(attackCmp.entity);
         MeleeAttackInfo attack = attackCmp.CurrentAttack;
 
         RaycastHit[] castInfos = RaycastExtension.BoxRaycast(attackCmp.transform, attack.attackZone, moverCmp.rotation);
-        Debug.Log("castInfos.Length = " + castInfos.Length);
+        //Debug.Log("castInfos.Length = " + castInfos.Length);
         EntityBase[] entityBases = castInfos.CreateEntityBaseArray(attackCmp.entity);
 
-        Debug.Log("entityBases.Length = " + entityBases.Length);
+        //Debug.Log("entityBases.Length = " + entityBases.Length);
 
         for (int i = 0; i < entityBases.Length; i++)
         {

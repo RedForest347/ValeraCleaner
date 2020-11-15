@@ -110,9 +110,9 @@ public class StateMachineCmp : ComponentBase, ICustomAwake
         }
         if (show_gizmos_alternative)
         {
-            HandlesExtension.DrawZone(transform, 360, smData.fight_distance, new Color(1, 0, 0, 0.13f));
-            HandlesExtension.DrawZone(transform, 360, smData.vision_distance, new Color(0, 0.7f, 0, 0.08f));
-            HandlesExtension.DrawZone(transform, 360, smData.active_distance, new Color(0, 0, 0.5f, 0.06f));
+            GizmosExtension.DrawZone(transform, 360, smData.fight_distance, new Color(1, 0, 0, 0.13f));
+            GizmosExtension.DrawZone(transform, 360, smData.vision_distance, new Color(0, 0.7f, 0, 0.08f));
+            GizmosExtension.DrawZone(transform, 360, smData.active_distance, new Color(0, 0, 0.5f, 0.06f));
         }
     }
 }

@@ -1391,12 +1391,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25daf88b25be42f45bc593b17cebad1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  elementalDamage:
-    lightningDamage: 0
-    toxicDamage: 0
-  CubeCenter: {x: -8.19, y: 0.66, z: 0}
-  CubeSize: {x: 1, y: 1, z: 1}
+  meleeAttackInfos:
+  - attackName: "\u041A\u0438\u043A \u043D\u043E\u0433\u043E\u0439"
+    damage: 10
+    pushForce: 100
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 256
+    attackDelay: 0
+    timeBetweenAttacks: 0
+    effects:
+    - {fileID: 0}
+    attackZone:
+      showZone: 1
+      color: {r: 0, g: 0.07363939, b: 1, a: 1}
+      distance: 1.67
+      angleOffset: 0.63
+      cubeSize: {x: 2.3, y: 1, z: 5}
+    timeAfterLastAttack: 0
+  currentAttackIndex: 0
+  animator: {fileID: 0}
 --- !u!114 &3676812725117482075
 MonoBehaviour:
   m_ObjectHideFlags: 0

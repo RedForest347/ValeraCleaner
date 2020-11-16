@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using RangerV;
 using System;
-using UnityEditor;
 
 public class GrenadeProc : ProcessingBase, ICustomUpdate
 {
@@ -37,26 +36,7 @@ public class GrenadeProc : ProcessingBase, ICustomUpdate
 
     void AddBoomForce(GrenadeCmp grenadeCmp, MeleeAttackCmp attackCmp)
     {
-        Vector3 point1 = grenadeCmp.transform.position + new Vector3(0, 0, 5);
-        Vector3 point2 = grenadeCmp.transform.position + new Vector3(0, 0, -5);
-
-
-
-        RaycastHit[] hits = Physics.CapsuleCastAll(point1, point2, grenadeCmp.blast_radius, new Vector3(0, 0, -1), 500, grenadeCmp.attackMask);
-        //Debug.Log("Add boom force to " + hits.Length);
-        SignalManager<PreparateDamageSignal>.SendSignal(new PreparateDamageSignal(attackCmp, hits));
-
-        /*for (int i = 0; i < hits.Length; i++)
-        {
-            if (!hits[i].collider.isTrigger && hits[i].collider.gameObject.TryGetComponent(out EntityBase entity))
-            {
-                Vector2 forceVector = CalculateBlastForce(grenadeCmp, entity.gameObject);
-
-                Storage.GetComponent<PhysicsCmp>(entity.entity).Rigidbody.AddForce(forceVector);
-            }
-        }*/
-
-        FinalizeGrenade(grenadeCmp);
+        // work in progress
     }
 
     Vector2 CalculateBlastForce(GrenadeCmp grenadeCmp, GameObject TargetObj)

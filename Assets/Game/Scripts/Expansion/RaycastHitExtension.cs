@@ -10,7 +10,7 @@ public static class RaycastHitExtension
     public static EntityBase[] CreateEntityBaseArray(this RaycastHit[] castInfos, int entitySender = -1)
     {
         RaycastHit[] _castInfos = CreateCorrectRaycastHits(castInfos);
-        Debug.Log("_castInfos.Length = " + _castInfos.Length);
+        //Debug.Log("_castInfos.Length = " + _castInfos.Length);
         int index = 0;
         EntityBase[] entityBases = new EntityBase[_castInfos.Length];
 
@@ -21,7 +21,7 @@ public static class RaycastHitExtension
                 if (target.entity != entitySender)
                     entityBases[index++] = target;
         }
-        Debug.Log("index = " + index);
+        //Debug.Log("index = " + index);
         Array.Resize(ref entityBases, index);
         return entityBases;
     }

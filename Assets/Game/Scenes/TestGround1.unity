@@ -1858,6 +1858,142 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2086031106}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &736965002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 736965003}
+  - component: {fileID: 736965004}
+  - component: {fileID: 736965005}
+  - component: {fileID: 736965006}
+  m_Layer: 0
+  m_Name: Greande
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &736965003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736965002}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.89, y: 0.86, z: -0.09}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_Children: []
+  m_Father: {fileID: 1710818127}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &736965004
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736965002}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 5b1a64ea234fb2343b8d0686c51280de, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.5, y: 1.4375}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &736965005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736965002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0138bc24b6aa849bbf2da3ad50cad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackList:
+  - attackName: "\u0431\u043E\u043B\u044C\u0448\u043E\u0439 \u0431\u0443\u043C"
+    radius: 4.8
+    damageSpread:
+      min: 10
+      max: 20
+    pushForseSpread:
+      min: 500
+      max: 500
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 256
+    attackDelay: 0
+    timeBetweenAttacks: 0
+    effects: []
+    attackZone:
+      showZone: 1
+      color: {r: 1, g: 0, b: 0, a: 1}
+      distance: 3.46
+      angleOffset: 3.1
+      cubeSize: {x: 1, y: 1, z: 1}
+    timeAfterLastAttack: 0
+    calculatedDamage: 0
+    calculatedPushForce: 0
+  currentAttackIndex: 0
+  animator: {fileID: 0}
+--- !u!114 &736965006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736965002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e1f9b88a859c94db05d57547e7de86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Components:
+  - {fileID: 736965005}
+  show_comp: 01
 --- !u!4 &738125748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7969088949581960078, guid: 3630812eb9314484784be9080595e0fe,
@@ -4867,6 +5003,7 @@ Transform:
   - {fileID: 287705248}
   - {fileID: 1791078408}
   - {fileID: 6935841005020858569}
+  - {fileID: 736965003}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7517,16 +7654,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
         type: 3}
-      propertyPath: meleeAttackInfos.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
-        type: 3}
-      propertyPath: meleeAttackInfos.Array.data[0].effects.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
-        type: 3}
       propertyPath: attackList.Array.data[0].attackName
       value: "\u041A\u0438\u043A \u043D\u043E\u0433\u043E\u0439"
       objectReference: {fileID: 0}
@@ -7752,79 +7879,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
         type: 3}
-      propertyPath: meleeAttackInfos.Array.data[0].attackName
-      value: "\u041A\u0438\u043A \u043D\u043E\u0433\u043E\u0439"
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
-        type: 3}
-      propertyPath: meleeAttackInfos.Array.data[0].damage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
-        type: 3}
-      propertyPath: meleeAttackInfos.Array.data[0].pushForce
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
-        type: 3}
-      propertyPath: meleeAttackInfos.Array.data[0].attackZone.distance
-      value: 1.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
-        type: 3}
-      propertyPath: meleeAttackInfos.Array.data[0].attackZone.cubeSize.x
-      value: 2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
-        type: 3}
-      propertyPath: meleeAttackInfos.Array.data[0].attackZone.cubeSize.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
-        type: 3}
-      propertyPath: meleeAttackInfos.Array.data[0].attackZone.cubeSize.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
-        type: 3}
-      propertyPath: meleeAttackInfos.Array.data[0].attackZone.angleOffset
-      value: 0.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
-        type: 3}
-      propertyPath: meleeAttackInfos.Array.data[0].attackZone.showZone
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
-        type: 3}
       propertyPath: meleeAttackInfos.Array.data[0].attackZone.layerMask.m_Bits
       value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
-        type: 3}
-      propertyPath: meleeAttackInfos.Array.data[0].attackZone.color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
-        type: 3}
-      propertyPath: meleeAttackInfos.Array.data[0].attackZone.color.g
-      value: 0.07363939
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
-        type: 3}
-      propertyPath: meleeAttackInfos.Array.data[0].attackZone.color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
-        type: 3}
-      propertyPath: meleeAttackInfos.Array.data[0].attackZone.color.a
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
         type: 3}
       propertyPath: meleeAttackInfos.Array.data[0].effects.Array.data[0]
       value: 
       objectReference: {fileID: 2028844118}
+    - target: {fileID: 3153000750612482440, guid: 3833daa2a0c10544bbf2dc3db8080b97,
+        type: 3}
+      propertyPath: meleeAttackInfos.Array.data[0].attackZone.showZone
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3438647785950161574, guid: 3833daa2a0c10544bbf2dc3db8080b97,
         type: 3}
       propertyPath: m_LocalRotation.z
